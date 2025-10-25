@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Relatório Técnico - Linhas de Transmissão de Foz do Iguaçu</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a202c;
+            --primary: #2b6cb0;
+            --secondary: #4a5568;
+            --border: #e2e8f0;
+            --card: #f7fafc;
+            --code-bg: #2d3748;
+            --code-text: #e2e8f0;
+        }
+        
+        :root[data-theme='dark'] {
+            --bg: #1a202c;
+            --text: #e2e8f0;
+            --primary: #4299e1;
+            --secondary: #a0aec0;
+            --border: #2d3748;
+            --card: #2d3748;
+            --code-bg: #1a202c;
+            --code-text: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2b6cb0 0%, #2c5282 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin: 8px 0;
+        }
+        
+        .metadata {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 16px;
+        }
+        
+        .theme-toggle {
+            margin-top: 20px;
+        }
+        
+        .btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary);
+            padding-left: 16px;
+        }
+        
+        h3 {
+            font-size: 22px;
+            color: var(--secondary);
+            margin: 24px 0 12px 0;
+        }
+        
+        h4 {
+            font-size: 18px;
+            color: var(--secondary);
+            margin: 16px 0 8px 0;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+        
+        .stat-card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 8px 0;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover td {
+            background: var(--border);
+        }
+        
+        .code-block {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            margin: 16px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(66, 153, 225, 0.1) 0%, rgba(49, 130, 206, 0.1) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .methodology {
+            background: rgba(237, 137, 54, 0.1);
+            border-left: 4px solid #ed8936;
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        ul, ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .chart-container {
+            margin: 24px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--secondary);
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📊 Relatório Técnico</h1>
+        <p>Análise Geoespacial de Linhas de Transmissão</p>
+        <p>Usina Hidrelétrica de Foz do Iguaçu → Região Sul do Brasil</p>
+        <div class="metadata">
+            <strong>Autor:</strong> Ronan Armando Caetano | 
+            <strong>Gerado em:</strong> 25/10/2025 às 12:08
+        </div>
+        <div class="theme-toggle">
+            <button id="themeBtn" class="btn">Alternar Tema</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- RESUMO EXECUTIVO -->
+        <div class="section">
+            <h2>1. Resumo Executivo</h2>
+            
+            <p>
+                Este relatório apresenta uma análise técnica abrangente das linhas de transmissão de energia elétrica 
+                originárias da Usina Hidrelétrica de Foz do Iguaçu, contemplando sua distribuição geoespacial e impacto 
+                nos municípios da região Sul do Brasil.
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total de Municípios</div>
+                    <div class="stat-value">517</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Registros Únicos</div>
+                    <div class="stat-value">717</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Classes de Voltagem</div>
+                    <div class="stat-value">5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Estados Cobertos</div>
+                    <div class="stat-value">3</div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Principais Achados:</strong>
+                <ul>
+                    <li>Foram identificados <strong>517 municípios únicos</strong> afetados por linhas de transmissão</li>
+                    <li>A voltagem varia de <strong>230 kV a 765 kV</strong></li>
+                    <li>Em média, cada município é atravessado por <strong>1.38 linhas</strong> de transmissão</li>
+                    <li>O município de <strong>Foz do Iguaçu</strong> concentra o maior número de linhas (5)</li>
+                    <li>A maioria dos municípios (353) possui apenas 1 linha de transmissão</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- METODOLOGIA -->
+        <div class="section">
+            <h2>2. Metodologia</h2>
+            
+            <h3>2.1 Fonte de Dados</h3>
+            <p>
+                Os dados foram obtidos através de análise geoespacial utilizando GeoPackage (.gpkg) contendo 
+                as geometrias das linhas de transmissão e limites municipais. A intersecção espacial foi realizada 
+                para identificar quais municípios são atravessados por cada linha.
+            </p>
+            
+            <div class="methodology">
+                <strong>Arquivos de Entrada:</strong>
+                <ul>
+                    <li><code>linhas_recortadas_utm.gpkg</code> - Geometrias das linhas de transmissão</li>
+                    <li><code>municipios_afetados_por_layer.gpkg</code> - Resultados da análise espacial</li>
+                    <li><code>faixa_servidao.gpkg</code> - Faixas de servidão das linhas</li>
+                </ul>
+            </div>
+            
+            <h3>2.2 Processamento de Dados</h3>
+            <p>O pipeline de processamento seguiu as seguintes etapas:</p>
+            <ol>
+                <li><strong>Extração:</strong> Leitura dos arquivos GeoPackage contendo dados geoespaciais</li>
+                <li><strong>Normalização:</strong> Padronização de nomes (remoção de espaços, uppercase em estados)</li>
+                <li><strong>Deduplicação:</strong> Remoção de registros duplicados baseado em município, estado e voltagem</li>
+                <li><strong>Classificação:</strong> Separação entre linhas "base" e "específicas" por voltagem</li>
+                <li><strong>Agregação:</strong> Cálculo de estatísticas por município, estado e voltagem</li>
+            </ol>
+            
+            <div class="code-block">
+# Exemplo de normalização aplicada<br>
+df['NM_MUN'] = df['NM_MUN'].str.strip()<br>
+df['Estado'] = df['Estado'].str.strip().str.upper()<br>
+df = df.drop_duplicates(subset=['NM_MUN', 'Estado', 'Voltagem'])
+            </div>
+            
+            <h3>2.3 Ferramentas Utilizadas</h3>
+            <ul>
+                <li><strong>Python 3.13:</strong> Linguagem de programação principal</li>
+                <li><strong>Pandas 2.3.3:</strong> Manipulação e análise de dados tabulares</li>
+                <li><strong>GeoPandas:</strong> Operações geoespaciais e intersecções</li>
+                <li><strong>QGIS:</strong> Visualização e validação de dados geoespaciais</li>
+                <li><strong>Plotly 6.3.1:</strong> Visualizações interativas</li>
+            </ul>
+        </div>
+        
+        <!-- ANÁLISE ESTATÍSTICA -->
+        <div class="section">
+            <h2>3. Análise Estatística Descritiva</h2>
+            
+            <h3>3.1 Distribuição por Estado</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estado</th>
+                        <th>Municípios</th>
+                        <th>Tipos de Voltagem</th>
+                        <th>% do Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>PR</strong></td>
+                        <td>161</td>
+                        <td>5</td>
+                        <td>31.1%</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>RS</strong></td>
+                        <td>205</td>
+                        <td>2</td>
+                        <td>39.7%</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>SC</strong></td>
+                        <td>154</td>
+                        <td>2</td>
+                        <td>29.8%</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            
+            <h3>3.2 Distribuição por Voltagem</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Voltagem (kV)</th>
+                        <th>Municípios Afetados</th>
+                        <th>Estados</th>
+                        <th>Alcance</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>230 kV</strong></td>
+                        <td>331</td>
+                        <td>3</td>
+                        <td>Regional</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>500 kV</strong></td>
+                        <td>10</td>
+                        <td>1</td>
+                        <td>Interestadual</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>525 kV</strong></td>
+                        <td>292</td>
+                        <td>3</td>
+                        <td>Longa Distância</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>600 kV</strong></td>
+                        <td>45</td>
+                        <td>1</td>
+                        <td>Transmissão Pesada</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>765 kV</strong></td>
+                        <td>36</td>
+                        <td>1</td>
+                        <td>Ultra Alta Tensão</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            
+            <div class="chart-container">
+                <div>                            <div id="dd63298b-d8e4-4563-aa8e-509cef6ee339" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("dd63298b-d8e4-4563-aa8e-509cef6ee339")) {                    Plotly.newPlot(                        "dd63298b-d8e4-4563-aa8e-509cef6ee339",                        [{"marker":{"color":["#3182ce","#38a169","#d69e2e","#e53e3e","#805ad5"]},"text":{"dtype":"f8","bdata":"AAAAAACwdEAAAAAAAAAkQAAAAAAAQHJAAAAAAACARkAAAAAAAABCQA=="},"textposition":"auto","x":["230 kV","500 kV","525 kV","600 kV","765 kV"],"y":{"dtype":"i2","bdata":"SwEKACQBLQAkAA=="},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"Distribui\u00e7\u00e3o de Munic\u00edpios por Classe de Voltagem"},"xaxis":{"title":{"text":"Voltagem (kV)"}},"yaxis":{"title":{"text":"N\u00famero de Munic\u00edpios"}},"showlegend":false,"height":400,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };            </script>        </div>
+            </div>
+            
+            <h3>3.3 Concentração de Linhas por Município</h3>
+            <p>
+                A análise de concentração revela que a distribuição de linhas por município segue um padrão 
+                típico de infraestrutura de transmissão, com a maioria dos municípios possuindo poucas linhas 
+                e alguns poucos concentrando múltiplas linhas devido à sua posição estratégica.
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Média de Linhas</div>
+                    <div class="stat-value">1.38</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Mediana</div>
+                    <div class="stat-value">1</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Máximo</div>
+                    <div class="stat-value">5</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Moda</div>
+                    <div class="stat-value">1</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div>                            <div id="1685f6cc-5c5d-424e-8596-7e3807fcdb0f" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("1685f6cc-5c5d-424e-8596-7e3807fcdb0f")) {                    Plotly.newPlot(                        "1685f6cc-5c5d-424e-8596-7e3807fcdb0f",                        [{"marker":{"color":"#4299e1"},"text":{"dtype":"f8","bdata":"AAAAAAAQdkAAAAAAAEBhQAAAAAAAADRAAAAAAAAAFEAAAAAAAADwPw=="},"textposition":"auto","x":["1","2","3","4","5"],"y":{"dtype":"i2","bdata":"YQGKABQABQABAA=="},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"Distribui\u00e7\u00e3o de Concentra\u00e7\u00e3o de Linhas por Munic\u00edpio"},"xaxis":{"title":{"text":"N\u00famero de Linhas de Transmiss\u00e3o"}},"yaxis":{"title":{"text":"Quantidade de Munic\u00edpios"}},"showlegend":false,"height":400,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };            </script>        </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Interpretação Estatística:</strong>
+                <ul>
+                    <li>A <strong>média (1.38)</strong> é superior à <strong>mediana (1)</strong>, 
+                        indicando assimetria positiva (cauda à direita)</li>
+                    <li>Isso significa que poucos municípios concentram muitas linhas, elevando a média</li>
+                    <li><strong>353 municípios (68.3%)</strong> 
+                        possuem apenas 1 linha</li>
+                    <li><strong>26 municípios (5.0%)</strong> 
+                        possuem 3 ou mais linhas</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ANÁLISE GEOESPACIAL -->
+        <div class="section">
+            <h2>4. Análise Geoespacial</h2>
+            
+            <h3>4.1 Matriz de Cobertura Estado x Voltagem</h3>
+            <p>
+                A matriz de cobertura ilustra a distribuição espacial das diferentes classes de voltagem 
+                nos três estados da região Sul. Cada célula representa o número de municípios afetados 
+                por uma determinada voltagem em cada estado.
+            </p>
+            
+            <div class="chart-container">
+                <div>                            <div id="a9e35c82-30ef-4470-b1ea-ca0ab3223932" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("a9e35c82-30ef-4470-b1ea-ca0ab3223932")) {                    Plotly.newPlot(                        "a9e35c82-30ef-4470-b1ea-ca0ab3223932",                        [{"coloraxis":"coloraxis","name":"0","texttemplate":"%{z}","x":["230","500","525","600","765"],"y":["PR","RS","SC"],"z":{"dtype":"i2","bdata":"XgAKAFwALQAkAIsAAABvAAAAAABkAAAAWgAAAAAA","shape":"3, 5"},"type":"heatmap","xaxis":"x","yaxis":"y","hovertemplate":"Voltagem: %{x}\u003cbr\u003eEstado: %{y}\u003cbr\u003ecolor: %{z}\u003cextra\u003e\u003c\u002fextra\u003e"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Voltagem (kV)"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"autorange":"reversed","title":{"text":"Estado"}},"coloraxis":{"colorscale":[[0.0,"rgb(247,251,255)"],[0.125,"rgb(222,235,247)"],[0.25,"rgb(198,219,239)"],[0.375,"rgb(158,202,225)"],[0.5,"rgb(107,174,214)"],[0.625,"rgb(66,146,198)"],[0.75,"rgb(33,113,181)"],[0.875,"rgb(8,81,156)"],[1.0,"rgb(8,48,107)"]]},"title":{"text":"Matriz de Cobertura: Munic\u00edpios por Estado e Voltagem"},"height":400,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };            </script>        </div>
+            </div>
+            
+            <h3>4.2 Análise Comparativa por Estado</h3>
+            <div class="chart-container">
+                <div>                            <div id="697421ad-17bd-44fd-8291-1037d9749052" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("697421ad-17bd-44fd-8291-1037d9749052")) {                    Plotly.newPlot(                        "697421ad-17bd-44fd-8291-1037d9749052",                        [{"name":"PR","x":["230 kV","500 kV","525 kV","600 kV","765 kV"],"y":{"dtype":"i1","bdata":"XgpcLSQ="},"type":"bar"},{"name":"SC","x":["230 kV","500 kV","525 kV","600 kV","765 kV"],"y":{"dtype":"i1","bdata":"ZABaAAA="},"type":"bar"},{"name":"RS","x":["230 kV","500 kV","525 kV","600 kV","765 kV"],"y":{"dtype":"i2","bdata":"iwAAAG8AAAAAAA=="},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"Munic\u00edpios por Voltagem em Cada Estado"},"xaxis":{"title":{"text":"Voltagem (kV)"}},"yaxis":{"title":{"text":"N\u00famero de Munic\u00edpios"}},"barmode":"group","height":400,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };            </script>        </div>
+            </div>
+            
+            <h3>4.3 Variabilidade Regional</h3>
+            <p>
+                O box plot abaixo demonstra a distribuição de linhas por município em cada estado, 
+                permitindo identificar padrões de concentração e dispersão.
+            </p>
+            
+            <div class="chart-container">
+                <div>                            <div id="dfe21fa2-6bfe-4872-bc13-496eeb1dd699" class="plotly-graph-div" style="height:400px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("dfe21fa2-6bfe-4872-bc13-496eeb1dd699")) {                    Plotly.newPlot(                        "dfe21fa2-6bfe-4872-bc13-496eeb1dd699",                        [{"boxmean":"sd","name":"PR","y":[2,1,2,1,1,2,1,3,4,2,2,1,1,3,1,2,2,2,1,1,2,3,2,3,3,2,2,2,2,2,3,5,2,3,4,2,4,2,3,3,1,2,2,1,3,1,2,1,2,2,1,4,1,2,1,1,2,1,1,1,2,2,1,1,1,1,2,1,1,1,1,1,2,2,3,1,2,1,2,2,1,4,1,1,3,1,2,1,2,1,2,2,2,2,1,1,1,1,1,1,3,1,1,1,1,1,3,1,2,1,2,2,1,2,1,3,1,1,1,1,3,2,1,1,3,3,1,3,1,1,1,1,2,1,2,1,2,1,1,2,3,1,1,2,1,2,1,1,2,2,1,2,2,2,2,1,2,2,1,1,1],"type":"box"},{"boxmean":"sd","name":"SC","y":[1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,2,2,2,2,2,1,2,1,1,1,1,1,1,2,1,2,1,2,1,2,1,1,1,2,1,1,1,1,2,1,1,1,1,1,1,1,2,1,2,1,1,2,2,1,2,1,1,2,1,1,1,1,1,2,2,2,1,1,1,1,2,2,2,2,2,2,2,1,1,1,2,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"type":"box"},{"boxmean":"sd","name":"RS","y":[2,1,2,1,1,1,1,1,2,1,1,2,2,1,1,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,2,2,1,1,1,2,2,2,1,1,1,1,1,2,1,2,2,1,1,1,1,1,2,2,1,1,1,2,1,2,2,1,1,1,2,1,2,2,1,2,1,1,1,1,2,1,1,1,1,1,1,1,2,1,1,2,1,2,1,1,1,2,2,1,1,1,2,2,1,2,1,1,2,1,1,1,2,1,1,1,1,2,2,1,1,1,1,1,1,1,2,2,1,2,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"type":"box"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"text":"Distribui\u00e7\u00e3o de Linhas por Munic\u00edpio (por Estado)"},"yaxis":{"title":{"text":"N\u00famero de Linhas"}},"height":400,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };            </script>        </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Insights Geoespaciais:</strong>
+                <ul>
+                    <li>Paraná concentra a maior parte das linhas de alta voltagem (600 e 765 kV)</li>
+                    <li>Santa Catarina apresenta distribuição mais uniforme entre as voltagens</li>
+                    <li>Rio Grande do Sul possui maior número de municípios com linhas de 525 kV</li>
+                    <li>A linha de 765 kV é exclusiva do Paraná, refletindo sua conexão direta com Foz do Iguaçu</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- MUNICÍPIOS CRÍTICOS -->
+        <div class="section">
+            <h2>5. Municípios Críticos</h2>
+            
+            <p>
+                Municípios atravessados por múltiplas linhas de transmissão são considerados críticos 
+                do ponto de vista de planejamento territorial e gestão ambiental. A tabela abaixo 
+                lista os 15 municípios com maior concentração de linhas.
+            </p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Município</th>
+                        <th>Estado</th>
+                        <th>Nº Linhas</th>
+                        <th>Voltagens (kV)</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><strong>1º</strong></td>
+                        <td>Foz do Iguaçu</td>
+                        <td>PR</td>
+                        <td>5</td>
+                        <td>230, 500, 525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>2º</strong></td>
+                        <td>São Miguel do Iguaçu</td>
+                        <td>PR</td>
+                        <td>4</td>
+                        <td>230, 525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>3º</strong></td>
+                        <td>Santa Terezinha de Itaipu</td>
+                        <td>PR</td>
+                        <td>4</td>
+                        <td>230, 525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>4º</strong></td>
+                        <td>Nova Cantu</td>
+                        <td>PR</td>
+                        <td>4</td>
+                        <td>230, 525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>5º</strong></td>
+                        <td>Cascavel</td>
+                        <td>PR</td>
+                        <td>4</td>
+                        <td>230, 525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>6º</strong></td>
+                        <td>Medianeira</td>
+                        <td>PR</td>
+                        <td>4</td>
+                        <td>230, 525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>7º</strong></td>
+                        <td>Manoel Ribas</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>8º</strong></td>
+                        <td>Campo Largo</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>230, 500, 525</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>9º</strong></td>
+                        <td>Cafelândia</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>230, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>10º</strong></td>
+                        <td>Ortigueira</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>230, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>11º</strong></td>
+                        <td>Nova Tebas</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>12º</strong></td>
+                        <td>Ramilândia</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>525, 600, 765</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>13º</strong></td>
+                        <td>Santa Tereza do Oeste</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>230, 525, 600</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>14º</strong></td>
+                        <td>Altamira do Paraná</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>230, 525, 600</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>15º</strong></td>
+                        <td>Guaraniaçu</td>
+                        <td>PR</td>
+                        <td>3</td>
+                        <td>230, 525, 600</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <strong>Implicações:</strong>
+                <ul>
+                    <li><strong>Faixas de Servidão:</strong> Municípios com múltiplas linhas têm maior área 
+                        de restrição de uso do solo</li>
+                    <li><strong>Redundância:</strong> Maior segurança energética, mas também maior impacto ambiental</li>
+                    <li><strong>Planejamento Urbano:</strong> Necessidade de zoneamento específico para acomodar 
+                        corredores de transmissão</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- CONCLUSÕES -->
+        <div class="section">
+            <h2>6. Conclusões e Recomendações</h2>
+            
+            <h3>6.1 Principais Conclusões</h3>
+            <ol>
+                <li>
+                    <strong>Abrangência Significativa:</strong> O sistema de transmissão de Foz do Iguaçu 
+                    alcança 517 municípios, demonstrando a importância estratégica da usina 
+                    para a região Sul.
+                </li>
+                <li>
+                    <strong>Diversificação de Voltagens:</strong> A utilização de 5 classes diferentes de voltagem 
+                    (230 a 765 kV) reflete a necessidade de atender diferentes distâncias e demandas de carga.
+                </li>
+                <li>
+                    <strong>Concentração Estratégica:</strong> Municípios próximos a Foz do Iguaçu apresentam 
+                    maior concentração de linhas, indicando o padrão radial de distribuição.
+                </li>
+                <li>
+                    <strong>Assimetria Regional:</strong> Paraná concentra linhas de maior voltagem, enquanto 
+                    SC e RS dependem mais de linhas de média voltagem.
+                </li>
+            </ol>
+            
+            <h3>6.2 Recomendações Técnicas</h3>
+            <ul>
+                <li>
+                    <strong>Monitoramento Ambiental:</strong> Implementar sistema de monitoramento específico 
+                    nos 15 municípios críticos identificados
+                </li>
+                <li>
+                    <strong>Planejamento Territorial:</strong> Desenvolver planos diretores que considerem 
+                    as faixas de servidão das linhas de transmissão
+                </li>
+                <li>
+                    <strong>Redundância:</strong> Avaliar a necessidade de linhas alternativas em municípios 
+                    com apenas 1 linha de transmissão
+                </li>
+                <li>
+                    <strong>Expansão:</strong> Considerar a construção de novas linhas de 525-600 kV para 
+                    Santa Catarina e Rio Grande do Sul
+                </li>
+            </ul>
+            
+            <h3>6.3 Limitações do Estudo</h3>
+            <ul>
+                <li>Análise baseada apenas em dados de intersecção geográfica, sem considerar capacidade de transmissão</li>
+                <li>Não foram analisados aspectos de demanda energética por município</li>
+                <li>Dados de faixa de servidão não foram incluídos nas métricas quantitativas</li>
+            </ul>
+        </div>
+        
+        <!-- REFERÊNCIAS -->
+        <div class="section">
+            <h2>7. Referências Técnicas</h2>
+            
+            <h3>7.1 Ferramentas e Bibliotecas</h3>
+            <ul>
+                <li>Python Software Foundation. (2024). Python 3.13. https://www.python.org/</li>
+                <li>McKinney, W. (2024). pandas: Python Data Analysis Library. https://pandas.pydata.org/</li>
+                <li>GeoPandas developers. (2024). GeoPandas. https://geopandas.org/</li>
+                <li>Plotly Technologies Inc. (2024). Plotly Python Graphing Library. https://plotly.com/python/</li>
+                <li>QGIS Development Team. (2024). QGIS Geographic Information System. https://qgis.org/</li>
+            </ul>
+            
+            <h3>7.2 Dados</h3>
+            <ul>
+                <li>Linhas de Transmissão: Base de dados geoespacial em formato GeoPackage (.gpkg)</li>
+                <li>Limites Municipais: IBGE - Instituto Brasileiro de Geografia e Estatística</li>
+                <li>Período de Análise: 25/10/2025 às 12:08</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p><strong>Autor:</strong> Ronan Armando Caetano</p>
+        <p><strong>Assistência Técnica:</strong> GitHub Copilot</p>
+        <p style="margin-top: 16px; font-size: 14px; opacity: 0.8;">
+            Este relatório foi gerado automaticamente a partir de dados geoespaciais processados com Python.<br>
+            Para mais informações, consulte o repositório: 
+            <a href="https://github.com/caetanoronan/linhas-transmissao-foz-iguacu" style="color: var(--primary);">
+                github.com/caetanoronan/linhas-transmissao-foz-iguacu
+            </a>
+        </p>
+    </footer>
+    
+    <script>
+        // Tema claro/escuro
+        const root = document.documentElement;
+        const btn = document.getElementById('themeBtn');
+        const saved = localStorage.getItem('theme-tech');
+        let isDark = saved === 'dark';
+        
+        if (isDark) {
+            root.setAttribute('data-theme', 'dark');
+        }
+        
+        btn.addEventListener('click', function() {
+            isDark = !isDark;
+            root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme-tech', isDark ? 'dark' : 'light');
+            
+            // Atualizar gráficos
+            const plots = document.querySelectorAll('.js-plotly-plot');
+            plots.forEach(function(p) {
+                const layout = {
+                    template: isDark ? 'plotly_dark' : 'plotly_white',
+                    paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)',
+                    font: { color: isDark ? '#e2e8f0' : '#1a202c' }
+                };
+                Plotly.relayout(p, layout);
+            });
+        });
+    </script>
+</body>
+</html>
