@@ -1,0 +1,521 @@
+﻿Municipio,Estado,Num_Linhas,Voltagens
+Abdon Batista,SC,2,"230, 525"
+Abelardo Luz,SC,1,525
+Adrianópolis,PR,1,500
+Agrolândia,SC,2,"230, 525"
+Agronômica,SC,1,230
+Agudo,RS,1,230
+Agudos do Sul,PR,1,525
+Alegria,RS,1,230
+Almirante Tamandaré,PR,2,"230, 500"
+Alpestre,RS,1,230
+Altamira do Paraná,PR,3,"230, 525, 600"
+Alto Alegre,RS,1,230
+Alto Bela Vista,SC,1,525
+Alto Feliz,RS,2,"230, 525"
+Alto Piquiri,PR,1,230
+Ametista do Sul,RS,1,230
+Anahy,PR,1,765
+Angelina,SC,2,"230, 525"
+Anita Garibaldi,SC,2,"230, 525"
+Antonina,PR,1,230
+Antônio Carlos,SC,2,"230, 525"
+Antônio Prado,RS,1,525
+Apiúna,SC,1,230
+Arapoti,PR,2,"230, 600"
+Arapuã,PR,1,765
+Araquari,SC,1,230
+Aratiba,RS,1,525
+Araucária,PR,2,"230, 525"
+Ariranha do Ivaí,PR,2,"525, 765"
+Armazém,SC,1,230
+Arroio do Tigre,RS,1,230
+Arvoredo,SC,2,"230, 525"
+Ascurra,SC,1,230
+Balneário Barra do Sul,SC,1,230
+Balsa Nova,PR,2,"230, 525"
+Barbosa Ferraz,PR,1,600
+Barra do Rio Azul,RS,1,525
+Barracão,RS,1,525
+Barros Cassal,RS,1,230
+Barão,RS,1,525
+Barão de Cotegipe,RS,1,525
+Benedito Novo,SC,1,525
+Benjamin Constant do Sul,RS,1,230
+Bento Gonçalves,RS,2,"230, 525"
+Biguaçu,SC,2,"230, 525"
+Bituruna,PR,2,"230, 525"
+Blumenau,SC,2,"230, 525"
+Boa Esperança do Iguaçu,PR,2,"230, 525"
+Boa Ventura de São Roque,PR,1,525
+Boa Vista das Missões,RS,1,525
+Boa Vista do Cadeado,RS,1,230
+Boa Vista do Incra,RS,1,230
+Boa Vista do Sul,RS,2,"230, 525"
+Bocaiúva do Sul,PR,1,230
+Bom Jardim da Serra,SC,1,525
+Bom Jesus,SC,2,"230, 525"
+Bom Princípio,RS,1,525
+Boqueirão do Leão,RS,1,230
+Braga,RS,1,230
+Braganey,PR,3,"525, 600, 765"
+Braço do Norte,SC,1,525
+Braço do Trombudo,SC,1,230
+Brochier,RS,1,525
+Brunópolis,SC,1,525
+Brusque,SC,2,"230, 525"
+Cafelândia,PR,3,"230, 600, 765"
+Caibaté,RS,2,"230, 525"
+Cambará do Sul,RS,1,230
+Camboriú,SC,1,525
+Campestre da Serra,RS,1,525
+Campina Grande do Sul,PR,1,230
+Campina da Lagoa,PR,2,"230, 765"
+Campina do Simão,PR,1,525
+Campinas do Sul,RS,1,230
+Campo Alegre,SC,1,525
+Campo Belo do Sul,SC,2,"230, 525"
+Campo Bonito,PR,2,"525, 600"
+Campo Largo,PR,3,"230, 500, 525"
+Campo Magro,PR,2,"230, 500"
+Campo Mourão,PR,1,230
+Campo Novo,RS,1,230
+Campos Borges,RS,1,230
+Campos Novos,SC,2,"230, 525"
+Candelária,RS,1,230
+Canelinha,SC,1,525
+Canoinhas,SC,1,230
+Capanema,PR,1,230
+Capinzal,SC,1,525
+Capitão Leônidas Marques,PR,2,"230, 525"
+Capivari de Baixo,SC,1,230
+Capão Alto,SC,1,525
+Capão Bonito do Sul,RS,2,"230, 525"
+Carambeí,PR,1,230
+Carlos Barbosa,RS,1,525
+Casca,RS,2,"230, 525"
+Cascavel,PR,4,"230, 525, 600, 765"
+Caseiros,RS,1,230
+Castro,PR,1,230
+Catanduvas,PR,1,230
+Catuípe,RS,1,525
+Caxias do Sul,RS,2,"230, 525"
+Celso Ramos,SC,2,"230, 525"
+Cerro Azul,PR,1,500
+Cerro Grande,RS,1,525
+Cerro Largo,RS,1,525
+Cerro Negro,SC,2,"230, 525"
+Chapadão do Lageado,SC,1,525
+Chapecó,SC,1,230
+Charrua,RS,1,525
+Chiapetta,RS,1,525
+Chopinzinho,PR,2,"230, 525"
+Ciríaco,RS,1,525
+Clevelândia,PR,1,525
+Cocal do Sul,SC,1,230
+Colinas,RS,1,230
+Colombo,PR,1,230
+Concórdia,SC,1,525
+Contenda,PR,2,"230, 525"
+Corbélia,PR,2,"600, 765"
+Cordilheira Alta,SC,1,230
+Coronel Barros,RS,1,230
+Coronel Bicaco,RS,1,525
+Coronel Domingos Soares,PR,1,230
+Coronel Freitas,SC,1,230
+Coronel Pilar,RS,1,525
+Coronel Vivida,PR,2,"230, 525"
+Correia Pinto,SC,2,"230, 525"
+Corupá,SC,1,525
+Cotiporã,RS,2,"230, 525"
+Coxilha,RS,2,"230, 525"
+Cruz Alta,RS,1,230
+Cruz Machado,PR,2,"230, 525"
+Cruzaltense,RS,1,230
+Cruzeiro do Iguaçu,PR,2,"230, 525"
+Cruzeiro do Sul,RS,1,230
+Cunhataí,SC,1,230
+Curitiba,PR,2,"230, 525"
+Curitibanos,SC,1,525
+Cândido de Abreu,PR,2,"525, 600"
+Céu Azul,PR,3,"230, 525, 600"
+David Canabarro,RS,1,525
+Diamante D'Oeste,PR,3,"525, 600, 765"
+Dois Irmãos das Missões,RS,2,"230, 525"
+Dois Lajeados,RS,1,525
+Dois Vizinhos,PR,1,525
+Dom Pedro de Alcântara,RS,1,230
+Dona Emma,SC,1,525
+Dona Francisca,RS,1,230
+Entre Rios do Oeste,PR,1,525
+Entre Rios do Sul,RS,1,230
+Entre-Ijuís,RS,1,230
+Erebango,RS,1,525
+Erechim,RS,1,525
+Ermo,SC,1,230
+Ernestina,RS,1,230
+Erval Grande,RS,2,"230, 525"
+Erval Seco,RS,1,230
+Erval Velho,SC,1,525
+Esmeralda,RS,1,230
+Espumoso,RS,1,230
+Estação,RS,1,525
+Estrela,RS,1,230
+Estrela Velha,RS,1,230
+Eugênio de Castro,RS,1,230
+Fagundes Varela,RS,2,"230, 525"
+Farroupilha,RS,2,"230, 525"
+Faxinal do Soturno,RS,1,230
+Faxinal dos Guedes,SC,1,525
+Faxinalzinho,RS,2,"230, 525"
+Fazenda Rio Grande,PR,1,525
+Feliz,RS,2,"230, 525"
+Fernandes Pinheiro,PR,1,230
+Flores da Cunha,RS,2,"230, 525"
+Floriano Peixoto,RS,1,525
+Florianópolis,SC,1,230
+Formosa do Oeste,PR,1,230
+Forquilhinha,SC,1,230
+Fortaleza dos Valos,RS,1,230
+Foz do Iguaçu,PR,5,"230, 500, 525, 600, 765"
+Frederico Westphalen,RS,1,230
+Frei Rogério,SC,1,525
+Galvão,SC,1,230
+Garibaldi,RS,2,"230, 525"
+Garuva,SC,1,230
+Gaspar,SC,2,"230, 525"
+General Carneiro,PR,1,525
+Gentil,RS,1,525
+Getúlio Vargas,RS,1,525
+Giruá,RS,2,"230, 525"
+Godoy Moreira,PR,1,600
+Goioxim,PR,1,525
+Gramado,RS,1,230
+Gramado Xavier,RS,1,230
+Gramado dos Loureiros,RS,2,"230, 525"
+Grandes Rios,PR,2,"525, 765"
+Gravatal,SC,1,230
+Grão-Pará,SC,1,525
+Guabiju,RS,1,525
+Guabiruba,SC,1,230
+Guaporé,RS,1,525
+Guaramirim,SC,1,230
+Guarani das Missões,RS,1,525
+Guaraniaçu,PR,3,"230, 525, 600"
+Guarapuava,PR,2,"230, 525"
+Guaratuba,PR,1,230
+Guatambú,SC,1,230
+Guaíra,PR,1,525
+Herval d'Oeste,SC,1,525
+Honório Serpa,PR,1,525
+Ibarama,RS,1,230
+Ibiam,SC,1,230
+Ibirama,SC,2,"230, 525"
+Igrejinha,RS,1,230
+Iguatu,PR,1,765
+Ijuí,RS,1,230
+Ilhota,SC,1,230
+Imbituva,PR,2,"230, 525"
+Imbuia,SC,1,525
+Imigrante,RS,2,"230, 525"
+Indaial,SC,1,230
+Independência,RS,1,230
+Inácio Martins,PR,1,230
+Ipira,SC,1,525
+Ipiranga,PR,2,"230, 525"
+Ipuaçu,SC,1,230
+Ipê,RS,1,525
+Iracema do Oeste,PR,1,230
+Irati,PR,1,230
+Iraí,RS,1,230
+Iretama,PR,2,"600, 765"
+Itaipulândia,PR,2,"525, 765"
+Itajaí,SC,2,"230, 525"
+Itapejara d'Oeste,PR,1,230
+Itaperuçu,PR,2,"230, 500"
+Itatiba do Sul,RS,1,525
+Ituporanga,SC,1,525
+Itá,SC,2,"230, 525"
+Ivaiporã,PR,2,"525, 765"
+Ivaí,PR,1,525
+Jaboticaba,RS,2,"230, 525"
+Jacuizinho,RS,1,230
+Jacutinga,RS,1,230
+Jaguariaíva,PR,1,230
+Jaquirana,RS,1,230
+Jaraguá do Sul,SC,1,525
+Jesuítas,PR,1,230
+Joaçaba,SC,1,525
+Joinville,SC,1,230
+José Boiteux,SC,1,525
+Juranda,PR,1,600
+Jóia,RS,1,230
+Júlio de Castilhos,RS,1,230
+Lages,SC,2,"230, 525"
+Lagoa Vermelha,RS,2,"230, 525"
+Lagoa dos Três Cantos,RS,1,230
+Lagoão,RS,1,230
+Lajeado,RS,1,230
+Lajeado do Bugre,RS,1,525
+Lapa,PR,2,"230, 525"
+Laranjeiras do Sul,PR,1,525
+Laurentino,SC,1,230
+Lauro Müller,SC,1,525
+Leoberto Leal,SC,1,525
+Liberato Salzano,RS,2,"230, 525"
+Lindoeste,PR,2,"230, 525"
+Linha Nova,RS,1,230
+Lontras,SC,1,230
+Luiz Alves,SC,2,"230, 525"
+Luiziana,PR,2,"600, 765"
+Luzerna,SC,1,525
+Machadinho,RS,1,525
+Major Gercino,SC,1,230
+Mallet,PR,2,"230, 525"
+Mamborê,PR,3,"230, 600, 765"
+Mandirituba,PR,1,525
+Mangueirinha,PR,3,"230, 500, 525"
+Manoel Ribas,PR,3,"525, 600, 765"
+Marau,RS,2,"230, 525"
+Marechal Cândido Rondon,PR,1,525
+Mariópolis,PR,1,230
+Marquinho,PR,1,525
+Massaranduba,SC,2,"230, 525"
+Matelândia,PR,3,"230, 525, 600"
+Mato Castelhano,RS,2,"230, 525"
+Mato Leitão,RS,1,230
+Mato Queimado,RS,1,525
+Mato Rico,PR,1,600
+Maximiliano de Almeida,RS,1,525
+Medianeira,PR,4,"230, 525, 600, 765"
+Meleiro,SC,1,230
+Mercedes,PR,1,525
+Mirim Doce,SC,1,525
+Missal,PR,3,"525, 600, 765"
+Montauri,RS,1,525
+Monte Belo do Sul,RS,1,525
+Morretes,PR,1,230
+Morro Grande,SC,1,230
+Morro Reuter,RS,1,525
+Muitos Capões,RS,1,525
+Muçum,RS,1,525
+Nonoai,RS,2,"230, 525"
+Nova Araçá,RS,1,525
+Nova Aurora,PR,2,"230, 600"
+Nova Bassano,RS,2,"230, 525"
+Nova Cantu,PR,4,"230, 525, 600, 765"
+Nova Laranjeiras,PR,1,525
+Nova Palma,RS,1,230
+Nova Petrópolis,RS,2,"230, 525"
+Nova Prata,RS,2,"230, 525"
+Nova Prata do Iguaçu,PR,2,"230, 525"
+Nova Ramada,RS,1,525
+Nova Roma do Sul,RS,2,"230, 525"
+Nova Santa Rosa,PR,1,525
+Nova Tebas,PR,3,"525, 600, 765"
+Nova Trento,SC,1,230
+Nova Veneza,SC,1,230
+Novo Tiradentes,RS,2,"230, 525"
+Não-Me-Toque,RS,1,230
+Orleans,SC,1,525
+Ortigueira,PR,3,"230, 600, 765"
+Otacílio Costa,SC,2,"230, 525"
+Ouro Verde,SC,1,525
+Ouro Verde do Oeste,PR,2,"600, 765"
+Paial,SC,1,525
+Painel,SC,1,525
+Palhoça,SC,1,230
+Palmas,PR,1,525
+Palmeira,PR,2,"230, 525"
+Palmeira,SC,2,"230, 525"
+Palmeira das Missões,RS,1,525
+Palmital,PR,2,"525, 600"
+Paranaguá,PR,1,230
+Paraí,RS,1,525
+Passa Sete,RS,1,230
+Passo Fundo,RS,2,"230, 525"
+Passo de Torres,SC,1,230
+Pato Branco,PR,1,230
+Paula Freitas,PR,1,230
+Paulo Bento,RS,1,525
+Paulo Frontin,PR,1,230
+Paverama,RS,1,525
+Pedras Grandes,SC,1,230
+Peritiba,SC,1,525
+Petrolândia,SC,1,525
+Picada Café,RS,2,"230, 525"
+Pinhais,PR,1,230
+Pinhal,RS,1,230
+Pinhal Grande,RS,1,230
+Pinhal da Serra,RS,1,230
+Pinhalzinho,SC,1,230
+Pinhão,PR,2,"230, 525"
+Pinto Bandeira,RS,1,230
+Piraquara,PR,1,230
+Piratuba,SC,1,525
+Piraí do Sul,PR,1,230
+Pitanga,PR,2,"525, 600"
+Planalto,RS,1,230
+Planalto Alegre,SC,1,230
+Pomerode,SC,2,"230, 525"
+Ponta Grossa,PR,2,"230, 525"
+Ponte Alta,SC,1,525
+Ponte Alta do Norte,SC,1,525
+Pontão,RS,1,230
+Porto Amazonas,PR,1,525
+Poço das Antas,RS,1,525
+Presidente Getúlio,SC,1,525
+Presidente Lucena,RS,1,230
+Prudentópolis,PR,1,525
+Quatro Irmãos,RS,2,"230, 525"
+Quatro Pontes,PR,1,525
+Quedas do Iguaçu,PR,1,230
+Quevedos,RS,1,230
+Ramilândia,PR,3,"525, 600, 765"
+Rancho Queimado,SC,1,230
+Realeza,PR,1,230
+Rebouças,PR,1,525
+Redentora,RS,1,230
+Reserva,PR,1,600
+Reserva do Iguaçu,PR,3,"230, 500, 525"
+Rio Azul,PR,2,"230, 525"
+Rio Bonito do Iguaçu,PR,1,525
+Rio Branco do Ivaí,PR,2,"600, 765"
+Rio Branco do Sul,PR,2,"230, 500"
+Rio Fortuna,SC,1,525
+Rio do Oeste,SC,1,525
+Rio do Sul,SC,1,230
+Roca Sales,RS,1,525
+Rodeio,SC,1,230
+Rolador,RS,1,525
+Roncador,PR,3,"525, 600, 765"
+Rosário do Ivaí,PR,2,"600, 765"
+Salto do Jacuí,RS,1,230
+Salto do Lontra,PR,1,230
+Salvador do Sul,RS,1,525
+Santa Cecília do Sul,RS,2,"230, 525"
+Santa Clara do Sul,RS,1,230
+Santa Cruz do Sul,RS,1,230
+Santa Helena,PR,1,525
+Santa Izabel do Oeste,PR,1,230
+Santa Lúcia,PR,1,525
+Santa Maria do Herval,RS,2,"230, 525"
+Santa Maria do Oeste,PR,1,525
+Santa Rosa,RS,1,230
+Santa Rosa do Sul,SC,1,230
+Santa Tereza,RS,1,525
+Santa Tereza do Oeste,PR,3,"230, 525, 600"
+Santa Terezinha de Itaipu,PR,4,"230, 525, 600, 765"
+Santo Amaro da Imperatriz,SC,1,230
+Santo Antônio do Palma,RS,1,525
+Santo Augusto,RS,1,525
+Santo Ângelo,RS,2,"230, 525"
+Saudade do Iguaçu,PR,2,"230, 525"
+Saudades,SC,1,230
+Seara,SC,2,"230, 525"
+Seberi,RS,1,230
+Sengés,PR,1,230
+Serafina Corrêa,RS,2,"230, 525"
+Sertão,RS,2,"230, 525"
+Sete de Setembro,RS,1,525
+Siderópolis,SC,2,"230, 525"
+Sinimbu,RS,1,230
+Sobradinho,RS,1,230
+Soledade,RS,1,230
+Sombrio,SC,1,230
+Sulina,PR,2,"230, 525"
+São Bento do Sul,SC,1,525
+São Bonifácio,SC,2,"230, 525"
+São Carlos,SC,1,230
+São Domingos,SC,1,230
+São Domingos do Sul,RS,1,525
+São Francisco de Paula,RS,1,230
+São Francisco do Sul,SC,1,230
+São Joaquim,SC,1,525
+São Jorge,RS,1,525
+São Jorge d'Oeste,PR,2,"230, 525"
+São José,SC,1,230
+São José das Palmeiras,PR,1,525
+São José do Cerrito,SC,2,"230, 525"
+São José do Hortêncio,RS,1,230
+São José do Inhacorá,RS,1,230
+São José do Sul,RS,1,525
+São José dos Ausentes,RS,1,230
+São José dos Pinhais,PR,2,"230, 525"
+São João,PR,2,"230, 525"
+São João Batista,SC,2,"230, 525"
+São João do Sul,SC,1,230
+São João do Triunfo,PR,2,"230, 525"
+São Ludgero,SC,1,525
+São Luiz Gonzaga,RS,1,230
+São Martinho,RS,1,230
+São Martinho,SC,2,"230, 525"
+São Martinho da Serra,RS,1,230
+São Mateus do Sul,PR,2,"230, 525"
+São Miguel das Missões,RS,1,230
+São Miguel do Iguaçu,PR,4,"230, 525, 600, 765"
+São Pedro da Serra,RS,1,525
+São Pedro de Alcântara,SC,1,525
+São Pedro do Iguaçu,PR,2,"600, 765"
+São Vendelino,RS,1,525
+Sério,RS,1,230
+Taió,SC,1,525
+Tangará,SC,1,230
+Tapejara,RS,1,525
+Tapera,RS,1,230
+Teixeira Soares,PR,2,"230, 525"
+Telêmaco Borba,PR,3,"230, 600, 765"
+Terra Roxa,PR,1,525
+Teutônia,RS,1,525
+Tibagi,PR,1,230
+Tijucas,SC,1,525
+Tijucas do Sul,PR,2,"230, 525"
+Timbé do Sul,SC,1,230
+Timbó,SC,2,"230, 525"
+Toledo,PR,3,"525, 600, 765"
+Torres,RS,1,230
+Treze Tílias,SC,1,525
+Treze de Maio,SC,1,230
+Trindade do Sul,RS,2,"230, 525"
+Trombudo Central,SC,1,230
+Três Barras do Paraná,PR,1,230
+Três Cachoeiras,RS,1,230
+Três Coroas,RS,1,230
+Três de Maio,RS,1,230
+Tubarão,SC,1,230
+Tunas,RS,1,230
+Tupanciretã,RS,1,230
+Tupãssi,PR,2,"600, 765"
+Turvo,PR,1,525
+Turvo,SC,1,230
+Ubiratã,PR,2,"600, 765"
+União da Serra,RS,1,525
+União da Vitória,PR,1,230
+União do Oeste,SC,1,230
+Urupema,SC,1,525
+Urussanga,SC,2,"230, 525"
+Vale Real,RS,1,230
+Vargem,SC,1,230
+Ventania,PR,2,"230, 600"
+Venâncio Aires,RS,1,230
+Vera Cruz do Oeste,PR,2,"600, 765"
+Veranópolis,RS,2,"230, 525"
+Vespasiano Corrêa,RS,1,525
+Victor Graeff,RS,1,230
+Vidal Ramos,SC,1,525
+Videira,SC,1,230
+Vila Flores,RS,2,"230, 525"
+Vila Lângaro,RS,1,525
+Vila Maria,RS,2,"230, 525"
+Vista Alegre do Prata,RS,2,"230, 525"
+Vitória das Missões,RS,1,230
+Westfália,RS,1,525
+Xanxerê,SC,2,"230, 525"
+Xavantina,SC,2,"230, 525"
+Xaxim,SC,1,230
+Zortéa,SC,1,525
+Água Doce,SC,1,525
+Água Santa,RS,2,"230, 525"
+Águas Frias,SC,1,230
+Águas Mornas,SC,2,"230, 525"
+Águas de Chapecó,SC,1,230

@@ -1,0 +1,201 @@
+EXPLICAÇÃO: DISTRIBUIÇÃO DE LINHAS POR MUNICÍPIO
+================================================================================
+
+Este gráfico mostra QUANTOS municípios têm 1 linha, 2 linhas, 3 linhas, etc.
+
+Exemplo de interpretação:
+  - Se há uma barra em '1' com valor 50, significa que 50 municípios
+    são atravessados por apenas 1 linha de transmissão
+  - Se há uma barra em '3' com valor 10, significa que 10 municípios
+    são atravessados por 3 linhas diferentes
+
+--------------------------------------------------------------------------------
+DISTRIBUIÇÃO COMPLETA:
+--------------------------------------------------------------------------------
+  353 municípios têm 1 linha(s) de transmissão
+  138 municípios têm 2 linha(s) de transmissão
+  20 municípios têm 3 linha(s) de transmissão
+  5 municípios têm 4 linha(s) de transmissão
+  1 municípios têm 5 linha(s) de transmissão
+
+================================================================================
+ESTATÍSTICAS DETALHADAS POR ESTADO
+================================================================================
+
+================================================================================
+ESTADO: PR
+================================================================================
+
+📍 Total de municípios afetados: 161
+
+⚡ Municípios por voltagem:
+   • 230 kV: 94 municípios
+   • 525 kV: 92 municípios
+   • 600 kV: 45 municípios
+   • 765 kV: 36 municípios
+   • 500 kV: 10 municípios
+
+🔄 Municípios com múltiplas linhas: 83
+
+   Top 5 municípios com mais linhas em PR:
+   5x - Foz do Iguaçu: 230, 500, 525, 600, 765 kV
+   4x - São Miguel do Iguaçu: 230, 525, 600, 765 kV
+   4x - Santa Terezinha de Itaipu: 230, 525, 600, 765 kV
+   4x - Nova Cantu: 230, 525, 600, 765 kV
+   4x - Cascavel: 230, 525, 600, 765 kV
+
+   Municípios com apenas 1 linha: 78
+
+================================================================================
+ESTADO: RS
+================================================================================
+
+📍 Total de municípios afetados: 205
+
+⚡ Municípios por voltagem:
+   • 230 kV: 139 municípios
+   • 525 kV: 111 municípios
+
+🔄 Municípios com múltiplas linhas: 46
+
+   Top 5 municípios com mais linhas em RS:
+   2x - Veranópolis: 230, 525 kV
+   2x - São Martinho: 230, 525 kV
+   2x - Bento Gonçalves: 230, 525 kV
+   2x - Trindade do Sul: 230, 525 kV
+   2x - Santo Ângelo: 230, 525 kV
+
+   Municípios com apenas 1 linha: 160
+
+================================================================================
+ESTADO: SC
+================================================================================
+
+📍 Total de municípios afetados: 154
+
+⚡ Municípios por voltagem:
+   • 230 kV: 100 municípios
+   • 525 kV: 90 municípios
+
+🔄 Municípios com múltiplas linhas: 35
+
+   Top 5 municípios com mais linhas em SC:
+   2x - Urussanga: 230, 525 kV
+   2x - Abdon Batista: 230, 525 kV
+   2x - Arvoredo: 230, 525 kV
+   2x - Águas Mornas: 230, 525 kV
+   2x - São José do Cerrito: 230, 525 kV
+
+   Municípios com apenas 1 linha: 118
+
+================================================================================
+ESTATÍSTICAS DETALHADAS POR VOLTAGEM
+================================================================================
+
+================================================================================
+VOLTAGEM: 230 kV
+================================================================================
+
+⚡ Total de municípios afetados: 331
+
+🗺️  Distribuição por estado:
+   • RS: 139 municípios
+   • SC: 100 municípios
+   • PR: 94 municípios
+
+   Municípios afetados APENAS por 230 kV: 193
+   Exemplos: Pato Branco, Iracema do Oeste, Guaratuba, Santa Izabel do Oeste, Irati
+
+================================================================================
+VOLTAGEM: 500 kV
+================================================================================
+
+⚡ Total de municípios afetados: 10
+
+🗺️  Distribuição por estado:
+   • PR: 10 municípios
+
+   Municípios afetados APENAS por 500 kV: 2
+   Exemplos: Cerro Azul, Adrianópolis
+
+================================================================================
+VOLTAGEM: 525 kV
+================================================================================
+
+⚡ Total de municípios afetados: 292
+
+🗺️  Distribuição por estado:
+   • RS: 111 municípios
+   • PR: 92 municípios
+   • SC: 90 municípios
+
+   Municípios afetados APENAS por 525 kV: 150
+   Exemplos: General Carneiro, Nova Santa Rosa, Marquinho, Dois Vizinhos, Honório Serpa        
+
+================================================================================
+VOLTAGEM: 600 kV
+================================================================================
+
+⚡ Total de municípios afetados: 45
+
+🗺️  Distribuição por estado:
+   • PR: 45 municípios
+
+   Municípios afetados APENAS por 600 kV: 5
+   Exemplos: Godoy Moreira, Juranda, Reserva, Barbosa Ferraz, Mato Rico
+
+================================================================================
+VOLTAGEM: 765 kV
+================================================================================
+
+⚡ Total de municípios afetados: 36
+
+🗺️  Distribuição por estado:
+   • PR: 36 municípios
+
+   Municípios afetados APENAS por 765 kV: 3
+   Exemplos: Arapuã, Iguatu, Anahy
+
+================================================================================
+RESUMO GERAL - CRUZAMENTO DE INFORMAÇÕES
+================================================================================
+
+📊 MUNICÍPIOS MAIS IMPACTADOS (Top 10):
+   (Municípios atravessados por mais linhas diferentes)
+
+   5x - Foz do Iguaçu (PR)
+        Voltagens: 230, 500, 525, 600, 765 kV
+   4x - São Miguel do Iguaçu (PR)
+        Voltagens: 230, 525, 600, 765 kV
+   4x - Santa Terezinha de Itaipu (PR)
+        Voltagens: 230, 525, 600, 765 kV
+   4x - Nova Cantu (PR)
+        Voltagens: 230, 525, 600, 765 kV
+   4x - Cascavel (PR)
+        Voltagens: 230, 525, 600, 765 kV
+   4x - Medianeira (PR)
+        Voltagens: 230, 525, 600, 765 kV
+   3x - Manoel Ribas (PR)
+        Voltagens: 525, 600, 765 kV
+   3x - Campo Largo (PR)
+        Voltagens: 230, 500, 525 kV
+   3x - Cafelândia (PR)
+        Voltagens: 230, 600, 765 kV
+   3x - Ortigueira (PR)
+        Voltagens: 230, 600, 765 kV
+
+================================================================================
+
+🔍 DESTAQUE: FOZ DO IGUAÇU
+--------------------------------------------------------------------------------
+Foz do Iguaçu é atravessada por 5 linhas diferentes:
+  • 230 kV
+  • 500 kV
+  • 525 kV
+  • 600 kV
+  • 765 kV
+
+Isso faz sentido, pois Foz do Iguaçu é o ponto de origem!
+
+================================================================================
+✅ ANÁLISE COMPLETA!
