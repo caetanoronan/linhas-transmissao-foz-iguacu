@@ -417,15 +417,68 @@ def _read_state_boundaries_from_base(estado: str):
 
 
 def identificar_combinacoes(df):
-    """Identifica quais combinações de voltagem x estado existem nos dados"""
-    combinacoes = df.groupby(['Voltagem', 'Estado']).size().reset_index(name='count')
-    combinacoes = combinacoes[combinacoes['Voltagem'] != 'BASE']  # Ignora BASE
-    
-    print(f"\n📊 Combinações encontradas: {len(combinacoes)}")
-    for _, row in combinacoes.iterrows():
+    """Identifica combinações (voltagem x estado) a partir do CSV e complementa
+    com detecção de linhas presentes nas fontes geoespaciais (GPKG/SHAPE).
+    """
+    from itertools import product
+
+    # Combinações do CSV (específica)
+    csv_combos = df.groupby(['Voltagem', 'Estado']).size().reset_index(name='count')
+    csv_combos = csv_combos[csv_combos['Voltagem'] != 'BASE']
+
+    # Detecção adicional por presença de linhas (garante RS 500kV, por exemplo)
+    def _has_lines_for(voltagem: str, estado: str) -> bool:
+        # 1) tentar linhas_recortadas layer específica
+        try:
+            lyr = f"linha_trans_{voltagem}_{estado}"
+            g = gpd.read_file(LINHAS_GPKG, layer=lyr)
+            if g is not None and not g.empty:
+                return True
+        except Exception:
+            pass
+        # 2) fallback: faixa_serv + interseção com UF
+        try:
+            g = gpd.read_file(FAIXA_SERVIDAO_GPKG, layer=f"linha_transmissao_{voltagem}")
+            if g is None or g.empty:
+                return False
+            if g.crs and g.crs.to_epsg() != 4326:
+                try:
+                    g = g.to_crs(epsg=4326)
+                except Exception:
+                    pass
+            g_estado = _read_state_boundary_from_shp(estado) or _read_state_boundaries_from_base(estado)
+            if g_estado is None or g_estado.empty:
+                return False
+            # usar bbox rápida
+            try:
+                inter = g.sindex.query(g_estado.geometry.unary_union, predicate='intersects')
+                return len(inter) > 0
+            except Exception:
+                # fallback lento: bound box
+                minx, miny, maxx, maxy = g_estado.total_bounds
+                bbox = g.cx[minx:maxx, miny:maxy]
+                return (bbox is not None) and (not bbox.empty)
+        except Exception:
+            return False
+
+    volts = ['230', '500', '525', '600', '765']
+    estados = ['PR', 'SC', 'RS']
+    extras = []
+    for v, uf in product(volts, estados):
+        if _has_lines_for(v, uf):
+            # se já consta no CSV, mantém count; senão, marca count=0 (será computado depois)
+            row = csv_combos[(csv_combos['Voltagem'] == v) & (csv_combos['Estado'] == uf)]
+            if row.empty:
+                extras.append({'Voltagem': v, 'Estado': uf, 'count': 0})
+
+    if extras:
+        csv_combos = pd.concat([csv_combos, pd.DataFrame(extras)], ignore_index=True)
+
+    print(f"\n📊 Combinações encontradas: {len(csv_combos)}")
+    for _, row in csv_combos.iterrows():
         print(f"  • {row['Voltagem']} kV - {row['Estado']}: {row['count']} municípios")
-    
-    return combinacoes
+
+    return csv_combos
 
 
 def criar_mapa_base(titulo, subtitulo="", min_zoom: int = 5, max_zoom: int = 12):
@@ -468,7 +521,7 @@ def adicionar_camadas(mapa, gdf_municipios, gdf_linhas, gdf_buffer, voltagem, es
     """
     cor_voltagem = CORES_VOLTAGEM.get(voltagem, '#808080')
 
-    # Municípios afetados (por layer e UF)
+    # Municípios afetados (por layer e UF); fallback: calcular por interseção do buffer com municípios completos
     gdf_mun_filtrado = _read_municipios_layer(voltagem, estado)
 
     # Municípios não afetados (fundo), se camada completa existir
@@ -549,6 +602,27 @@ def adicionar_camadas(mapa, gdf_municipios, gdf_linhas, gdf_buffer, voltagem, es
             ).add_to(fg_buffer)
             fg_buffer.add_to(mapa)
 
+            # Se não houver municípios afetados na camada específica, computa a partir do buffer
+            if (gdf_mun_filtrado is None) or gdf_mun_filtrado.empty:
+                gdf_all_muns_fb = _read_all_municipios_for_state(estado)
+                try:
+                    if (gdf_all_muns_fb is not None) and (not gdf_all_muns_fb.empty):
+                        # interseção espacial
+                        # para performance, usa índice espacial
+                        try:
+                            idx = gdf_all_muns_fb.sindex
+                            cand_idx = idx.query(gdf_buf.geometry.unary_union, predicate='intersects')
+                            cand = gdf_all_muns_fb.iloc[cand_idx]
+                        except Exception:
+                            cand = gdf_all_muns_fb
+                        afetados_fb = gpd.overlay(cand, gdf_buf, how='intersection')
+                        if (afetados_fb is not None) and (not afetados_fb.empty):
+                            # manter apenas NM_MUN/UF únicos com geometria original dos municípios
+                            nomes = set(afetados_fb['NM_MUN'].astype(str).str.upper().unique())
+                            gdf_mun_filtrado = gdf_all_muns_fb[gdf_all_muns_fb['NM_MUN'].astype(str).str.upper().isin(nomes)][['NM_MUN', 'UF', 'geometry']]
+                except Exception:
+                    pass
+
     # Limite estadual (por UF via shapefile, com fallback)
     gdf_estado = _read_state_boundary_from_shp(estado)
     if (gdf_estado is None) or gdf_estado.empty:
@@ -574,7 +648,30 @@ def gerar_mapa(voltagem, estado, gdf_municipios, gdf_linhas, gdf_buffer, df_filt
     """Gera um mapa individual para uma combinação voltagem-estado"""
     
     titulo = f"Linha de Transmissão {voltagem} kV - {estado}"
-    num_municipios = len(df_filtrado['NM_MUN'].unique())
+    # número de municípios para subtítulo
+    try:
+        num_municipios = len(df_filtrado['NM_MUN'].unique()) if (df_filtrado is not None) and (not df_filtrado.empty) else None
+    except Exception:
+        num_municipios = None
+    if num_municipios is None:
+        # tenta estimar via fallback por buffer x municípios
+        try:
+            gdf_lin_tmp = _read_lines_layer(voltagem, estado)
+            gdf_buf_tmp = _make_buffer(gdf_lin_tmp, voltagem) if (gdf_lin_tmp is not None) and (not gdf_lin_tmp.empty) else None
+            gdf_all_muns_tmp = _read_all_municipios_for_state(estado)
+            if (gdf_buf_tmp is not None) and (gdf_all_muns_tmp is not None) and (not gdf_all_muns_tmp.empty):
+                try:
+                    idx = gdf_all_muns_tmp.sindex
+                    cand_idx = idx.query(gdf_buf_tmp.geometry.unary_union, predicate='intersects')
+                    cand = gdf_all_muns_tmp.iloc[cand_idx]
+                except Exception:
+                    cand = gdf_all_muns_tmp
+                afetados_fb = gpd.overlay(cand, gdf_buf_tmp, how='intersection')
+                num_municipios = len(afetados_fb['NM_MUN'].unique()) if (afetados_fb is not None) and (not afetados_fb.empty) else 0
+            else:
+                num_municipios = 0
+        except Exception:
+            num_municipios = 0
     subtitulo = f"{num_municipios} municípios afetados"
     
     print(f"  🗺️  Gerando mapa: {titulo}")
