@@ -10,6 +10,10 @@ Análise geoespacial completa e dashboards interativos dos municípios afetados 
 
 **📊 Dashboard Completo:** [https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html](https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html)
 
+Links diretos para os mapas do RS por voltagem:
+- RS – 230 kV: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/mapa_230kV_RS.html
+- RS – 525 kV: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/mapa_525kV_RS.html
+
 ## 📊 Sobre o Projeto
 
 Este projeto analisa **600+ municípios** afetados por linhas de transmissão de energia elétrica de diferentes voltagens:
