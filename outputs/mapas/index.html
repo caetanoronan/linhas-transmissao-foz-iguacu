@@ -7,27 +7,54 @@
     <meta name="description" content="Mapas interativos dos municípios afetados por linhas de transmissão de energia elétrica na região Sul do Brasil">
     <meta name="author" content="Ronan Armando Caetano">
     <style>
+        :root {
+            --bg-primary: white;
+            --bg-secondary: #f7fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: white;
+            --header-bg: linear-gradient(135deg, #0f4c81 0%, #1a5fa0 100%);
+            --accent-color: #0f4c81;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #1a202c;
+            --bg-secondary: #2d3748;
+            --bg-gradient: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            --text-primary: #e2e8f0;
+            --text-secondary: #cbd5e0;
+            --border-color: #4a5568;
+            --card-bg: #2d3748;
+            --header-bg: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            --accent-color: #4299e1;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-gradient);
             min-height: 100vh;
             padding: 20px;
             line-height: 1.6;
+            transition: background 0.3s ease;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
+            background: var(--bg-primary);
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             overflow: hidden;
+            transition: background 0.3s ease;
         }
         header {
-            background: linear-gradient(135deg, #0f4c81 0%, #1a5fa0 100%);
+            background: var(--header-bg);
             color: white;
             padding: 40px 30px;
             text-align: center;
+            position: relative;
         }
         header h1 {
             font-size: 32px;
@@ -39,18 +66,42 @@
             font-size: 16px;
             margin: 5px 0;
         }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .theme-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .theme-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
         .content {
             padding: 40px 30px;
         }
         .intro-section {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border-left: 5px solid #0f4c81;
+            background: var(--bg-secondary);
+            border-left: 5px solid var(--accent-color);
             padding: 25px;
             margin-bottom: 30px;
             border-radius: 8px;
+            transition: background 0.3s ease;
         }
         .intro-section h2 {
-            color: #0f4c81;
+            color: var(--accent-color);
             font-size: 24px;
             margin-bottom: 15px;
             display: flex;
@@ -58,23 +109,24 @@
             gap: 10px;
         }
         .intro-section p {
-            color: #2d3748;
+            color: var(--text-primary);
             margin-bottom: 12px;
             font-size: 15px;
         }
         .intro-section ul {
             margin-left: 20px;
-            color: #4a5568;
+            color: var(--text-secondary);
         }
         .intro-section li {
             margin: 8px 0;
         }
         .how-to-section {
-            background: #fff5e6;
+            background: var(--bg-secondary);
             border-left: 5px solid #ed8936;
             padding: 25px;
             margin-bottom: 30px;
             border-radius: 8px;
+            transition: background 0.3s ease;
         }
         .how-to-section h2 {
             color: #ed8936;
@@ -86,7 +138,7 @@
         }
         .how-to-section ol {
             margin-left: 20px;
-            color: #2d3748;
+            color: var(--text-primary);
         }
         .how-to-section li {
             margin: 10px 0;
@@ -97,24 +149,26 @@
         }
         .estado-section {
             margin-bottom: 30px;
-            border: 2px solid #e2e8f0;
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
+            transition: border-color 0.3s ease;
         }
         .estado-header {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            background: var(--bg-secondary);
             padding: 15px 20px;
-            border-bottom: 2px solid #cbd5e0;
+            border-bottom: 2px solid var(--border-color);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
         .estado-header h3 {
-            color: #2d3748;
+            color: var(--text-primary);
             font-size: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         .estado-nome {
-            background: #0f4c81;
+            background: var(--accent-color);
             color: white;
             padding: 4px 12px;
             border-radius: 6px;
@@ -126,10 +180,12 @@
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 15px;
             padding: 20px;
+            background: var(--bg-primary);
+            transition: background 0.3s ease;
         }
         .mapa-card {
-            background: white;
-            border: 2px solid #e2e8f0;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
             text-align: center;
@@ -137,9 +193,12 @@
             cursor: pointer;
         }
         .mapa-card:hover {
-            border-color: #0f4c81;
+            border-color: var(--accent-color);
             box-shadow: 0 4px 12px rgba(15, 76, 129, 0.15);
             transform: translateY(-2px);
+        }
+        .mapa-card p {
+            color: var(--text-primary);
         }
         .voltagem-badge {
             display: inline-block;
@@ -159,7 +218,7 @@
             display: inline-block;
             margin-top: 8px;
             padding: 10px 24px;
-            background: #0f4c81;
+            background: var(--accent-color);
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -171,15 +230,16 @@
             background: #1a5fa0;
         }
         .info-box {
-            background: #e6f7ff;
+            background: var(--bg-secondary);
             border-left: 4px solid #1890ff;
             padding: 18px;
             margin-bottom: 20px;
             border-radius: 4px;
+            transition: background 0.3s ease;
         }
         .info-box p {
             margin: 5px 0;
-            color: #2d3748;
+            color: var(--text-primary);
             line-height: 1.7;
         }
         .stats-grid {
@@ -189,57 +249,59 @@
             margin: 20px 0;
         }
         .stat-card {
-            background: white;
-            border: 2px solid #e2e8f0;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
             padding: 15px;
             border-radius: 8px;
             text-align: center;
+            transition: all 0.3s ease;
         }
         .stat-card .number {
             font-size: 32px;
             font-weight: bold;
-            color: #0f4c81;
+            color: var(--accent-color);
         }
         .stat-card .label {
             font-size: 13px;
-            color: #718096;
+            color: var(--text-secondary);
             margin-top: 5px;
         }
         .references-section {
-            background: #f9fafb;
-            border: 2px solid #e5e7eb;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
             padding: 25px;
             margin-top: 30px;
             border-radius: 8px;
+            transition: all 0.3s ease;
         }
         .references-section h2 {
-            color: #1f2937;
+            color: var(--text-primary);
             font-size: 20px;
             margin-bottom: 15px;
-            border-bottom: 2px solid #0f4c81;
+            border-bottom: 2px solid var(--accent-color);
             padding-bottom: 8px;
         }
         .references-section h3 {
-            color: #374151;
+            color: var(--text-primary);
             font-size: 16px;
             margin-top: 20px;
             margin-bottom: 10px;
         }
         .references-section p {
-            color: #4b5563;
+            color: var(--text-secondary);
             margin: 8px 0;
             font-size: 14px;
         }
         .references-section ul {
             margin-left: 20px;
-            color: #6b7280;
+            color: var(--text-secondary);
         }
         .references-section li {
             margin: 6px 0;
             font-size: 14px;
         }
         .author-box {
-            background: linear-gradient(135deg, #0f4c81 0%, #1a5fa0 100%);
+            background: var(--header-bg);
             color: white;
             padding: 20px;
             border-radius: 8px;
@@ -248,10 +310,12 @@
         .author-box h3 {
             margin-bottom: 8px;
             font-size: 18px;
+            color: white;
         }
         .author-box p {
             opacity: 0.95;
             font-size: 14px;
+            color: white;
         }
         footer {
             background: #1f2937;
@@ -275,6 +339,12 @@
 <body>
     <div class="container">
         <header>
+            <div class="theme-toggle">
+                <button class="theme-btn" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                    <span id="theme-text">Modo Escuro</span>
+                </button>
+            </div>
             <h1>🗺️ Mapas Interativos de Linhas de Transmissão</h1>
             <p>Análise Geoespacial dos Municípios Afetados</p>
             <p>Região Sul do Brasil - Estados PR, SC e RS</p>
@@ -440,7 +510,6 @@
                 <div class="author-box">
                     <h3>👤 Autor</h3>
                     <p><strong>Ronan Armando Caetano</strong></p>
-                    <p>Universidade Federal de Santa Catarina (UFSC)</p>
                     <p>Análise Geoespacial e Desenvolvimento de Mapas Interativos</p>
                 </div>
 
@@ -481,15 +550,51 @@
                 <h3>🔗 Repositório</h3>
                 <p>Código-fonte e dados disponíveis em: <a href="https://github.com/caetanoronan/linhas-transmissao-foz-iguacu" target="_blank">github.com/caetanoronan/linhas-transmissao-foz-iguacu</a></p>
                 
-                <p style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #d1d5db;"><strong>Última atualização:</strong> 26 de outubro de 2025</p>
+                <p style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color);"><strong>Última atualização:</strong> 26 de outubro de 2025</p>
             </div>
         </div>
 
         <footer>
             <p><strong>Análise de Linhas de Transmissão - Região Sul do Brasil</strong></p>
-            <p>© 2025 Ronan Armando Caetano - UFSC | Desenvolvido com Python, GeoPandas e Folium</p>
+            <p>© 2025 Ronan Armando Caetano | Desenvolvido com Python, GeoPandas e Folium</p>
             <p>Assistência técnica: GitHub Copilot</p>
         </footer>
     </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+            
+            if (newTheme === 'dark') {
+                icon.textContent = '☀️';
+                text.textContent = 'Modo Claro';
+            } else {
+                icon.textContent = '🌙';
+                text.textContent = 'Modo Escuro';
+            }
+        }
+        
+        // Carregar tema salvo
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+            
+            if (savedTheme === 'dark') {
+                icon.textContent = '☀️';
+                text.textContent = 'Modo Claro';
+            }
+        });
+    </script>
 </body>
 </html>
