@@ -1,5 +1,7 @@
 # Linhas de Transmissão – Foz do Iguaçu (Região Sul)
 
+[![Validate Root Redirect](https://github.com/caetanoronan/linhas-transmissao-foz-iguacu/actions/workflows/validate-root-redirect.yml/badge.svg?branch=main)](https://github.com/caetanoronan/linhas-transmissao-foz-iguacu/actions/workflows/validate-root-redirect.yml)
+
 **Autor:** Ronan Armando Caetano
 
 Análise geoespacial completa e dashboards interativos dos municípios afetados por linhas de transmissão de energia elétrica na região Sul do Brasil (Paraná, Santa Catarina e Rio Grande do Sul).
