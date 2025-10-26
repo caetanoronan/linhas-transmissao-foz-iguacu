@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mapas Interativos - Linhas de Transmissão | Foz do Iguaçu</title>
+    <meta name="description" content="Mapas interativos dos municípios afetados por linhas de transmissão de energia elétrica na região Sul do Brasil">
+    <meta name="author" content="Ronan Armando Caetano">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #0f4c81 0%, #1a5fa0 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        header p {
+            opacity: 0.95;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .intro-section {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-left: 5px solid #0f4c81;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .intro-section h2 {
+            color: #0f4c81;
+            font-size: 24px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .intro-section p {
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        .intro-section ul {
+            margin-left: 20px;
+            color: #4a5568;
+        }
+        .intro-section li {
+            margin: 8px 0;
+        }
+        .how-to-section {
+            background: #fff5e6;
+            border-left: 5px solid #ed8936;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .how-to-section h2 {
+            color: #ed8936;
+            font-size: 24px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .how-to-section ol {
+            margin-left: 20px;
+            color: #2d3748;
+        }
+        .how-to-section li {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        .how-to-section strong {
+            color: #c05621;
+        }
+        .estado-section {
+            margin-bottom: 30px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .estado-header {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 15px 20px;
+            border-bottom: 2px solid #cbd5e0;
+        }
+        .estado-header h3 {
+            color: #2d3748;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .estado-nome {
+            background: #0f4c81;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .mapas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .mapa-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .mapa-card:hover {
+            border-color: #0f4c81;
+            box-shadow: 0 4px 12px rgba(15, 76, 129, 0.15);
+            transform: translateY(-2px);
+        }
+        .voltagem-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 12px;
+        }
+        .v230 { background: #FFA500; }
+        .v500 { background: #FF0000; }
+        .v525 { background: #8B0000; }
+        .v600 { background: #4B0082; }
+        .v765 { background: #800080; }
+        .mapa-card a {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 24px;
+            background: #0f4c81;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .mapa-card a:hover {
+            background: #1a5fa0;
+        }
+        .info-box {
+            background: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 18px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .info-box p {
+            margin: 5px 0;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0f4c81;
+        }
+        .stat-card .label {
+            font-size: 13px;
+            color: #718096;
+            margin-top: 5px;
+        }
+        .references-section {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+        .references-section h2 {
+            color: #1f2937;
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0f4c81;
+            padding-bottom: 8px;
+        }
+        .references-section h3 {
+            color: #374151;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .references-section p {
+            color: #4b5563;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        .references-section ul {
+            margin-left: 20px;
+            color: #6b7280;
+        }
+        .references-section li {
+            margin: 6px 0;
+            font-size: 14px;
+        }
+        .author-box {
+            background: linear-gradient(135deg, #0f4c81 0%, #1a5fa0 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .author-box h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .author-box p {
+            opacity: 0.95;
+            font-size: 14px;
+        }
+        footer {
+            background: #1f2937;
+            color: #9ca3af;
+            padding: 25px;
+            text-align: center;
+            font-size: 13px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ Mapas Interativos de Linhas de Transmissão</h1>
+            <p>Análise Geoespacial dos Municípios Afetados</p>
+            <p>Região Sul do Brasil - Estados PR, SC e RS</p>
+        </header>
+
+        <div class="content">
+            <!-- Introdução -->
+            <div class="intro-section">
+                <h2>📋 Sobre este Projeto</h2>
+                <p><strong>Este repositório apresenta uma análise geoespacial completa dos municípios da região Sul do Brasil afetados por linhas de transmissão de energia elétrica.</strong></p>
+                
+                <p>Os mapas interativos foram desenvolvidos para visualizar espacialmente a distribuição das linhas de transmissão e identificar os municípios atravessados por essas infraestruturas críticas de energia.</p>
+                
+                <p><strong>Objetivos do projeto:</strong></p>
+                <ul>
+                    <li>Identificar todos os municípios afetados por linhas de transmissão nos estados PR, SC e RS</li>
+                    <li>Classificar as linhas por níveis de voltagem (230 kV, 500 kV, 525 kV, 600 kV, 765 kV)</li>
+                    <li>Gerar mapas interativos para visualização e análise espacial</li>
+                    <li>Fornecer dados consolidados em formatos acessíveis (CSV, GeoPackage, HTML)</li>
+                    <li>Disponibilizar visualizações para tomada de decisões em planejamento energético e territorial</li>
+                </ul>
+            </div>
+
+            <!-- Como usar -->
+            <div class="how-to-section">
+                <h2>💡 Como Utilizar os Mapas</h2>
+                <ol>
+                    <li><strong>Selecione um mapa</strong> clicando no botão "Abrir Mapa" correspondente ao estado e voltagem desejados</li>
+                    <li><strong>Navegação no mapa:</strong>
+                        <ul>
+                            <li>Use o mouse/touchpad para arrastar e mover o mapa</li>
+                            <li>Role para dar zoom in/out</li>
+                            <li>Clique nos municípios destacados para ver informações detalhadas</li>
+                        </ul>
+                    </li>
+                    <li><strong>Camadas do mapa:</strong>
+                        <ul>
+                            <li>Municípios afetados aparecem em destaque (coloridos)</li>
+                            <li>Municípios não afetados aparecem em cinza transparente (background)</li>
+                            <li>Linhas de transmissão são exibidas com cores específicas por voltagem</li>
+                        </ul>
+                    </li>
+                    <li><strong>Controles disponíveis:</strong>
+                        <ul>
+                            <li>Botões de zoom (+/-) no canto superior esquerdo</li>
+                            <li>Seletor de camadas no canto superior direito</li>
+                            <li>Popup com informações ao clicar em elementos do mapa</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">517</div>
+                    <div class="label">Municípios Analisados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">9</div>
+                    <div class="label">Mapas Disponíveis</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">3</div>
+                    <div class="label">Estados (PR, SC, RS)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">5</div>
+                    <div class="label">Níveis de Voltagem</div>
+                </div>
+            </div>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <p><strong>ℹ️ Nota importante:</strong> Todos os mapas são interativos e podem ser visualizados diretamente no navegador. Os dados foram processados a partir de fontes oficiais e representam a situação mais recente disponível.</p>
+            </div>
+
+            <!-- Mapas PR -->
+            <div class="estado-section">
+                <div class="estado-header">
+                    <h3><span class="estado-nome">PARANÁ</span> 161 municípios analisados</h3>
+                </div>
+                <div class="mapas-grid">
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v230">230 kV</div>
+                        <p>Linhas de 230 kV no Paraná</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">Municípios afetados</p>
+                        <a href="mapa_230kV_PR.html">Abrir Mapa</a>
+                    </div>
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v500">500 kV</div>
+                        <p>Linhas de 500 kV no Paraná</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">Municípios afetados</p>
+                        <a href="mapa_500kV_PR.html">Abrir Mapa</a>
+                    </div>
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v525">525 kV</div>
+                        <p>Linhas de 525 kV no Paraná</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">Municípios afetados</p>
+                        <a href="mapa_525kV_PR.html">Abrir Mapa</a>
+                    </div>
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v600">600 kV</div>
+                        <p>Linhas de 600 kV no Paraná</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">Municípios afetados</p>
+                        <a href="mapa_600kV_PR.html">Abrir Mapa</a>
+                    </div>
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v765">765 kV</div>
+                        <p>Linhas de 765 kV no Paraná</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">Municípios afetados</p>
+                        <a href="mapa_765kV_PR.html">Abrir Mapa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapas SC -->
+            <div class="estado-section">
+                <div class="estado-header">
+                    <h3><span class="estado-nome">SANTA CATARINA</span> 154 municípios analisados</h3>
+                </div>
+                <div class="mapas-grid">
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v230">230 kV</div>
+                        <p>Linhas de 230 kV em Santa Catarina</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">Municípios afetados</p>
+                        <a href="mapa_230kV_SC.html">Abrir Mapa</a>
+                    </div>
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v525">525 kV</div>
+                        <p>Linhas de 525 kV em Santa Catarina</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">Municípios afetados</p>
+                        <a href="mapa_525kV_SC.html">Abrir Mapa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapas RS -->
+            <div class="estado-section">
+                <div class="estado-header">
+                    <h3><span class="estado-nome">RIO GRANDE DO SUL</span> 205 municípios analisados</h3>
+                </div>
+                <div class="mapas-grid">
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v230">230 kV</div>
+                        <p>Linhas de 230 kV no Rio Grande do Sul</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">226 municípios afetados</p>
+                        <a href="mapa_230kV_RS.html">Abrir Mapa</a>
+                    </div>
+                    <div class="mapa-card">
+                        <div class="voltagem-badge v525">525 kV</div>
+                        <p>Linhas de 525 kV no Rio Grande do Sul</p>
+                        <p style="font-size: 13px; color: #718096; margin: 8px 0;">154 municípios afetados</p>
+                        <a href="mapa_525kV_RS.html">Abrir Mapa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Referências e Créditos -->
+            <div class="references-section">
+                <h2>📚 Referências e Créditos</h2>
+                
+                <div class="author-box">
+                    <h3>👤 Autor</h3>
+                    <p><strong>Ronan Armando Caetano</strong></p>
+                    <p>Universidade Federal de Santa Catarina (UFSC)</p>
+                    <p>Análise Geoespacial e Desenvolvimento de Mapas Interativos</p>
+                </div>
+
+                <h3>🛠️ Tecnologias Utilizadas</h3>
+                <ul>
+                    <li><strong>Python 3.13</strong> - Linguagem de programação principal</li>
+                    <li><strong>GeoPandas 1.0.1</strong> - Manipulação de dados geoespaciais</li>
+                    <li><strong>Shapely 2.0.6</strong> - Operações geométricas e análise espacial</li>
+                    <li><strong>Fiona 1.10.1</strong> - Leitura e escrita de arquivos GeoPackage e Shapefiles</li>
+                    <li><strong>Folium 0.18.0</strong> - Geração de mapas interativos (baseado em Leaflet.js)</li>
+                    <li><strong>Pandas 2.2.3</strong> - Análise e manipulação de dados tabulares</li>
+                    <li><strong>Plotly 5.24.1</strong> - Visualizações interativas para dashboards</li>
+                    <li><strong>QGIS 3.x</strong> - Processamento inicial de dados geoespaciais</li>
+                </ul>
+
+                <h3>📊 Fontes de Dados</h3>
+                <ul>
+                    <li><strong>Linhas de Transmissão PR/SC:</strong> Empresa de Pesquisa Energética (EPE)</li>
+                    <li><strong>Malhas Municipais PR/SC:</strong> Instituto Brasileiro de Geografia e Estatística (IBGE)</li>
+                    <li><strong>Linhas de Transmissão RS:</strong> Dados específicos do estado do Rio Grande do Sul</li>
+                    <li><strong>Malha Municipal RS:</strong> Dados oficiais do estado</li>
+                </ul>
+
+                <h3>🤖 Assistência de Inteligência Artificial</h3>
+                <p><strong>GitHub Copilot</strong> foi utilizado como ferramenta de assistência no desenvolvimento deste projeto, auxiliando em:</p>
+                <ul>
+                    <li>Otimização de código Python para processamento geoespacial</li>
+                    <li>Geração de visualizações interativas com Folium</li>
+                    <li>Criação de documentação técnica e relatórios HTML</li>
+                    <li>Desenvolvimento de dashboards e interfaces web</li>
+                    <li>Debugging e melhorias de performance</li>
+                </ul>
+
+                <h3>📖 Metodologia</h3>
+                <p>Os mapas foram gerados através de análise de intersecção espacial entre as geometrias das linhas de transmissão e as malhas municipais oficiais. Municípios são considerados "afetados" quando interceptados por linhas de transmissão dentro da faixa de servidão administrativa.</p>
+                <p>Os dados foram processados utilizando sistemas de coordenadas projetadas (UTM) para garantir precisão nas operações geométricas, sendo posteriormente convertidos para WGS 84 (EPSG:4326) para visualização nos mapas web.</p>
+
+                <h3>🔗 Repositório</h3>
+                <p>Código-fonte e dados disponíveis em: <a href="https://github.com/caetanoronan/linhas-transmissao-foz-iguacu" target="_blank">github.com/caetanoronan/linhas-transmissao-foz-iguacu</a></p>
+                
+                <p style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #d1d5db;"><strong>Última atualização:</strong> 26 de outubro de 2025</p>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Análise de Linhas de Transmissão - Região Sul do Brasil</strong></p>
+            <p>© 2025 Ronan Armando Caetano - UFSC | Desenvolvido com Python, GeoPandas e Folium</p>
+            <p>Assistência técnica: GitHub Copilot</p>
+        </footer>
+    </div>
+</body>
+</html>
