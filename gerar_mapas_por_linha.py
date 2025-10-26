@@ -31,6 +31,7 @@ RS_LINHAS_GPKG = RS_DIR / 'Linha_trans_RS.gpkg'
 RS_MUNS_GPKG = RS_DIR / 'municipios_afetados_linhas_transmissao.gpkg'
 RS_MUNS_CSV = RS_DIR / 'Municipios_afetas_linhas.csv'
 RS_MUNS_VOLTAGEM_CSV = RS_DIR / 'Municipios_afetas_linhas_por_voltagem.csv'
+RS_MUNS_ZIP = RS_DIR / 'RS_Municipios_2024.zip'
 
 # Cores por voltagem
 CORES_VOLTAGEM = {
@@ -681,25 +682,46 @@ def adicionar_camadas(mapa, gdf_municipios, gdf_linhas, gdf_buffer, voltagem, es
     gdf_mun_filtrado = _read_municipios_layer(voltagem, estado)
 
     # Municípios não afetados (fundo), se camada completa existir
-    # Para RS: usar diretamente o GPKG de municípios
-    if estado.upper() == 'RS' and RS_MUNS_GPKG.exists():
+    # Para RS: usar preferencialmente o ZIP RS_Municipios_2024.zip como base; fallback para GPKG
+    if estado.upper() == 'RS' and (RS_MUNS_ZIP.exists() or RS_MUNS_GPKG.exists()):
         try:
-            # Ler todos os municípios do RS do GPKG
-            try:
-                layers = fiona.listlayers(str(RS_MUNS_GPKG))
-            except Exception:
-                layers = []
             gdf_all_muns = None
-            for lyr in layers:
+            if RS_MUNS_ZIP.exists():
+                # Extrai ZIP para uma pasta temporária dentro de RS_DIR
+                import zipfile
+                extract_dir = RS_DIR / 'RS_Municipios_2024_extracted'
+                if not extract_dir.exists():
+                    try:
+                        with zipfile.ZipFile(RS_MUNS_ZIP, 'r') as z:
+                            z.extractall(extract_dir)
+                    except Exception:
+                        extract_dir = None
+                # Procurar um .shp poligonal
+                if extract_dir and extract_dir.exists():
+                    for shp in extract_dir.rglob('*.shp'):
+                        try:
+                            tmp = gpd.read_file(shp)
+                            if not tmp.empty and tmp.geom_type.astype(str).str.contains('Polygon', case=False).any():
+                                gdf_all_muns = tmp
+                                break
+                        except Exception:
+                            continue
+            # Fallback para GPKG se não achou no ZIP
+            if (gdf_all_muns is None or gdf_all_muns.empty) and RS_MUNS_GPKG.exists():
                 try:
-                    tmp = gpd.read_file(RS_MUNS_GPKG, layer=lyr)
-                    if not tmp.empty and tmp.geom_type.astype(str).str.contains('Polygon', case=False).any():
-                        gdf_all_muns = tmp
-                        break
+                    layers = fiona.listlayers(str(RS_MUNS_GPKG))
                 except Exception:
-                    continue
-            if gdf_all_muns is None:
-                gdf_all_muns = gpd.read_file(RS_MUNS_GPKG)
+                    layers = []
+                for lyr in layers:
+                    try:
+                        tmp = gpd.read_file(RS_MUNS_GPKG, layer=lyr)
+                        if not tmp.empty and tmp.geom_type.astype(str).str.contains('Polygon', case=False).any():
+                            gdf_all_muns = tmp
+                            break
+                    except Exception:
+                        continue
+                if gdf_all_muns is None:
+                    gdf_all_muns = gpd.read_file(RS_MUNS_GPKG)
             
             # Normalizar CRS e colunas
             if gdf_all_muns.crs and gdf_all_muns.crs.to_epsg() != 4326:
@@ -727,14 +749,15 @@ def adicionar_camadas(mapa, gdf_municipios, gdf_linhas, gdf_buffer, voltagem, es
             # simplificação mais forte no fundo
             gdf_nao = _simplify_geoms(gdf_nao, tol_m=100)
             if not gdf_nao.empty:
-                fg_nao = folium.FeatureGroup(name=f'Municípios não afetados ({estado})', show=False)
+                # Mostrar como fundo (preenchido) por padrão
+                fg_nao = folium.FeatureGroup(name=f'Municípios não afetados ({estado})', show=True)
                 folium.GeoJson(
                     gdf_nao,
                     style_function=lambda f: {
-                        'fillColor': '#e2e8f0',
-                        'color': '#b8c2cc',
+                        'fillColor': '#f7fafc',
+                        'color': '#cbd5e0',
                         'weight': 1,
-                        'fillOpacity': 0.35
+                        'fillOpacity': 0.25
                     }
                 ).add_to(fg_nao)
                 fg_nao.add_to(mapa)
