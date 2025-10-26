@@ -1,0 +1,38 @@
+name: Validate Root Redirect
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-redirect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate index.html redirect to outputs/dashboard.html
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "index.html" ]; then
+            echo "index.html not found at repository root"
+            exit 1
+          fi
+          # Check reference to the canonical dashboard path
+          if grep -E 'outputs/dashboard\.html' index.html >/dev/null; then
+            echo "OK: index.html references outputs/dashboard.html"
+          else
+            echo "ERROR: index.html doesn't reference outputs/dashboard.html" >&2
+            echo "Tip: ensure a meta refresh or JS redirect to outputs/dashboard.html" >&2
+            exit 1
+          fi
+
+          # Optional: also accept absolute URL reference
+          if grep -E 'https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard\.html' index.html >/dev/null; then
+            echo "OK: index.html also contains absolute canonical URL"
+          else
+            echo "Note: absolute URL not found; relative reference is sufficient." 
+          fi
