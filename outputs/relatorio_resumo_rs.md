@@ -4,6 +4,13 @@ Atualizado em: 2025-10-26
 
 Este resumo apresenta contagens e links de acesso rápido aos mapas interativos do Rio Grande do Sul (RS), com municípios afetados separados por voltagem.
 
+## Navegação rápida
+
+- Dashboard (entrada principal): https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
+- Mapas Interativos (todas as camadas): https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/
+- Relatório Acessível: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/relatorio_acessivel.html
+- Relatório Técnico: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/relatorio_tecnico.html
+
 ## Contagem por voltagem (municípios afetados)
 
 - 230 kV: 226 municípios
