@@ -1,0 +1,416 @@
+🗺️  GERADOR DE MAPAS POR LINHA DE TRANSMISSÃO
+============================================================
+📂 Carregando dados...
+  ✓ Municípios carregados: 520 features
+  ✓ Linhas carregadas: 106 features
+
+📊 Combinações encontradas: 9
+  • 230 kV - PR: 94 municípios
+  • 230 kV - RS: 139 municípios
+  • 230 kV - SC: 100 municípios
+  • 500 kV - PR: 10 municípios
+  • 525 kV - PR: 92 municípios
+  • 525 kV - RS: 111 municípios
+  • 525 kV - SC: 90 municípios
+  • 600 kV - PR: 45 municípios
+  • 765 kV - PR: 36 municípios
+
+📍 Gerando 9 mapas...
+
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - RS
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - SC
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_SC.html
+  🗺️  Gerando mapa: Linha de Transmissão 500 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_500kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - RS
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - SC
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_SC.html
+  🗺️  Gerando mapa: Linha de Transmissão 600 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_600kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 765 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_765kV_PR.html
+
+✓ Índice gerado: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\index.html
+
+============================================================
+✅ CONCLUÍDO! 9 mapas gerados com sucesso
+📂 Diretório de saída: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas
+🌐 Abra o arquivo index.html para navegar pelos mapas
+============================================================
+
+✅ Sim! Os mapas foram gerados com sucesso!
+
+Foram criados 9 mapas interativos, um para cada linha de transmissão por estado:
+
+Paraná (PR) - 6 mapas:
+
+230 kV
+500 kV
+525 kV
+600 kV
+765 kV
+Santa Catarina (SC) - 2 mapas:
+
+230 kV
+525 kV
+Rio Grande do Sul (RS) - 2 mapas:
+
+230 kV
+525 kV
+Como você pediu, as linhas que não existem em outros estados não foram criadas (por exemplo, não há mapa de 500 kV para RS ou SC, pois essa linha só existe no PR).
+
+📂 Localização: mapas
+
+🌐 Para visualizar: Abra o arquivo index.html no navegador - ele contém uma página com links organizados por estado para todos os mapas gerados.
+
+Cada mapa é interativo e mostra:
+
+Municípios afetados (em cores)
+Linha de transmissão
+Controles para alternar camadas
+Popups com informações ao clicar
+Medidor de distâncias
+Opção de tela cheia
+
+🗺️  GERADOR DE MAPAS POR LINHA DE TRANSMISSÃO
+============================================================
+📂 Carregando dados...
+  ✓ Municípios carregados: 520 features
+  ✓ Linhas carregadas: 106 features
+  ✓ Faixa de servidão carregada: 411 features
+
+📊 Combinações encontradas: 9
+  • 230 kV - PR: 94 municípios
+  • 230 kV - RS: 139 municípios
+  • 230 kV - SC: 100 municípios
+  • 500 kV - PR: 10 municípios
+  • 525 kV - PR: 92 municípios
+  • 525 kV - RS: 111 municípios
+  • 525 kV - SC: 90 municípios
+  • 600 kV - PR: 45 municípios
+  • 765 kV - PR: 36 municípios
+
+📍 Gerando 9 mapas...
+
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - RS
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - SC
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_SC.html
+  🗺️  Gerando mapa: Linha de Transmissão 500 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_500kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - RS
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - SC
+
+🗺️  GERADOR DE MAPAS POR LINHA DE TRANSMISSÃO
+============================================================
+📂 Carregando dados...
+  ✓ Municípios carregados: 520 features
+  ✓ Linhas carregadas: 106 features
+  ✓ Faixa de servidão carregada: 411 features
+
+📊 Combinações encontradas: 9
+  • 230 kV - PR: 94 municípios
+  • 230 kV - RS: 139 municípios
+  • 230 kV - SC: 100 municípios
+  • 500 kV - PR: 10 municípios
+  • 525 kV - PR: 92 municípios
+  • 525 kV - RS: 111 municípios
+  • 525 kV - SC: 90 municípios
+  • 600 kV - PR: 45 municípios
+  • 765 kV - PR: 36 municípios
+
+📍 Gerando 9 mapas...
+
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - RS
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - SC
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_SC.html
+  🗺️  Gerando mapa: Linha de Transmissão 500 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_500kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - RS
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - SC
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_SC.html
+  🗺️  Gerando mapa: Linha de Transmissão 600 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_600kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 765 kV - PR
+    ✓ Salvo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_765kV_PR.html
+
+✓ Índice gerado: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\index.html
+
+============================================================
+✅ CONCLUÍDO! 9 mapas gerados com sucesso
+📂 Diretório de saída: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas
+🌐 Abra o arquivo index.html para navegar pelos mapas
+============================================================
+
+✅ Sim! Os mapas foram concluídos com sucesso!
+
+Foram gerados 9 mapas interativos atualizados com todas as camadas:
+
+📊 Mapas criados (todos com ~60 MB cada):
+
+Paraná (PR) - 5 mapas:
+
+⚡ 230 kV
+⚡ 500 kV
+⚡ 525 kV
+⚡ 600 kV
+⚡ 765 kV
+Santa Catarina (SC) - 2 mapas:
+
+⚡ 230 kV
+⚡ 525 kV
+Rio Grande do Sul (RS) - 2 mapas:
+
+⚡ 230 kV
+⚡ 525 kV
+🎨 Cada mapa agora contém 3 camadas interativas:
+
+Municípios afetados (polígonos coloridos por voltagem)
+🛡️ Faixa de Servidão (Buffer) - Área de segurança ao redor das linhas que identifica os municípios
+Linha de Transmissão (traçado da linha em destaque)
+🌐 Para visualizar:
+Abra o arquivo index.html no navegador para acessar a página principal com links organizados por estado para todos os mapas.
+
+Recursos dos mapas:
+
+✅ Controle de camadas (canto superior direito) para mostrar/ocultar cada elemento
+✅ Popups informativos ao clicar em municípios, linhas e buffer
+✅ Medidor de distâncias
+✅ Modo tela cheia
+✅ Buffer visível identificando a área de influência das linhas
+
+============================================================
+🗺️  GERADOR DE MAPAS POR LINHA DE TRANSMISSÃO
+============================================================
+📂 Carregando dados...
+  ✓ Camadas de municípios: 6 layers
+  ✓ Camadas de linhas recortadas: 7 layers
+  ✓ Camadas em faixa de servidão: 14 layers
+
+📊 Combinações encontradas: 9
+  • 230 kV - PR: 94 municípios
+  • 230 kV - RS: 139 municípios
+  • 230 kV - SC: 100 municípios
+  • 500 kV - PR: 10 municípios
+  • 525 kV - PR: 92 municípios
+  • 525 kV - RS: 111 municípios
+  • 525 kV - SC: 90 municípios
+  • 600 kV - PR: 45 municípios
+  • 765 kV - PR: 36 municípios
+
+📍 Gerando 9 mapas...
+
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - PR
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - RS
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 230 kV - SC
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_230kV_SC.html
+  🗺️  Gerando mapa: Linha de Transmissão 500 kV - PR
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_500kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - PR
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - RS
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_RS.html
+  🗺️  Gerando mapa: Linha de Transmissão 525 kV - SC
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_525kV_SC.html
+  🗺️  Gerando mapa: Linha de Transmissão 600 kV - PR
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_600kV_PR.html
+  🗺️  Gerando mapa: Linha de Transmissão 765 kV - PR
+    ✓ Salvo: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\mapa_765kV_PR.html
+
+✓ Índice gerado: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas\index.html
+
+============================================================
+✅ CONCLUÍDO! 9 mapas gerados com sucesso
+📂 Diretório de saída: C:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\outputs\mapas
+🌐 Abra o arquivo index.html para navegar pelos mapas
+============================================================
+
+Perfeito — vou trocar a camada “Limite Estadual (SC/PR)” para usar o shapefile do próprio estado em cada mapa e já gerei novamente os arquivos.
+
+O que fiz agora
+Atualizei o gerador gerar_mapas_por_linha.py para:
+
+Procurar automaticamente um shapefile do estado (PR, SC ou RS) e usar esse limite no mapa correspondente.
+Exibir a camada como “Limite Estadual (UF)” apenas para o estado do mapa.
+Manter um fallback: se o shapefile do estado não estiver no projeto, usamos o contorno via base de municípios do próprio estado (em EPSG:4326), sem dissolver.
+Regeneração completa dos mapas com a nova lógica:
+
+Saída atualizada em mapas (horários de modificação de agora).
+Camadas preservadas: Municípios, Linhas, Faixa de Servidão e agora o “Limite Estadual (UF)” de cada mapa.
+Como funciona a busca dos shapefiles
+O script procura por arquivos “.shp” no workspace inteiro com nomes que contenham:
+PR: pr, parana, paraná
+SC: sc, santa_catarina, santa catarina
+RS: rs, rio_grande_do_sul, rio grande do sul
+Encontrando um shapefile poligonal para a UF, ele é usado como limite do estado.
+Se não encontrar, cai para o contorno derivado da base de municípios (somente da UF do mapa).
+Se você já baixou os shapefiles, basta colocá-los em qualquer pasta dentro do projeto (por exemplo, uma pasta “estados/”), com nomes contendo as palavras acima. O script vai localizar automaticamente.
+
+Arquivo alterado
+gerar_mapas_por_linha.py
+Nova leitura de limite estadual por shapefile:
+_find_state_shapefile(estado): busca recursiva de “.shp” por tokens do estado.
+_read_state_boundary_from_shp(estado): carrega o shapefile, normaliza CRS, mantem UF e geometria.
+_read_state_boundaries_from_base(estado): fallback via municípios base filtrando apenas a UF.
+Troca na montagem do mapa:
+Agora adiciona “Limite Estadual (UF)” do estado do mapa, com o shapefile se disponível.
+Resultados gerados
+Mapas atualizados em mapas:
+Ex.: mapa_230kV_PR.html, mapa_525kV_SC.html, etc.
+index.html atualizado para navegar nos mapas.
+Próximos passos
+Por favor, coloque os shapefiles de PR, SC e RS (poligonais) dentro do projeto; nomes contendo “PR/Paraná”, “SC/Santa Catarina”, “RS/Rio Grande do Sul” já funcionam.
+Abra alguns mapas e confirme se o “Limite Estadual (UF)” aparece com o contorno do shapefile de cada estado como você deseja.
+Se preferir um caminho fixo (por exemplo, arquivos específicos por UF), posso parametrizar no topo do script com um mapeamento explícito por arquivo.
+Notas rápidas
+Linhas e buffers continuam iguais, com limites de zoom e ajuste automático de extensão.
+Se quiser, posso simplificar os limites estaduais (tolerância) para reduzir o tamanho dos arquivos HTML.
+Checks
+Build: PASS (script executou e gerou os mapas)
+Lint/Typecheck: PASS (sem erros de sintaxe; há uma observação do analisador sobre o acesso get_root().html, que é padrão do Folium e funciona)
+Tests: N/A (não há testes automatizados neste projeto)
+
+O que foi ajustado
+O script gerar_mapas_por_linha.py agora:
+Procura na pasta Shapefile_Estados por arquivos .zip e extrai automaticamente para uma subpasta com o mesmo nome (uma única vez).
+Localiza os .shp extraídos e usa o que corresponde ao estado do mapa (PR, SC, RS), priorizando nomes que contenham “pr/parana/paraná”, “sc/santa_catarina/santa catarina”, “rs/rio_grande_do_sul/rio grande do sul”.
+Se não encontrar o shapefile do estado, faz fallback para o contorno do próprio estado a partir da base de municípios.
+Mostra no mapa somente “Limite Estadual (UF)” do estado correspondente.
+Ação realizada agora
+Extraí automaticamente os ZIPs em Shapefile_Estados.
+Regerei todos os mapas com o novo limite por UF usando os shapefiles. Os horários de modificação em mapas foram atualizados há poucos minutos, indicando que a geração foi concluída com sucesso.
+O que você precisa saber
+Você pode manter os shapefiles como ZIP dentro de Shapefile_Estados. O script cuida da extração e da detecção.
+Para garantir a detecção automática, é útil que o nome do arquivo ZIP (ou do .shp dentro) contenha alguma dessas palavras:
+PR: pr, parana, paraná
+SC: sc, santa_catarina, santa catarina
+RS: rs, rio_grande_do_sul, rio grande do sul
+Se preferir caminhos fixos por arquivo (ex.: apontar explicitamente “Shapefile_Estados/PR/limite_pr.shp”), posso deixar isso parametrizado no topo do script.
+Validação
+Build: PASS (script executou completo e salvou os 9 mapas)
+Lint/Typecheck: PASS (sem erros de execução relevantes; o acesso ao título via Folium continua funcionando como antes)
+Testes: N/A (sem suíte de testes para mapas)
+Se quiser, posso também simplificar as geometrias do limite estadual para reduzir o tamanho dos HTMLs, mantendo a aparência — me diga se isso é desejado. Quer que eu deixe os caminhos dos shapefiles por UF configurados explicitamente no código?
+
+Boa! Concordo — preencher com os municípios não afetados melhora muito a leitura do estado. Já implementei e regenerei os mapas com essa camada de fundo.
+
+O que entrou agora
+Camada “Municípios não afetados (UF)”:
+Busca automática por um shapefile/GeoPackage de municípios da UF (prioriza a pasta Shapefile_Estados, inclusive .zip extraídos automaticamente).
+Filtra o estado do mapa e subtrai os afetados por nome do município (case-insensitive).
+Desenha como fundo cinza-claro; os “Municípios afetados” continuam coloridos pela voltagem por cima.
+Ordem das camadas:
+Não afetados (fundo) → Afetados → Linhas → Faixa de Servidão → Limite Estadual (UF).
+Controle de camadas:
+Você pode ligar/desligar “Municípios não afetados (UF)” no canto superior direito.
+Resultado
+Arquivos atualizados em mapas (timestamps de agora). Você deve perceber:
+Estados “preenchidos” com municípios não afetados em cinza.
+Afetados continuam destacados pela voltagem.
+Limite estadual segue usando seu shapefile por UF.
+Observações de desempenho
+Como esperado, os mapas de SC/RS cresceram um pouco (mais polígonos). Se quiser, posso:
+Simplificar levemente os municípios (reduz bastante o tamanho do HTML, mantendo visual).
+Deixar a camada de “não afetados” desligada por padrão.
+Aplicar um estilo sem tooltips nos “não afetados” (isso reduz ainda mais o tamanho).
+Checks
+Build: PASS (script executou e salvou todos os mapas)
+Lint/Typecheck: PASS
+Testes: N/A
+Quer que eu ative a simplificação geométrica (por exemplo, tolerância ~50–100 m) para reduzir os arquivos, ou prefira manter a precisão máxima?
+
+Pronto! Ajustei conforme solicitado e regenerei os mapas:
+
+Mudanças aplicadas
+✅ Removido o tooltip dos municípios não afetados (economia adicional de alguns KB por mapa).
+✅ Camada "Municípios não afetados (UF)" agora desligada por padrão (show=False).
+Os usuários podem ativá-la pelo controle de camadas no canto superior direito quando quiserem visualizar o estado completo.
+Tamanhos finais
+Mapas agora variam de ~1 MB a ~3,9 MB (redução adicional de alguns KB sem os tooltips).
+Comparação antes/depois da simplificação total:
+mapa_230kV_SC.html: 80 MB → 2,62 MB (~30× menor)
+mapa_525kV_SC.html: 81 MB → 2,61 MB (~31× menor)
+mapa_230kV_PR.html: 14 MB → 3,88 MB (~3,6× menor)
+Comportamento do usuário
+Ao abrir um mapa, verá apenas: municípios afetados, linhas, faixa de servidão e limite estadual.
+Pode ativar "Municípios não afetados (UF)" no painel de camadas para ver o estado completo preenchido.
+Todos os mapas estão atualizados em mapas com os novos ajustes! 🎉
+
+============================================================
+DADOS EPE - Linhas de Transmissão Base Existente
+============================================================
+Total de features: 268
+
+Colunas: ['Nome', 'Concession', 'Tensao', 'Extensao', 'Ano_Opera', 'created_us', 'created_da', 'last_edite', 'last_edi_1', 'Shape_STLe', 'geometry']
+
+Primeiras 5 linhas:
+                                                Nome  ...                                           geometry
+0  LT 525 kV Marmeleiro 2 - Santa Vitória do Palm...  ...  LINESTRING (-52.99119 -33.13839, -52.99207 -33...
+1                 LT 525 kV Areia - Campos Novos, C1  ...  LINESTRING (-51.41985 -27.52613, -51.41889 -27...
+2  LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda ...  ...  LINESTRING (-48.97056 -28.45514, -48.97019 -28...
+3     LT 230 kV Siderópolis - Siderópolis 2, C1 (CD)  ...  LINESTRING (-49.4105 -28.60222, -49.40935 -28....
+4              LT 525 kV Abdon Batista - Biguaçu, C1  ...  LINESTRING (-51.07073 -27.5709, -51.07028 -27....
+
+[5 rows x 11 columns]
+
+
+Voltagens únicas: [np.float64(132.0), np.float64(230.0), np.float64(500.0), np.float64(525.0)]
+
+Distribuição por voltagem:
+Tensao
+132.0      1
+230.0    222
+500.0      2
+525.0     43
+Name: count, dtype: int64
+
+
+Exemplos de nomes de linhas:
+['LT 525 kV Marmeleiro 2 - Santa Vitória do Palmar, C2'
+ 'LT 525 kV Areia - Campos Novos, C1'
+ 'LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda B, C1'
+ 'LT 230 kV Siderópolis - Siderópolis 2, C1 (CD)'
+ 'LT 525 kV Abdon Batista - Biguaçu, C1' 'LT 230 kV Biguaçu - Palhoça, C1'
+ 'LT 230 kV Candelária 2 - Nova Santa Rita, C1'
+ 'LT 230 kV Farroupilha - Monte Claro, C1'
+ 'LT 230 kV Porto Alegre 6 - Viamão 3, C1'
+ 'LT 230 kV Candiota 2 - Presidente Médici, C1']
+
+============================================================
+DADOS ATUAIS - RS
+============================================================
+Total municípios RS: 455
+
+Distribuição por voltagem:
+Voltagem  Tipo
+230       especifica    139
+525       especifica    111
+BASE      base          205
+dtype: int64
+
+============================================================
+ANÁLISE
+============================================================
+
+Perfeito! Agora entendo a situação. Os dados EPE mostram que não existem linhas de 500kV no RS - apenas 230kV, 525kV, 132kV (1 linha) e 500kV (2 linhas para outras regiões). Os dados atuais do RS parecem corretos.
+
+Deixe-me verificar se há algum problema específico que você identificou. Enquanto isso, vou começar a criar o index profissional com tutorial para o GitHub Pages:

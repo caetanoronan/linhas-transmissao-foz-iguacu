@@ -18,6 +18,7 @@ BASE_DIR = Path(__file__).parent
 OUT_DIR = BASE_DIR / 'outputs' / 'mapas'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 ESTADOS_DIR = BASE_DIR / 'Shapefile_Estados'
+RS_DIR = BASE_DIR / 'RS'
 
 # Arquivos de entrada
 CONSOLIDADO_CSV = BASE_DIR / 'dados_consolidados.csv'
@@ -25,6 +26,11 @@ MUNICIPIOS_GPKG = BASE_DIR / 'municipios_afetados_por_layer.gpkg'
 LINHAS_GPKG = BASE_DIR / 'linhas_recortadas.gpkg'
 FAIXA_SERVIDAO_GPKG = BASE_DIR / 'faixa_servidao.gpkg'
 LINHAS_RS_GPKG = BASE_DIR / 'Linha_trans_RS.gpkg'
+RS_MUNS_SHP = RS_DIR / 'municipios_afetados_linhas_transmissao.shp'
+RS_LINHAS_GPKG = RS_DIR / 'Linha_trans_RS.gpkg'
+RS_MUNS_GPKG = RS_DIR / 'municipios_afetados_linhas_transmissao.gpkg'
+RS_MUNS_CSV = RS_DIR / 'Municipios_afetas_linhas.csv'
+RS_MUNS_VOLTAGEM_CSV = RS_DIR / 'Municipios_afetas_linhas_por_voltagem.csv'
 
 # Cores por voltagem
 CORES_VOLTAGEM = {
@@ -74,7 +80,107 @@ def carregar_dados():
 
 
 def _read_municipios_layer(voltagem: str, estado: str):
-    """Lê a camada de municípios para a voltagem e filtra por UF do estado."""
+    """Lê a camada de municípios para a voltagem e filtra por UF do estado.
+    Para RS: usa o shapefile RS de municípios como base e calcula os afetados por interseção com as linhas do RS daquela voltagem (com pequeno buffer).
+    """
+    # Caso especial RS: usar shapefile base e calcular afetados via linhas
+    if estado.upper() == 'RS' and (RS_MUNS_GPKG.exists() or RS_MUNS_SHP.exists()):
+        try:
+            # Preferir GPKG de municípios; fallback para SHP
+            if RS_MUNS_GPKG.exists():
+                # descobrir primeira layer poligonal
+                try:
+                    layers = fiona.listlayers(str(RS_MUNS_GPKG))
+                except Exception:
+                    layers = []
+                muns_rs = None
+                for lyr in layers:
+                    try:
+                        tmp = gpd.read_file(RS_MUNS_GPKG, layer=lyr)
+                        if not tmp.empty and tmp.geom_type.astype(str).str.contains('Polygon', case=False).any():
+                            muns_rs = tmp
+                            break
+                    except Exception:
+                        continue
+                if muns_rs is None:
+                    # tentativa direta (caso tenha única layer)
+                    muns_rs = gpd.read_file(RS_MUNS_GPKG)
+            else:
+                muns_rs = gpd.read_file(RS_MUNS_SHP)
+            if muns_rs.crs and muns_rs.crs.to_epsg() != 4326:
+                try:
+                    muns_rs = muns_rs.to_crs(epsg=4326)
+                except Exception:
+                    pass
+            # padroniza colunas
+            if 'NM_MUN' not in muns_rs.columns:
+                for c in ['NOME_MUNI', 'MUNIC', 'NM_MUNIC', 'NM_MUNICIP', 'NM_MUNICIPIO']:
+                    if c in muns_rs.columns:
+                        muns_rs = muns_rs.rename(columns={c: 'NM_MUN'})
+                        break
+                if 'NM_MUN' not in muns_rs.columns:
+                    muns_rs['NM_MUN'] = [f'MUN_{i}' for i in range(len(muns_rs))]
+            muns_rs = muns_rs.copy()
+            muns_rs['UF'] = 'RS'
+            try:
+                muns_rs = muns_rs[['NM_MUN', 'UF', 'geometry']]
+            except Exception:
+                muns_rs = gpd.GeoDataFrame(muns_rs[['geometry']]).assign(UF='RS', NM_MUN=[f'MUN_{i}' for i in range(len(muns_rs))])
+
+            # Para RS: prioriza CSV manual de municípios afetados com filtro por voltagem
+            try:
+                # Tenta CSV com voltagem (prioridade)
+                csv_path = RS_MUNS_VOLTAGEM_CSV if RS_MUNS_VOLTAGEM_CSV.exists() else RS_MUNS_CSV
+                if csv_path.exists():
+                    dfm = pd.read_csv(csv_path)
+                    if 'NM_MUN' in dfm.columns:
+                        # Filtrar por voltagem se coluna existir
+                        if 'Voltagem' in dfm.columns and RS_MUNS_VOLTAGEM_CSV.exists():
+                            # Normalizar voltagem (remover .0 se for numérico)
+                            dfm['Voltagem'] = dfm['Voltagem'].astype(str).str.replace('.0', '', regex=False)
+                            # Filtrar pela voltagem pedida
+                            dfm_volt = dfm[dfm['Voltagem'] == str(voltagem)]
+                            if not dfm_volt.empty:
+                                csv_names = set(dfm_volt['NM_MUN'].dropna().astype(str).str.upper().unique().tolist())
+                            else:
+                                csv_names = set()
+                        else:
+                            # CSV sem voltagem: usar todos
+                            csv_names = set(dfm['NM_MUN'].dropna().astype(str).str.upper().unique().tolist())
+                        
+                        if csv_names:
+                            sel = muns_rs[muns_rs['NM_MUN'].astype(str).str.upper().isin(csv_names)][['NM_MUN', 'UF', 'geometry']]
+                            if sel is not None and not sel.empty:
+                                return sel
+            except Exception:
+                pass
+            
+            # Fallback: cálculo espacial (só se CSV não existir ou falhar)
+            linhas_rs = _read_lines_layer(voltagem, 'RS')
+            if linhas_rs is None or linhas_rs.empty:
+                return muns_rs.iloc[0:0]
+            buf_rs = _make_buffer(linhas_rs, voltagem) or linhas_rs
+            try:
+                idx = muns_rs.sindex
+                cand_idx = idx.query((buf_rs if isinstance(buf_rs, gpd.GeoDataFrame) else linhas_rs).geometry.unary_union, predicate='intersects')
+                cand = muns_rs.iloc[cand_idx]
+            except Exception:
+                cand = muns_rs
+            try:
+                alvo = buf_rs if isinstance(buf_rs, gpd.GeoDataFrame) else linhas_rs
+                alvo_geo = alvo[['geometry']]
+                join_df = gpd.sjoin(cand, alvo_geo, how='inner', predicate='intersects')
+                if join_df is not None and not join_df.empty:
+                    nomes = set(join_df['NM_MUN'].astype(str).str.upper().unique())
+                    sel = muns_rs[muns_rs['NM_MUN'].astype(str).str.upper().isin(nomes)][['NM_MUN', 'UF', 'geometry']]
+                    return sel
+            except Exception:
+                pass
+            return muns_rs
+        except Exception:
+            # se algo falhar, continua com a lógica original
+            pass
+
     layer_name = f"municipios_afetados_linha_trans_{voltagem}"
     if not MUNICIPIOS_GPKG.exists():
         return None
@@ -112,31 +218,52 @@ def _read_lines_layer(voltagem: str, estado: str):
     3) fallback: faixa_servidao.gpkg layer linha_transmissao_{voltagem} e recorta pelos municípios do estado
     """
     # 1) RS tem arquivo dedicado
-    if estado == 'RS' and LINHAS_RS_GPKG.exists():
-        try:
-            gdf = gpd.read_file(LINHAS_RS_GPKG, layer='linhas_de_transmisso__base_existente')
-            if 'Tensao' in gdf.columns:
-                # filtrar por voltagem
-                volt_num = float(voltagem)
-                gdf = gdf[gdf['Tensao'] == volt_num].copy()
-            if gdf.empty:
-                gdf = None
-            else:
-                # garantir WGS84
+    if estado == 'RS':
+        # prioriza o GPKG dentro da pasta RS (não o arquivo -shm)
+        gpkg_candidates = [p for p in [RS_LINHAS_GPKG, LINHAS_RS_GPKG] if p.exists()]
+        for gpkg_path in gpkg_candidates:
+            try:
+                # descobrir layer linear
+                try:
+                    layers = fiona.listlayers(str(gpkg_path))
+                except Exception:
+                    layers = []
+                layer_to_use = None
+                for lyr in layers:
+                    try:
+                        tmp = gpd.read_file(gpkg_path, layer=lyr)
+                        # procura layer de linhas
+                        if not tmp.empty and tmp.geom_type.astype(str).str.contains('Line', case=False).any():
+                            layer_to_use = lyr
+                            break
+                    except Exception:
+                        continue
+                if layer_to_use is None and layers:
+                    layer_to_use = layers[0]
+                if layer_to_use is None:
+                    continue
+                gdf = gpd.read_file(gpkg_path, layer=layer_to_use)
+                # filtrar por voltagem se existir coluna
+                for c in ['Tensao', 'tensao', 'Tensao_kV', 'kV', 'KV']:
+                    if c in gdf.columns:
+                        try:
+                            volt_num = float(voltagem)
+                            gdf = gdf[gdf[c].astype(float) == volt_num].copy()
+                        except Exception:
+                            pass
+                        break
+                if gdf is None or gdf.empty:
+                    continue
                 if gdf.crs and gdf.crs.to_epsg() != 4326:
                     try:
                         gdf = gdf.to_crs(epsg=4326)
                     except Exception:
                         pass
-                # manter apenas colunas necessárias
                 cols = [c for c in ['Nome'] if c in gdf.columns]
-                if cols:
-                    gdf = gdf[cols + ['geometry']]
-                else:
-                    gdf = gdf[['geometry']]
+                gdf = gdf[cols + ['geometry']] if cols else gdf[['geometry']]
                 return gdf
-        except Exception:
-            pass
+            except Exception:
+                continue
     
     # 2) tenta layer específica por estado
     layer_state = f"linha_trans_{voltagem}_{estado}"
@@ -554,7 +681,40 @@ def adicionar_camadas(mapa, gdf_municipios, gdf_linhas, gdf_buffer, voltagem, es
     gdf_mun_filtrado = _read_municipios_layer(voltagem, estado)
 
     # Municípios não afetados (fundo), se camada completa existir
-    gdf_all_muns = _read_all_municipios_for_state(estado)
+    # Para RS: usar diretamente o GPKG de municípios
+    if estado.upper() == 'RS' and RS_MUNS_GPKG.exists():
+        try:
+            # Ler todos os municípios do RS do GPKG
+            try:
+                layers = fiona.listlayers(str(RS_MUNS_GPKG))
+            except Exception:
+                layers = []
+            gdf_all_muns = None
+            for lyr in layers:
+                try:
+                    tmp = gpd.read_file(RS_MUNS_GPKG, layer=lyr)
+                    if not tmp.empty and tmp.geom_type.astype(str).str.contains('Polygon', case=False).any():
+                        gdf_all_muns = tmp
+                        break
+                except Exception:
+                    continue
+            if gdf_all_muns is None:
+                gdf_all_muns = gpd.read_file(RS_MUNS_GPKG)
+            
+            # Normalizar CRS e colunas
+            if gdf_all_muns.crs and gdf_all_muns.crs.to_epsg() != 4326:
+                gdf_all_muns = gdf_all_muns.to_crs(epsg=4326)
+            if 'NM_MUN' not in gdf_all_muns.columns:
+                for c in ['NOME_MUNI', 'MUNIC', 'NM_MUNIC', 'NM_MUNICIPIO']:
+                    if c in gdf_all_muns.columns:
+                        gdf_all_muns = gdf_all_muns.rename(columns={c: 'NM_MUN'})
+                        break
+            gdf_all_muns['UF'] = 'RS'
+        except Exception:
+            gdf_all_muns = None
+    else:
+        gdf_all_muns = _read_all_municipios_for_state(estado)
+    
     if (gdf_all_muns is not None) and (not gdf_all_muns.empty):
         try:
             # alinhar nomes

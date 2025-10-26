@@ -1,0 +1,303 @@
+MUNICÍPIOS DO RS AFETADOS POR LINHAS DE TRANSMISSÃO
+======================================================================
+
+Total: 298 municípios
+
+  • Aceguá
+  • Agudo
+  • Alegrete
+  • Alegria
+  • Alto Alegre
+  • Alto Feliz
+  • Alvorada
+  • Amaral Ferrador
+  • Antônio Prado
+  • Araricá
+  • Arroio Grande
+  • Arroio do Tigre
+  • Arroio dos Ratos
+  • Bagé
+  • Balneário Pinhal
+  • Barra do Ribeiro
+  • Barracão
+  • Barros Cassal
+  • Barão
+  • Barão de Cotegipe
+  • Barão do Triunfo
+  • Bento Gonçalves
+  • Boa Vista das Missões
+  • Boa Vista do Cadeado
+  • Boa Vista do Incra
+  • Boa Vista do Sul
+  • Bom Princípio
+  • Bom Retiro do Sul
+  • Boqueirão do Leão
+  • Bossoroca
+  • Braga
+  • Brochier
+  • Cacequi
+  • Cachoeira do Sul
+  • Cachoeirinha
+  • Caibaté
+  • Camaquã
+  • Cambará do Sul
+  • Campestre da Serra
+  • Campinas do Sul
+  • Campo Bom
+  • Campo Novo
+  • Campos Borges
+  • Candelária
+  • Candiota
+  • Canguçu
+  • Canoas
+  • Capela de Santana
+  • Capivari do Sul
+  • Capão Bonito do Sul
+  • Capão da Canoa
+  • Capão do Leão
+  • Carlos Barbosa
+  • Casca
+  • Caseiros
+  • Catuípe
+  • Caxias do Sul
+  • Cerrito
+  • Cerro Grande
+  • Cerro Grande do Sul
+  • Cerro Largo
+  • Charqueadas
+  • Charrua
+  • Chiapetta
+  • Chuvisca
+  • Cidreira
+  • Ciríaco
+  • Colinas
+  • Coronel Barros
+  • Coronel Bicaco
+  • Coronel Pilar
+  • Cotiporã
+  • Coxilha
+  • Cristal
+  • Cruz Alta
+  • Cruzaltense
+  • Cruzeiro do Sul
+  • David Canabarro
+  • Dezesseis de Novembro
+  • Dilermando de Aguiar
+  • Dois Irmãos
+  • Dois Irmãos das Missões
+  • Dois Lajeados
+  • Dom Feliciano
+  • Dom Pedrito
+  • Dom Pedro de Alcântara
+  • Dona Francisca
+  • Eldorado do Sul
+  • Encruzilhada do Sul
+  • Entre Rios do Sul
+  • Entre-Ijuís
+  • Erebango
+  • Erechim
+  • Ernestina
+  • Erval Seco
+  • Esmeralda
+  • Espumoso
+  • Estação
+  • Esteio
+  • Estrela
+  • Estrela Velha
+  • Estância Velha
+  • Eugênio de Castro
+  • Fagundes Varela
+  • Farroupilha
+  • Faxinal do Soturno
+  • Feliz
+  • Flores da Cunha
+  • Floriano Peixoto
+  • Fortaleza dos Valos
+  • Garibaldi
+  • Garruchos
+  • General Câmara
+  • Gentil
+  • Getúlio Vargas
+  • Giruá
+  • Glorinha
+  • Gramado
+  • Gramado Xavier
+  • Gravataí
+  • Guabiju
+  • Guaporé
+  • Guarani das Missões
+  • Guaíba
+  • Herval
+  • Hulha Negra
+  • Ibarama
+  • Igrejinha
+  • Ijuí
+  • Imigrante
+  • Independência
+  • Ipê
+  • Itaara
+  • Itacurubi
+  • Itaqui
+  • Ivorá
+  • Ivoti
+  • Jaboticaba
+  • Jacuizinho
+  • Jacutinga
+  • Jaquirana
+  • Jóia
+  • Júlio de Castilhos
+  • Lagoa Vermelha
+  • Lagoa dos Três Cantos
+  • Lagoão
+  • Lajeado
+  • Lajeado do Bugre
+  • Liberato Salzano
+  • Linha Nova
+  • Machadinho
+  • Marau
+  • Mariana Pimentel
+  • Mato Castelhano
+  • Mato Leitão
+  • Mato Queimado
+  • Maçambará
+  • Montauri
+  • Monte Belo do Sul
+  • Montenegro
+  • Morro Reuter
+  • Muitos Capões
+  • Muçum
+  • Nova Araçá
+  • Nova Bassano
+  • Nova Hartz
+  • Nova Palma
+  • Nova Petrópolis
+  • Nova Prata
+  • Nova Ramada
+  • Nova Roma do Sul
+  • Nova Santa Rita
+  • Novo Hamburgo
+  • Novo Tiradentes
+  • Não-Me-Toque
+  • Osório
+  • Palmares do Sul
+  • Palmeira das Missões
+  • Paraí
+  • Pareci Novo
+  • Parobé
+  • Passa Sete
+  • Passo Fundo
+  • Passo do Sobrado
+  • Paulo Bento
+  • Paverama
+  • Pedras Altas
+  • Pedro Osório
+  • Pelotas
+  • Picada Café
+  • Pinhal
+  • Pinhal Grande
+  • Pinhal da Serra
+  • Pinheiro Machado
+  • Pinto Bandeira
+  • Piratini
+  • Pontão
+  • Porto Alegre
+  • Portão
+  • Poço das Antas
+  • Presidente Lucena
+  • Quaraí
+  • Quatro Irmãos
+  • Quevedos
+  • Redentora
+  • Rio Grande
+  • Rio Pardo
+  • Roca Sales
+  • Rolador
+  • Rosário do Sul
+  • Salto do Jacuí
+  • Salvador do Sul
+  • Sant'Ana do Livramento
+  • Santa Cecília do Sul
+  • Santa Clara do Sul
+  • Santa Cruz do Sul
+  • Santa Maria
+  • Santa Maria do Herval
+  • Santa Rosa
+  • Santa Tereza
+  • Santa Vitória do Palmar
+  • Santana da Boa Vista
+  • Santo Antônio da Patrulha
+  • Santo Antônio das Missões
+  • Santo Antônio do Palma
+  • Santo Augusto
+  • Santo Ângelo
+  • Sapiranga
+  • Sapucaia do Sul
+  • Seberi
+  • Sentinela do Sul
+  • Serafina Corrêa
+  • Sertão
+  • Sertão Santana
+  • Sete de Setembro
+  • Silveira Martins
+  • Sinimbu
+  • Sobradinho
+  • Soledade
+  • São Borja
+  • São Domingos do Sul
+  • São Francisco de Paula
+  • São Gabriel
+  • São Jerônimo
+  • São Jorge
+  • São José do Hortêncio
+  • São José do Inhacorá
+  • São José do Sul
+  • São José dos Ausentes
+  • São Leopoldo
+  • São Lourenço do Sul
+  • São Luiz Gonzaga
+  • São Martinho
+  • São Martinho da Serra
+  • São Miguel das Missões
+  • São Nicolau
+  • São Pedro da Serra
+  • São Pedro do Sul
+  • São Sebastião do Caí
+  • São Vendelino
+  • São Vicente do Sul
+  • Sério
+  • Tabaí
+  • Tapejara
+  • Tapera
+  • Taquara
+  • Taquari
+  • Terra de Areia
+  • Teutônia
+  • Torres
+  • Trindade do Sul
+  • Triunfo
+  • Três Cachoeiras
+  • Três Coroas
+  • Três Forquilhas
+  • Três de Maio
+  • Tunas
+  • Tupanciretã
+  • Turuçu
+  • União da Serra
+  • Uruguaiana
+  • Vale Real
+  • Vale Verde
+  • Vale do Sol
+  • Venâncio Aires
+  • Vera Cruz
+  • Veranópolis
+  • Vespasiano Corrêa
+  • Viamão
+  • Victor Graeff
+  • Vila Flores
+  • Vila Lângaro
+  • Vila Maria
+  • Vista Alegre do Prata
+  • Vitória das Missões
+  • Westfália
+  • Xangri-lá
+  • Água Santa

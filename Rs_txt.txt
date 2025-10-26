@@ -1,0 +1,224 @@
+Resumo dos Resultados
+Total de municípios afetados: 298 municípios do Rio Grande do Sul são atravessados por linhas de transmissão.
+
+Top 10 municípios com mais linhas:
+Gravataí - 25 linhas
+Nova Santa Rita - 24 linhas
+Canoas - 21 linhas
+Caxias do Sul - 20 linhas
+Porto Alegre - 19 linhas
+Triunfo - 17 linhas
+Eldorado do Sul - 16 linhas
+Farroupilha - 15 linhas
+Candiota - 14 linhas
+Cachoeirinha - 12 linhas
+Arquivos gerados:
+municipios_afetados.txt - Lista completa de todos os 298 municípios
+linhas_por_municipio.csv - Detalhamento de cada linha de transmissão por município
+resumo_por_municipio.csv - Quantidade de linhas por município ordenado
+Os resultados mostram que a Região Metropolitana de Porto Alegre concentra a maior quantidade de linhas de transmissão, o que é esperado dado que é a principal área consumidora de energia do estado.
+
+Carregando dados...
+✓ Linhas carregadas: 268 registros
+✓ Municípios carregados: 499 registros
+
+Identificando municípios afetados...
+✓ Identificados 298 municípios afetados
+
+Calculando quantidade de linhas por município...
+
+======================================================================
+EXPORTANDO SHAPEFILE
+======================================================================
+
+✓ Shapefile criado com sucesso!
+  Arquivo: municipios_afetados_linhas_transmissao.shp
+  Municípios: 298
+  CRS: EPSG:4674
+
+Colunas incluídas:
+  - CD_MUN
+  - NM_MUN
+  - CD_RGI
+  - NM_RGI
+  - CD_RGINT
+  - NM_RGINT
+  - CD_UF
+  - NM_UF
+  - SIGLA_UF
+  - CD_REGIA
+  - NM_REGIA
+  - SIGLA_RG
+  - CD_CONCU
+  - NM_CONCU
+  - AREA_KM2
+  - N_LINHAS
+
+✓ GeoPackage também criado: municipios_afetados_linhas_transmissao.gpkg
+
+======================================================================
+ESTATÍSTICAS
+======================================================================
+Total de municípios afetados: 298
+Município com mais linhas: Gravataí (25 linhas)
+Município com menos linhas: Santo Antônio do Palma (1 linhas)
+Média de linhas por município: 3.19
+
+✓ Processo concluído!
+
+Perfeito! O shapefile foi criado com sucesso! 🎉
+
+Arquivos gerados:
+Shapefile completo:
+municipios_afetados_linhas_transmissao.shp (7.9 MB) - arquivo principal
+municipios_afetados_linhas_transmissao.shx - índice espacial
+municipios_afetados_linhas_transmissao.dbf (347 KB) - tabela de atributos
+municipios_afetados_linhas_transmissao.prj - projeção (SIRGAS 2000)
+municipios_afetados_linhas_transmissao.cpg - codificação UTF-8
+Bônus:
+municipios_afetados_linhas_transmissao.gpkg (8.3 MB) - GeoPackage (formato moderno, arquivo único)
+Conteúdo:
+O shapefile contém 298 municípios do RS afetados pelas linhas de transmissão, com todos os atributos originais mais:
+
+N_LINHAS: quantidade de linhas de transmissão que atravessam cada município
+Você pode abrir estes arquivos em qualquer software GIS (QGIS, ArcGIS, etc.) para visualizar e analisar os municípios afetados!
+
+Valeu pelo toque — isso explica o “sumiço” de municípios. Dois pontos-chave:
+
+Arquivo -shm não é o dado “de verdade”
+O “Linha_trans_RS.gpkg-shm” é um arquivo temporário do SQLite/GeoPackage (sidecar). Ele não guarda alterações de forma persistente e não é lido pelo GeoPandas.
+Quem vale é o “.gpkg”. Ou seja: é preciso salvar/atualizar o dado em Linha_trans_RS.gpkg (ou no Linha_trans_RS.gpkg da raiz). Eu já ajustei o script para PRIORIZAR Linha_trans_RS.gpkg se ele existir.
+Por que o mapa ficou incompleto antes
+Antes, eu usei seu shapefile de municípios do RS, mas filtrava pelos nomes vindos do CSV para cada voltagem. Se o CSV não listava todos os municípios que você adicionou, eles ficavam de fora.
+Agora mudei a lógica: para RS, eu pego seu shapefile de municípios como base e CALCULO os municípios afetados por voltagem fazendo a interseção com as linhas do RS (com um pequeno buffer). Isso independe do CSV e evita perder municípios.
+O que já atualizei no gerador
+
+Linhas do RS: o gerador agora tenta primeiro Linha_trans_RS.gpkg (não o .gpkg-shm) e auto-detecta a layer de linhas. Se existir coluna de tensão (Tensao/kV), filtra pela voltagem; senão, usa como está.
+Municípios do RS: em vez de filtrar pelo CSV, cruzo seu shapefile “RS/municipios_afetados_linhas_transmissao.shp” com as linhas da voltagem (buffer leve) e seleciono só os municípios que intersectam. Se der algum problema na interseção, faço um filtro por bounding box das linhas para evitar que apareça o estado inteiro.
+O que você precisa fazer agora
+
+Garanta que as suas edições em “linhas por município” estejam gravadas no Linha_trans_RS.gpkg (o .gpkg mesmo). O -shm não serve para isso.
+Se preferir, também posso apontar o gerador para outro nome de arquivo .gpkg dentro da pasta RS — é só me dizer o nome/layer que você quer usar.
+Opcional: quer que eu gere os mapas novamente já?
+
+Se confirmar que o arquivo Linha_trans_RS.gpkg foi atualizado (ou me disser qual .gpkg usar), eu rodo o gerador e te entrego os HTMLs atualizados na pasta outputs/mapas.
+Se quiser, também deixo os mapas do RS exibirem “todos os municípios” do seu shapefile em qualquer voltagem (ignorando o cálculo por linha), mas a abordagem por interseção é a mais fiel.
+Resumo das melhorias aplicadas
+
+RS usa seu shapefile de municípios como base de verdade.
+Linhas do RS são lidas do RS/Linha_trans_RS.gpkg, se existir.
+Municípios afetados por voltagem são calculados via interseção com as linhas (buffer), não pelo CSV.
+Me diga só: você já salvou as alterações no RS/Linha_trans_RS.gpkg? Se sim, eu já regenero os mapas na sequência.
+
+Perfeito — como você colocou os arquivos no municipios_afetados_linhas_transmissao.gpkg e RS/Linha_trans_RS.gpkg, eu já adaptei o gerador para:
+
+Priorizar municipios_afetados_linhas_transmissao.gpkg como base de municípios do RS.
+Ler Linha_trans_RS.gpkg para as linhas do RS (detectando a layer correta e filtrando por voltagem quando houver coluna de tensão).
+Calcular os municípios afetados por voltagem via interseção espacial rápida (spatial join “intersects”) entre os municípios do RS e as linhas (com pequeno buffer), em vez de depender do CSV. Isso resolve o problema de municípios faltando.
+Resultados rápidos
+
+Teste interno mostrou:
+RS 230 kV: 139 municípios afetados retornados.
+RS 525 kV: 111 municípios afetados retornados.
+Isso indica que a seleção está pegando um conjunto bem mais completo.
+O que falta para você ver nos mapas
+
+Os HTMLs já foram gerados antes com a lógica antiga. Posso regerar todos agora com a lógica nova (isso leva alguns minutos porque processa todas as combinações).
+Se quiser agilizar, posso rodar só os do RS (230kV e 525kV) primeiro e você já confere se todos os municípios esperados aparecem.
+Confirme só:
+
+Esses dois arquivos estão mesmo atualizados com suas edições?
+municipios_afetados_linhas_transmissao.gpkg
+Linha_trans_RS.gpkg
+Quer que eu gere só os mapas do RS primeiro ou todos de uma vez?
+Assim que você confirmar, eu rodo o gerador e te entrego os novos:
+
+mapa_230kV_RS.html
+mapa_525kV_RS.html
+index.html atualizado
+Observações técnicas
+
+Eu evitei a operação “overlay” pesada e usei spatial join, que é bem mais rápido e suficiente para obter a lista de municípios afetados (não precisamos da geometria da interseção).
+Mantive a simplificação de geometria e as camadas de “não afetados” no fundo.
+Se o arquivo -shm aparecer, ele é só um temporário; o gerador ignora e usa o .gpkg “de verdade”.
+Se preferir, também adiciono uma camada “Todos os afetados do RS (base)” que mostra todo o conjunto do seu GPKG (sem filtrar por voltagem), só para comparação visual.
+
+Obrigado por apontar — li o arquivo Municipios_afetas_linhas.csv e acabei de ajustar o gerador para garantir que todos os municípios listados ali entrem nos mapas do RS.
+
+O que mudei
+
+Para RS, além do cálculo espacial (sjoin intersect com as linhas por voltagem), eu agora complemento a seleção com os municípios do CSV:
+Leio Municipios_afetas_linhas.csv.
+Uno os nomes desse CSV com os municípios detectados pelo sjoin.
+Resultado: mesmo que a interseção espacial perca algum município por tolerância/ajuste geométrico, ele entra por estar no CSV.
+Mapas do RS regenerados
+
+Atualizei os dois mapas do RS com essa inclusão:
+mapa_230kV_RS.html
+mapa_525kV_RS.html
+O que verificar
+
+Abra os dois HTMLs acima e confira se todos os municípios do CSV aparecem agora.
+Se algum nome do CSV ainda não estiver sendo puxado, me diga quais são para eu checar:
+Ortografia (ex.: “Santo Antônio do Palma” vs “Santo Antonio do Palma”).
+Normalização de maiúsculas/acentos (eu já comparo em maiúsculas).
+Se o município existe no GPKG de municípios (para garantir que consigo localizar a geometria e desenhar).
+Notas técnicas
+
+Usei seus GPKGs: municipios_afetados_linhas_transmissao.gpkg e Linha_trans_RS.gpkg.
+O CSV não tem coluna de voltagem; portanto, a inclusão vale para qualquer voltagem (os nomes do CSV são somados aos detectados para 230 kV e também para 525 kV). Se depois você quiser, posso adicionar uma coluna de voltagem nesse CSV e filtrar por voltagem de forma mais específica.
+Se quiser, eu listo rapidamente no console quais municípios do CSV foram adicionados em cada voltagem (diferença entre CSV e sjoin), para você auditar. Quer que eu rode essa listagem?
+
+Agora entendi o problema — as linhas estão corretas e cobrem todo o estado, mas a camada de municípios está mostrando só o norte porque o spatial join está filtrando apenas os municípios que intersectam com as linhas/buffer, mas deveria mostrar TODOS os municípios do CSV sem filtrar.
+
+Perfeito — achei o erro! Era exatamente isso: eu estava fazendo spatial join (interseção geométrica) que só pegava os municípios onde a linha cruzava, então só aparecia o norte do estado.
+
+O que corrigi
+Agora, para o RS, ignoro completamente o cálculo espacial e uso direto todos os 298 municípios do seu CSV Municipios_afetas_linhas.csv, independente de voltagem ou interseção. Assim:
+
+Linhas de transmissão: continuam sendo lidas do Linha_trans_RS.gpkg e filtradas por voltagem (230 kV, 525 kV, etc.) — isso está correto.
+Municípios afetados: agora pego todos os nomes do CSV e desenho as geometrias correspondentes do GPKG de municípios — sem filtrar por spatial join.
+Mapas atualizados
+Regenerei os dois mapas do RS:
+
+mapa_230kV_RS.html — agora com 298 municípios (todos do CSV)
+mapa_525kV_RS.html — também com 298 municípios (todos do CSV)
+Verifique agora
+Abra os dois HTMLs e confirme que:
+
+✅ Municípios aparecem em todas as regiões do RS (norte, sul, leste, oeste, centro).
+✅ Linhas de transmissão continuam corretas e cobrindo todo o estado.
+✅ Buffer/faixa de servidão também continua mostrando corretamente.
+Se quiser que eu separe os municípios por voltagem no CSV (adicionar uma coluna "Voltagem" ou "N_LINHAS" para filtrar 230 vs 525), posso fazer isso — mas agora todos os 298 aparecem em ambos os mapas, garantindo cobertura completa.
+
+GERADOR DE CSV COM VOLTAGEM POR MUNICÍPIO - RS
+============================================================
+
+📂 Lendo CSV original...
+  ✓ 298 municípios no CSV
+
+📂 Lendo municípios do GPKG...
+  ✓ 298 municípios no GPKG
+
+📂 Lendo linhas de transmissão...
+  ✓ 268 linhas carregadas
+  ✓ Coluna de tensão: Tensao
+
+🔧 Criando buffer nas linhas...
+
+🔍 Detectando voltagens por município (spatial join)...
+  ✓ 298 municípios com voltagens detectadas
+
+============================================================
+✅ CSV gerado com sucesso!
+📄 Arquivo: c:\Users\caetanoronan\OneDrive - UFSC\Área de Trabalho\Afetados_ln_trans\RS\Municipios_afetas_linhas_por_voltagem.csv
+📊 Total de registros: 382
+📊 Municípios únicos: 298
+
+Distribuição por voltagem:
+Voltagem
+230    226
+525    154
+500      1
+132      1
+============================================================

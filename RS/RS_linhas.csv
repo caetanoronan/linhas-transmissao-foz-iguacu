@@ -1,0 +1,270 @@
+linha_transmissao,Tensao,concessionaria,Extensao,ano_operacao,extensao_km
+"LT 525 kV Itá - Nova Santa Rita, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,314.00195533,2006,2.64001273380414
+"LT 525 kV Itá - Nova Santa Rita, C2",525,TSBE - Transmissora Sul Brasileira de Energia S A,307.36803103,2014,2.5456874284966
+"LT 525 kV Candiota 2 - Guaíba 3, C2 (CD)",525,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,273.81682265,2022,2.71031405810733
+"LT 525 kV Candiota 2 - Guaíba 3, C1 (CD)",525,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,273.74497212,2022,2.70959988064313
+"LT 525 kV Campos Novos - Nova Santa Rita, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,257.62975868,2009,2.3368698062012
+"LT 525 kV Blumenau - Campos Novos, C1",525,ECTE - Empresa Catarinense de Transmissáo de Energia S.A.,252.46731653,2002,0.0307997399225478
+"LT 525 kV Itá - Caxias Norte, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,247.10510754,2024,2.00741789177381
+"LT 525 kV Guaíba 3 - Povo Novo, C1",525,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,236.84308065,2023,2.20868612653346
+"LT 525 kV Guaíba 3 - Povo Novo, C2",525,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,236.68973704,2021,2.21181966359618
+"LT 525 kV Santo Angelo - Itá, C2",525,CIEN - Companhia de Interconexão Energética,236.43796766,2015,1.60372590498398
+"LT 525 kV Abdon Batista - Biguaçu, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,234.80869839,2015,2.23374827590812
+"LT 525 kV Guaíba 3 - Povo Novo, C3",525,LAGOA DOS PATOS - NEOENERGIA LAGOA DOS PATOS TRANSMISSÃO DE ENERGIA S.A.,234.41264102,2023,2.18643359673217
+"LT 525 kV Santo Angelo - Itá, C1",525,CIEN - Companhia de Interconexão Energética,222.42066678,2000,1.55167392125374
+"LT 525 kV Abdon Batista - Siderópolis 2, C2 (CD)",525,EDP ALIANCA - EDP TRANSMISSAO ALIANCA SC S.A.,209.31796548,2022,2.05062016492904
+"LT 525 kV Abdon Batista - Siderópolis 2, C1 (CD)",525,EDP ALIANCA - EDP TRANSMISSAO ALIANCA SC S.A.,209.27606248,2022,2.05019101349902
+"LT 525 kV Campos Novos - Caxias Norte, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,185.67770467,2024,1.69676331541132
+"LT 525 kV Areia - Campos Novos, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,176.2854807,0,0.0140380599894292
+"LT 525 kV Marmeleiro 2 - Povo Novo, C2",525,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,152.33181252,2021,1.43095308288585
+"LT 525 kV Marmeleiro 2 - Povo Novo, C1",525,TSLE - TRANSMISSORA SUL LITORÂNEA DE ENERGIA S.A.,152.06106013,2014,1.42757713350439
+"LT 525 kV Biguaçu - Siderópolis 2, C1",525,EDP ALIANCA - EDP TRANSMISSAO ALIANCA SC S.A.,151.45909049,2021,1.28791701805903
+"LT 525 kV Capivari do Sul - Guaíba 3, C1",525,,147.91377753,2024,1.46129396951568
+"LT 525 kV Garabi II - Santo Angelo, C1",525,CIEN - Companhia de Interconexão Energética,138.33228314,2015,1.39778050739918
+"LT 525 kV Garabi I - Santo Angelo, C1",525,CIEN - Companhia de Interconexão Energética,132.32686896,2000,1.34761835764456
+LT 525 kV Candiota - Melo C1,525,ELETROBRAS - Centrais Elétricas Brasileiras S/A,124.68853732,2016,1.19470852135569
+"LT 525 kV Itá - Machadinho, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,79.09811706,2002,0.00184519861401544
+"LT 525 kV Capivari do Sul - Gravataí, C1",525,PAMPA TRANSMISSORA - PAMPA TRANSMISSÃO DE ENERGIA S.A.,78.9599988,2023,0.783758259709732
+"LT 525 kV Caxias - Gravataí, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,78.06841761,2001,0.721455105658574
+"LT 525 kV Gravataí - Guaíba 3, C1",525,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,72.38541014,2021,0.707739961525024
+"LT 525 kV Campos Novos - Machadinho, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,50.59379235,2002,0.0437654218305962
+"LT 525 kV Marmeleiro 2 - Santa Vitória do Palmar, C2",525,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,48.18180593,2021,0.467899526340953
+"LT 525 kV Marmeleiro 2 - Santa Vitória do Palmar, C1",525,TSLE - TRANSMISSORA SUL LITORÂNEA DE ENERGIA S.A.,47.94969958,2014,0.465548229266768
+"LT 525 kV Caxias Norte - Caxias, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,40.26696297,2024,0.38747244078609
+"LT 525 kV Guaíba 3 - Nova Santa Rita, C2",525,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,40.21068742,2021,0.385998365979555
+"LT 525 kV Campos Novos - Machadinho, C2",525,LUMITRANS - LUMITRANS COMPANHIA TRANSMISSORA DE ENERGIA ELÉTRICA SA,39.91088127,2007,0.149919315691828
+"LT 525 kV Abdon Batista - Campos Novos, C2",525,EDP ALIANCA - EDP TRANSMISSAO ALIANCA SC S.A.,39.77573135,2022,0.394708735785907
+"LT 525 kV Guaíba 3 - Nova Santa Rita, C1",525,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,35.71054173,2023,0.341359663331572
+"LT 525 kV Abdon Batista - Campos Novos, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,34.90256143,2015,0.352273807650403
+"LT 525 kV Caxias Norte - Caxias, C2",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,31.30712808,2024,0.304192320849274
+"LT 525 kV Gravataí - Nova Santa Rita, C1",525,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,29.3814733,2006,0.297289275605265
+"LT 525 kV Candiota 2 - UTE Pampa Sul, C1",525,PAMPA SUL - USINA TERMELÉTRICA PAMPA SUL S.A.,20.50493896,2022,0.199200327419544
+"LT 525 kV UHE Machadinho - Machadinho, C1",525,,0.01444879,2002,0.000130661924971508
+"LT 525 kV UHE Machadinho - Machadinho, C3",525,,0.01433625,2002,0.000129420517742931
+"LT 525 kV UHE Machadinho - Machadinho, C2",525,,0.01431517,2002,0.000129459158321859
+"LT 500 kV Garabi I - Rincón de Santa Maria, C1",500,"-",6.252077,2000,0.0610430594743181
+"LT 500 kV Garabi II - Rincón de Santa Maria, C1",500,"-",6.03025321,2002,0.0588129608585536
+"LT 230 kV Presidente Médici - Santa Cruz 1, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,238.38675699,2010,2.24965577500071
+"LT 230 kV Livramento 3 - Santa Maria 3, C2",230,NEOENERGIA LAGOA DOS PATOS TRANSMISSÃO DE ENERGIA S.A.,224.44324243,2023,2.23268536966487
+"LT 230 kV Livramento 3 - Santa Maria 3, C1",230,TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S A,224.4054214,2023,2.23264407138008
+"LT 230 kV Maçambará 3 - Santo Ângelo, C1",230,TAESA - TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S A,203.21657219,2022,2.01248772239976
+"LT 230 kV Maçambará 3 - Santo Ângelo, C2",230,,199.54103799,2023,1.9810068114903
+"LT 230 kV Itaúba - Pólo Petroquímico, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,196.82979012,0,1.99389517503608
+"LT 230 kV Presidente Médici - Camaquã, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,196.09607873,0,2.00931415807313
+"LT 230 kV Livramento 3 - Maçambará 3, C1",230,SANTANA - SANT’ANA TRANSMISSORA DE ENERGIA ELÉTRICA S.A.,186.54163047,2022,1.69876200169064
+"LT 230 kV Santa Maria 3 - Santo Ângelo 2, C1",230,SANTA MARIA TRANS - SPE SANTA MARIA TRANSMISSORA DE ENERGIA S.A.,160.18681948,2018,1.46280509263131
+"LT 230 kV Candelária 2 - Nova Santa Rita, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,157.84806714,2020,1.60477815490518
+"LT 230 kV Presidente Médici - Quinta, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,154.06562805,0,1.57833127477418
+"LT 230 kV Bagé 2 - Livramento 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,151.53255191,2002,1.56001201156606
+"LT 230 kV Camaquã 3 - Povo Novo, C1",230,TSBE - Transmissora Sul Brasileira de Energia S A,148.72056473,2014,1.40360839299343
+"LT 230 kV Passo Real - Lajeado 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,141.61918603,2009,1.40636955203942
+"LT 230 kV Passo Real - Venâncio Aires, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,137.03800215,0,1.34475573614564
+"LT 230 kV Passo Fundo - Vila Maria, C1",230,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,137.00341525,2022,1.23268081204901
+"LT 230 kV Passo Fundo - Vila Maria, C2",230,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,136.99874282,2022,1.23256690664657
+"LT 230 kV Presidente Médici - Pelotas 3, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,131.16026938,2005,1.36554915323564
+"LT 230 kV Biguaçu - Jorge Lacerda B, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,130.19714279,2008,0.962798011320351
+"LT 230 kV Alegrete 2 - UTE Uruguaiana, C1",230,AES URUGUAIANA - AES Uruguaiana Ltda.,129.20800288,2000,1.32303913926607
+"LT 230 kV Alegrete 2 - Livramento 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,128.51944253,2002,1.17944625710221
+"LT 230 kV Itaúba - Santa Cruz 1, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,127.51529709,2009,1.28037686768972
+"LT 230 kV Alegrete 2 - Uruguaiana 5, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,127.04284702,0,1.30594847784158
+"LT 230 kV Camaquã 3 - Pelotas 3, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,123.37573159,2014,1.16797925620786
+"LT 230 kV Camaquã 3 - Nova Santa Rita, C1",230,TSBE - Transmissora Sul Brasileira de Energia S A,122.8071152,2014,1.13836742757453
+"LT 230 kV Alegrete 2 - Livramento 3, C1",230,SANTANA - SANT’ANA TRANSMISSORA DE ENERGIA ELÉTRICA S.A.,122.5453038,2022,1.13173261727003
+"LT 230 kV Gaspar 2 - Palhoça, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,122.1460389,2016,0.416806985807151
+"LT 230 kV Jorge Lacerda B - Palhoça, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,121.17444864,2005,1.13068253095888
+"LT 230 kV Forquilhinha - Lajeado Grande, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,116.48775606,2011,1.16326012186297
+"LT 230 kV UTE Uruguaiana - Maçambará, C1",230,TAESA - TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S A,113.91219678,2004,1.12312348437153
+"LT 230 kV Missões - São Borja 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,111.77731117,2010,1.12628707952397
+"LT 230 kV Alegrete 2 - São Vicente do Sul, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,102.56029507,2015,1.05382189478173
+"LT 230 kV Lages - Rio do Sul, C2",230,STC - STC - Sistema de Transmissão Catarinense S.A.,100.29691276,2007,0.394592978017625
+"LT 230 kV Lages - Rio do Sul, C1",230,STC - STC - Sistema de Transmissão Catarinense S.A.,100.28765356,2007,0.394769988795584
+"LT 230 kV Atlântida 2 - Gravataí 3, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,100.21696934,2008,1.01492570450281
+"LT 230 kV Cidade Industrial - Venâncio Aires, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,99.9487557,0,1.020147908166
+"LT 230 kV Santa Cruz 1 - Charqueadas 3, C1",230,,99.75900082,2024,1.00048557845309
+"LT 230 kV Lajeado 2 - Nova Santa Rita, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,96.91837063,2009,0.965918686951159
+"LT 230 kV Passo Fundo - Santa Marta, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,95.99090588,0,0.836134807045011
+"LT 230 kV Lagoa Vermelha 2 - Santa Marta, C1",230,ETAU - EMPRESA DE TRANSMISSÃO DO ALTO DO URUGUAI S/A,95.63444423,2005,0.963040999127666
+"LT 230 kV Guarita - Santa Rosa 1, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,93.0446935,0,0.932199714585636
+"LT 230 kV Camaquã - Guaíba 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,89.55026606,2010,0.839976239674831
+"LT 230 kV Abdon Batista - Lages, C1",230,STC - STC - Sistema de Transmissão Catarinense S.A.,89.38764793,2014,0.884074293293709
+"LT 230 kV Abdon Batista - Lages, C2",230,STC - STC - Sistema de Transmissão Catarinense S.A.,89.36684397,2014,0.883881348793744
+"LT 230 kV Camaquã 3 - Guaíba 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,87.79575439,2014,0.823961384469772
+"LT 230 kV Passo Fundo - Guarita, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,87.12770589,0,0.481403292215199
+"LT 230 kV São Vicente do Sul - Santa Maria 3, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,84.01975453,2015,0.861407079430845
+"LT 230 kV Alegrete 2 - Maçambará, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,82.79204716,0,0.777330549426952
+"LT 230 kV Foz do Chapecó - Guarita, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,76.12038585,2010,0.144830320730549
+"LT 230 kV Capivari do Sul - Viamão 3, C1",230,PAMPA TRANSMISSORA - PAMPA TRANSMISSÃO DE ENERGIA S.A.,73.9367693,2023,0.742985134353069
+"LT 230 kV Forquilhinha - Torres 2, C1",230,EDP Brasil S.A.,69.50341798,2022,0.644050555843069
+"LT 230 kV Campos Novos - Videira, C1",230,ATE VI - ATE VI - Campos Novos Transmissora de Energia S.A.,69.04228349,2009,0.0153654043043801
+"LT 230 kV Campos Novos - Videira, C2",230,ATE VI - ATE VI - Campos Novos Transmissora de Energia S.A.,69.03863027,2009,0.0152008564843337
+"LT 230 kV Scharlau 2 - Charqueadas, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,67.14419417,2015,0.666501650675317
+"LT 230 kV Santa Maria 3 - Dona Francisca, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,67.11134116,2001,0.672879120581265
+"LT 230 kV Gravataí 3 - Osório 3, C1",230,CPFL SUL II - CPFL TRANSMISSÃO DE ENERGIA SUL II LTDA.,65.9637847,2023,0.675277655026971
+"LT 230 kV Lajeado Grande - Caxias do Sul 5, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,65.55012145,2005,0.667688965974562
+"LT 230 kV Atlântida 2 - Torres 2, C1",230,EDP Brasil S.A.,65.45574354,2022,0.618219638712958
+"LT 230 kV Farroupilha - Scharlau 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,65.0526369,2015,0.610579598021095
+"LT 230 kV Candelária 2 - Itaúba, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,64.85876195,2020,0.63012775302427
+"LT 230 kV Santa Maria 3 - Dona Francisca, C2",230,ATE VI - ATE VI - Campos Novos Transmissora de Energia S.A.,64.6883197,2011,0.652072950203096
+"LT 230 kV Missões - Santo Ângelo, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,64.33301616,2010,0.647876726512093
+"LT 230 kV Nova Prata 2 - Vila Maria, C1",230,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,62.0492422,2022,0.602403784100148
+"LT 230 kV Passo Real - Cruz Alta 2, C1",230,CEEE-T - COMPANHIA ESTADUAL DE TRANSMISSÃO DE ENERGIA ELETRICA - CEEE-T,61.3188228,2022,0.595251064024895
+"LT 230 kV Santa Marta - Tapera 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,60.50202314,2005,0.582810191462023
+"LT 230 kV Nova Prata 2 - Vila Maria, C2",230,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,60.0464484,2022,0.585609149093286
+"LT 230 kV Campo Bom - Caxias, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,59.81483547,2002,0.567717162467493
+"LT 230 kV Campo Bom - Caxias, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,59.75831325,2002,0.567095471186767
+"LT 230 kV Barra Grande - Lagoa Vermelha 2, C1",230,ETAU - EMPRESA DE TRANSMISSÃO DO ALTO DO URUGUAI S/A,58.09500494,2005,0.548035175446292
+"LT 230 kV Passo Real - Tapera 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,57.97653029,2005,0.548940648024014
+"LT 230 kV Taquara - Osório 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,56.8651703,2003,0.568598383661606
+"LT 230 kV Biguaçu - Desterro, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,56.52890416,2008,0.484445865622871
+"LT 230 kV Maçambará - São Borja 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,53.62634357,0,0.489037926633748
+"LT 230 kV Cidade Industrial - Charqueadas 3, C1",230,,52.22190084,2024,0.525614255137559
+"LT 230 kV Bagé 2 - Candiota 2, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,51.0503048,2022,0.506769024863235
+"LT 230 kV Santo Ângelo - Santa Rosa 1, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,50.18129325,1999,0.46241145066445
+"LT 230 kV Bagé 2 - Candiota 2, C1",230,VINEYARDS - SE VINEYARDS TRANSMISSAO DE ENERGIA S.A.,49.68900378,2022,0.491921948901079
+"LT 230 kV Jorge Lacerda B - Siderópolis, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,49.32257029,0,0.490747076856134
+"LT 230 kV Santo Ângelo - Santa Rosa 1, C2",230,TAESA - TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S A,47.39212764,2004,0.433265947247989
+"LT 230 kV Jorge Lacerda B - Siderópolis, C2",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,47.33742371,0,0.474222047087682
+"LT 230 kV Fibraplac - Osório 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,47.18016928,2003,0.481905662687923
+"LT 230 kV Garibaldi 1 - Lajeado III, C1",230,SE VINEYARDS TRANSMISSAO DE ENERGIA S.A.,47.17303426,2019,0.467108604905148
+"LT 230 kV Atlântica - Osório 2, C1",230,"-",46.50366653,0,0.423252861199788
+"LT 230 kV Pontal - Viamão 3, C1",230,ENERPLAN IV - Enerplan Energia Eolica IV S.A.,44.64615277,2016,0.429327361103682
+"LT 230 kV Pelotas 3 - Quinta, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,43.69174587,2002,0.406607630646088
+"LT 230 kV Cruz Alta 2 - Ijuí 2, C1",230,CEEE-T - COMPANHIA ESTADUAL DE TRANSMISSÃO DE ENERGIA ELETRICA - CEEE-T,43.38298405,2022,0.411096556636958
+"LT 230 kV Ijuí 2 - Santo Ângelo 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,43.252219,2013,0.432864627338544
+"LT 230 kV Nova Petrópolis 2 - Taquara, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,41.75119592,2012,0.394337364390355
+"LT 230 kV Abdon Batista - Barra Grande, C2",230,STC - STC - Sistema de Transmissão Catarinense S.A.,40.31827176,2014,0.385898283087669
+"LT 230 kV Abdon Batista - Barra Grande, C1",230,STC - STC - Sistema de Transmissão Catarinense S.A.,40.30977699,2014,0.385826867780602
+"LT 230 kV Cidade Industrial - Guaíba 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,38.22652076,2012,0.364091373652475
+"LT 230 kV Atlântida 2 - Osório 2, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,35.61863305,2007,0.350651432912286
+"LT 230 kV Gravataí 2 - Jardim Botânico, C1",230,TESB - TRANSMISSORA DE ENERGIA SUL BRASIL,34.89122303,2019,0.336411514334166
+"LT 230 kV Barra Grande - Campos Novos, C1",230,ETAU - EMPRESA DE TRANSMISSÃO DO ALTO DO URUGUAI S/A,34.6439216,2005,0.330058112692522
+"LT 230 kV Siderópolis - Tubarão Sul, C1",230,IE SUL - INTERLIGAÇÃO ELÉTRICA SUL S.A,33.17997573,2021,0.332365822048674
+"LT 230 kV Monte Claro - Nova Prata 2, C2",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,31.98420795,2015,0.307893039589856
+"LT 230 kV Farroupilha - Monte Claro, C2",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,30.99064916,2008,0.297362275550539
+"LT 230 kV Farroupilha - Monte Claro, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,30.91298166,2004,0.296648197118362
+"LT 230 kV Itaúba - Passo Real, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,30.32010566,0,0.280336135708229
+"LT 230 kV Monte Claro - Nova Prata 2, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,29.56752441,2008,0.281901864089264
+"LT 230 kV Campo Bom - Taquara, C1",230,TESB - TRANSMISSORA DE ENERGIA SUL BRASIL S.A.,29.29144295,2022,0.296719638222204
+"LT 230 kV Gravataí 2 - Porto Alegre 6, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,29.23751136,0,0.281715124531806
+"LT 230 kV Gravataí 2 - Porto Alegre 6, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,29.22460474,0,0.281605598589095
+"LT 230 kV Caxias Norte - Monte Claro, C1",230,,29.10842739,2024,0.29296686355077
+"LT 230 kV Forquilhinha - Siderópolis 2, C2",230,NEOENERGIA LAGOA DOS PATOS TRANSMISSÃO DE ENERGIA S.A.,28.3677956,2024,0.266961870587922
+"LT 230 kV Forquilhinha - Siderópolis 2, C1",230,EDP ALIANCA - EDP TRANSMISSAO ALIANCA SC S.A.,27.59204918,2021,0.260238344666171
+"LT 230 kV Forquilhinha - Siderópolis, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,27.59026281,2011,0.267979367656055
+"LT 230 kV Nova Santa Rita - Porto Alegre 9, C1",230,TESB - TRANSMISSORA DE ENERGIA SUL BRASIL S.A.,27.43058297,2022,0.264984433470522
+"LT 230 kV Abdon Batista - UHE São Roque, C1",230,SÃO ROQUE,27.4212259,2022,0.172041639817189
+"LT 230 kV Eldorado do Sul - Porto Alegre 9, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,26.54457958,2018,0.250550692702504
+"LT 230 kV Cerro Chato - Livramento 2, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,24.84042117,2011,0.25238896298186
+"LT 230 kV Gravataí 3 - Fibralac, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,24.79472975,2010,0.251241419785462
+"LT 230 kV Caxias Norte - Caxias 6, C1
+",230,,24.62986255,0,0.243528969879129
+"LT 230 kV Jorge Lacerda B - Tubarão Sul, C1",230,IE SUL - INTERLIGAÇÃO ELÉTRICA SUL S.A,24.5441389,2021,0.243860489744321
+"LT 230 kV Abdon Batista - Barra Grande, C3",230,,24.47217871,2024,0.22681880995327
+"LT 230 kV Monte Claro - Vinhedos, C1",230,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,23.73515777,2021,0.224698133398817
+"LT 230 kV Nova Santa Rita - Scharlau 2, C2",230,IES - INTERLIGAÇÃO ELÉTRICA SUL S.A,23.47365727,2010,0.231717146780315
+"LT 230 kV Cidade Industrial - Pólo Petroquímico, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,23.47351973,0,0.23837999389636
+"LT 230 kV Nova Santa Rita - Scharlau 2, C1",230,IES - INTERLIGAÇÃO ELÉTRICA SUL S.A,23.43931909,2010,0.231389146206766
+"LT 230 kV Caxias Norte - Vinhedos, C1",230,,23.37814923,2024,0.23413699554754
+"LT 230 kV Dona Francisca - Itaúba, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,23.11707418,2005,0.213298771528564
+"LT 230 kV Dona Francisca - Itaúba, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,23.04731662,2001,0.212426793094063
+"LT 230 kV Caxias - Nova Petrópolis 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,22.961108,2012,0.228511770588733
+"LT 230 kV Campo Bom - Gravataí 2, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,22.62030095,2002,0.206430227345454
+"LT 230 kV Campo Bom - Gravataí 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,22.58814603,2002,0.206115062930404
+"LT 230 kV Caxias do Sul 2 - Farroupilha, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,22.56285475,0,0.22010142468391
+"LT 230 kV Caxias - Caxias do Sul 5, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,22.48189181,2009,0.213706811828774
+"LT 230 kV Cidade Industrial - Nova Santa Rita, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,21.93470685,2006,0.219449315108063
+"LT 230 kV Cidade Industrial - Nova Santa Rita, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,21.85523046,2006,0.21869039400303
+"LT 230 kV Cidade Industrial - Nova Santa Rita, C3",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,21.52352693,2006,0.215590469705774
+"LT 230 kV Caxias - Farroupilha, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,21.29655074,2002,0.204437190363687
+"LT 230 kV Caxias - Farroupilha, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,21.27883576,2002,0.204250941092871
+"LT 230 kV Garibaldi 1 - Farroupilha, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,21.23299349,2000,0.213856580588061
+"LT 230 kV Gravataí 2 - Viamão 3, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,20.52960622,2016,0.19368838347176
+"LT 230 kV Biguaçu - Palhoça, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,20.38482523,2008,0.141358554487084
+"LT 230 kV Povo Novo - Quinta, C1",230,TSBE - Transmissora Sul Brasileira de Energia S A,19.50575059,2014,0.18306217040567
+"LT 230 kV Caxias - Caxias 6, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,19.34736766,2012,0.18332849456779
+"LT 230 kV Gravataí 2 - Porto Alegre 8, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,18.03489523,2008,0.170800204843289
+"LT 230 kV Farroupilha - Caxias do Sul 5, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,17.84712846,2005,0.173399355546333
+"LT 230 kV Guaíba 2 - Guaíba 3, C2 (CD)",230,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,17.54815128,2022,0.175402409806426
+"LT 230 kV Guaíba 2 - Guaíba 3, C1 (CD)",230,CHIMARRÃO - CHIMARRÃO TRANSMISSORA DE ENERGIA S.A.,17.53787896,2022,0.175303761917233
+"LT 230 kV Restinga - Viamão 3, C1",230,TESB - TRANSMISSORA DE ENERGIA SUL BRASIL,17.1563661,2018,0.167426027091039
+"LT 230 kV Monte Claro - UHE 14 de Julho, C1",230,,16.58828021,2008,0.164357543876932
+"LT 230 kV Cidade Industrial - Porto Alegre 9, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,14.81425349,0,0.14325073821967
+"LT 230 kV Eldorado do Sul - Guaíba 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,14.62357911,2018,0.136267740125717
+"LT 230 kV Charqueadas 3 - Guaíba 3, C1",230,,14.08731901,2024,0.133297278450616
+"LT 230 kV Cidade Industrial - Siderúrgica Riograndense, C1",230,"-",13.73894859,0,0.130324729925238
+"LT 230 kV Cidade Industrial - Canoas 1, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,13.62647673,2017,0.133640188234484
+"LT 230 kV Gravataí 2 - Gravataí 3, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,13.12916371,2010,0.132813431537696
+"LT 230 kV Gravataí 2 - Gravataí 3, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,13.10179511,2007,0.132542665748151
+"LT 230 kV Garibaldi 1 - Vinhedos, C1",230,CGT ELETROSUL - COMPANHIA DE GERAÇÃO E TRANSMISSÃO DE ENERGIA ELÉTRICA DO SUL D,12.77131742,2021,0.122696760461271
+"LT 230 kV Cidade Industrial - Gravataí 2, C3",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,12.65057989,0,0.127466828322758
+"LT 230 kV Cidade Industrial - Gravataí 2, C4",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,12.64807275,0,0.127438754723097
+"LT 230 kV Gravataí 3 - Complexo Industrial Automotivo de Gravataí, C1",230,"-",11.6162755,0,0.109952575794577
+"LT 230 kV Lajeado 2 - Lajeado III, C1",230,SE VINEYARDS - SE VINEYARDS TRANSMISSAO DE ENERGIA S.A.,11.25091653,2020,0.110743257731455
+"LT 230 kV Livramento 2 - Rivera, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,11.17869059,0,0.106485676528199
+"LT 230 kV Pólo Petroquímico - Nova Santa Rita, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,11.14204194,2007,0.106820584932961
+"LT 230 kV Porto Alegre 4 - Porto Alegre 9, C1",230,TPAE - Transmissora Porto Alegrense de Energia Ltda,11.01634157,2011,0.104624833121702
+"LT 230 kV Porto Alegre 8 - Porto Alegre 9, C1",230,TRANSMISSORA DE ENERGIA SUL BRASIL S.A.,10.79734967,2023,0.105688026276757
+"LT 230 kV Campos Novos - UHE Campos Novos, C2",230,ENERCAN - Campos Novos Energia S.A,10.77137151,2006,0.104319585373431
+"LT 230 kV Campos Novos - UHE Campos Novos, C1",230,ENERCAN - Campos Novos Energia S.A,10.71395813,2006,0.103773831842732
+"LT 230 kV Porto Alegre 13 - Restinga, C1",230,TESB - TRANSMISSORA DE ENERGIA SUL BRASIL S.A.,10.58480932,2022,0.10380587960573
+"LT 230 kV Porto Alegre 6 - Porto Alegre 4, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,10.26015968,2002,0.102482823216823
+"LT 230 kV Abdon Batista - UHE Garibaldi, C1",230,RIO CANOAS - RIO CANOAS ENERGIA SA,10.04338017,2015,0.0961954835446199
+"LT 230 kV Porto Alegre 6 - Porto Alegre 13, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,9.64643271,0,0.096312165263003
+"LT 230 kV Porto Alegre 6 - Viamão 3, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,8.83725343,2016,0.0892168352451218
+"LT 230 kV UHE Castro Alves - Monte Claro, C1",230,,8.44513185,2008,0.0851307044886366
+"LT 230 kV Cidade Industrial - Canoas 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,8.30533538,2002,0.0832981412809857
+"LT 230 kV Cachoeirinha 3 - Cidade Industrial, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,7.71919552,2023,0.0795601333361669
+"LT 230 kV Lagoa dos Barros - Osório 3, C1",230,VENTOS DO SUL - Ventos do Sul Energia S.A.,7.19371504,2023,0.0673337093539865
+"LT 230 kV Guaíba 2 - CMPC Celulose, C1",230,"-",6.67890629,0,0.0668927667956044
+"LT 230 kV Pólo Petroquímico - Masisa, C1",230,"-",6.29438846,0,0.0595001890301298
+"LT 230 kV Siderópolis - Siderópolis 2, C2 (CD)",230,EDP ALIANCA - EDP TRANSMISSAO ALIANCA SC S.A.,6.02862323,2022,0.0564244626806234
+"LT 230 kV Siderópolis - Siderópolis 2, C1 (CD)",230,EDP ALIANCA - EDP TRANSMISSAO ALIANCA SC S.A.,5.97699552,2022,0.0559672615034886
+"LT 230 kV Cachoeirinha 3 - Canoas 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,5.76287242,2023,0.0567694628589085
+"LT 230 kV Cerro Chato - Livramento 3, C1",230,SANTANA - SANT’ANA TRANSMISSORA DE ENERGIA ELÉTRICA S.A.,5.65050168,2022,0.0565649126552836
+"LT 230 kV Candiota 2 - Presidente Médici, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,5.58537798,2022,0.0542950186683793
+"LT 230 kV Santo Ângelo - Santo Ângelo 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,5.57870285,1999,0.0539913603283838
+"LT 230 kV Jardim Botânico - Porto Alegre 10, C1",230,TESB - TRANSMISSORA DE ENERGIA SUL BRASIL,5.22102056,2019,0.0508960918307662
+"LT 230 kV Uruguaiana 5 - UTE Uruguaiana, C1",230,AES URUGUAIANA - AES Uruguaiana Ltda.,5.11346296,2000,0.0471347255894128
+"LT 230 kV Cachoeirinha 3 - Gravataí 2, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,5.08191254,2023,0.0492918932901105
+"LT 230 kV Cachoeirinha 3 - Gravataí 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,5.0539761,2023,0.049006637343573
+"LT 230 kV Porto Alegre 1 - Porto Alegre 8, C1",230,CPFL SUL II - CPFL TRANSMISSÃO DE ENERGIA SUL II LTDA.,4.2590574,2022,0.0421493793698633
+"LT 230 kV Castertech - Caxias 6, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,4.21116771,2012,0.0413712076987843
+"LT 230 kV Porto Alegre 1 - Jardim Botânico, C1",230,CPFL SUL II - CPFL TRANSMISSÃO DE ENERGIA SUL II LTDA.,3.57231398,2022,0.0333351521135082
+"LT 230 kV Porto Alegre 10 - Porto Alegre 4, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,3.5076474,2002,0.0354467456530065
+"LT 230 kV Canoas 1 - Porto Alegre 9, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,3.4495504,2017,0.0325760172461466
+"LT 230 kV Charqueadas 3 - Charqueadas, C2",230,,2.8222513,2024,0.0279905223533774
+"LT 230 kV Charqueadas 3 - Charqueadas, C1",230,,2.78391332,2024,0.0276049324765621
+"LT 230 kV Candiota - Presidente Médici, C1",230,ELETROBRAS - Centrais Elétricas Brasileiras S/A,2.7240387,2015,0.0267155064407778
+"LT 230 kV UHE Barra Grande - Barra Grande, C3",230,BAESA - Baesa-Energética Barra Grande S.A,1.76017297,2005,0.0170128756575149
+"LT 230 kV UHE Barra Grande - Barra Grande, C2",230,BAESA - Baesa-Energética Barra Grande S.A,1.69579142,2006,0.0163459371665545
+"LT 230 kV Castertech - Caxias do Sul 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,1.69048904,2009,0.0164985979633732
+"LT 230 kV UHE Barra Grande - Barra Grande, C1",230,BAESA - Baesa-Energética Barra Grande S.A,1.67508025,2006,0.0161336974206178
+"LT 230 kV Maçambará - Maçambará 3, C1",230,TAESA - TRANSMISSORA ALIANÇA DE ENERGIA ELÉTRICA S A,1.61601652,2022,0.0155678795232336
+"LT 230 kV Maçambará - Maçambará 3, C2",230,,1.43873093,2023,0.0140244843435827
+"LT 230 kV Osório 2 - Osório 3, C1",230,CPFL SUL II - CPFL TRANSMISSÃO DE ENERGIA SUL II LTDA.,1.28536361,2023,0.0116584387702607
+"LT 230 kV UHE Monte Claro - Monte Claro, C1",230,,1.15361443,2004,0.0106811575376275
+"LT 230 kV Jorge Lacerda A - Jorge Lacerda B, C2",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,0.99150565,2007,0.00929909796197192
+"LT 230 kV Jorge Lacerda A - Jorge Lacerda B, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,0.77322672,0,0.00726138307532583
+"LT 230 kV UHE Campos Novos - UHE Campos Novos, C1",230,,0.64381632,0,0.0058490324730446
+"LT 230 kV UHE Campos Novos - UHE Campos Novos, C2",230,,0.6189024,0,0.00560197593054359
+"LT 230 kV UHE Campos Novos - UHE Campos Novos, C3",230,,0.6005096,0,0.00543021753606543
+"LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda C, C1",230,,0.52371524,1996,0.00502935195640913
+"LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda C, C2",230,,0.50906498,0,0.00489002201008661
+"LT 230 kV UTE Candiota 3 - Presidente Médici, C1",230,CGT ELETROSUL,0.29427886,2011,0.00295122648083245
+"LT 230 kV UTE Candiota 3 - Presidente Médici, C2",230,CGT ELETROSUL,0.26498689,2011,0.00267201081851451
+"LT 230 kV Gravataí 2 - Gravataí, C2",230,CEEE-T - COMPANHIA ESTADUAL DE TRANSMISSÃO DE ENERGIA ELETRICA - CEEE-T,0.10675578,0,0.00104429888084302
+"LT 230 kV Gravataí 2 - Gravataí, C3",230,CEEE-T - COMPANHIA ESTADUAL DE TRANSMISSÃO DE ENERGIA ELETRICA - CEEE-T,0.10466651,0,0.00102603106279522
+"LT 230 kV Gravataí 2 - Gravataí, C1",230,CEEE-T - COMPANHIA ESTADUAL DE TRANSMISSÃO DE ENERGIA ELETRICA - CEEE-T,0.10434207,0,0.0010197097120809
+"LT 230 kV Scharlau - Scharlau 2, C1",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,0.07594348,2015,0.000781579253885644
+"LT 230 kV Scharlau - Scharlau 2, C2",230,CEEE GT - Companhia Estadual de Geração e Transmissão de Energia Elétrica,0.07541322,2015,0.00077487652272735
+"LT 230 kV Uruguaiana 5 - Conversora Uruguaiana, C1",230,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,0.06662981,0,0.000621295953383826
+"LT 230 kV Nova Prata 2 - Vipal, C1",230,,0.05727762,0,0.000564322908310945
+"LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda B, C1",230,,0.05156018,1979,0.000495924344985578
+"LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda B, C2",230,,0.05015157,1979,0.000482348641005158
+"LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda B, C4",230,,0.04929756,1979,0.000467005075995717
+"LT 230 kV Jorge Lacerda B - UTE Jorge Lacerda B, C3",230,,0.04877249,1979,0.000461891999802244
+"LT 230 kV Jorge Lacerda A - UTE Jorge Lacerda, C2",230,,0.03542496,1974,0.000349196112780418
+"LT 230 kV Jorge Lacerda A - UTE Jorge Lacerda, C1",230,,0.03475227,1973,0.000342571204772341
+"LT 230 kV UTE Canoas - Canoas 2, C2",230,PETROBRAS - Petroleo Brasileiro S.A,0.02761037,2015,0.00028573571264817
+"LT 230 kV UTE Canoas - Canoas 2, C1",230,PETROBRAS - Petroleo Brasileiro S.A,0.02448463,2002,0.000253438131163964
+"LT 132 kV Conversora Uruguaiana - Paso de Los Libres, C1",132,ELETROSUL - ELETROSUL Centrais Elétricas S.A.,16.27617757,0,0.158227827315456
