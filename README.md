@@ -186,3 +186,29 @@ Cada mapa inclui:
 
 🗺️ **Mapas Interativos:** [https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/](https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/)  
 📊 **Dashboard Completo:** [https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html](https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html)
+
+## 🧩 Guia rápido (se a verificação falhar)
+
+Se o workflow “Validate Root Redirect” falhar, siga estes passos para corrigir:
+
+1) Edite o arquivo `index.html` na raiz do repositório e garanta o redirecionamento para o dashboard canônico.
+
+2) Inclua (ou confira) estes elementos no `index.html`:
+
+```html
+<!-- HEAD: meta refresh e canonical -->
+<meta http-equiv="refresh" content="0; url=https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html" />
+<link rel="canonical" href="https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html" />
+
+<!-- BODY: redirecionamento via JS + link de fallback -->
+<script>
+   window.location.replace('https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html');
+<\/script>
+<p><a href="https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html">Abrir Dashboard</a></p>
+```
+
+3) Salve, faça commit e push na branch `main`.
+
+4) Aguarde 1–2 minutos pelo GitHub Pages. Se necessário, force o refresh do navegador (Ctrl+F5) ou teste em janela anônima.
+
+5) Verifique o status no GitHub Actions (badge no topo do README) e acesse a raiz do site; ela deve redirecionar automaticamente para o dashboard.
