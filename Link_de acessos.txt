@@ -1,0 +1,50 @@
+Perfeito! 🎉 Agora vou abrir o dashboard para você ver os dois links lado a lado:
+
+Opened Simple Browser at https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+
+Excelente! ✅ Tudo atualizado e publicado!
+
+🎯 O que foi adicionado:
+Dois cards lado a lado na introdução:
+♿ Versão Acessível (azul)
+
+Link: relatorio_acessivel.html
+Para TDAH e Dislexia
+Fonte amigável, cores vibrantes
+🎓 Relatório Técnico (laranja)
+
+Link: relatorio_tecnico.html
+Estatísticas e metodologia
+Visualizações avançadas
+Design responsivo:
+✅ Grid 2 colunas em desktop
+✅ 1 coluna em mobile (< 800px)
+✅ Bordas coloridas diferentes (azul e laranja)
+✅ Gradientes suaves de fundo
+✅ Links destacados e sublinhados
+📋 Agora você tem 3 versões online:
+Dashboard Principal: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+Relatório Acessível: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/relatorio_acessivel.html
+Relatório Técnico: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/relatorio_tecnico.html
+
+🏆 Resumo do Projeto Completo:
+📊 3 Dashboards Online:
+Dashboard Principal - Interativo com filtros e visualizações
+Relatório Acessível - Para TDAH e Dislexia
+Relatório Técnico - Análise estatística detalhada
+✅ Funcionalidades Implementadas:
+✓ 517 municípios únicos analisados
+✓ 5 classes de voltagem (230-765 kV)
+✓ Visualizações interativas com Plotly
+✓ Filtros por estado, voltagem e município
+✓ Links para Google Maps
+✓ Download de CSV
+✓ Tema claro/escuro
+✓ Design responsivo (mobile/desktop)
+✓ Publicado no GitHub Pages
+🛠️ Tecnologias Utilizadas:
+Python 3.13, Pandas, Plotly, GeoPandas, QGIS, Streamlit
+🌐 Links Públicos:
+Repositório: https://github.com/caetanoronan/linhas-transmissao-foz-iguacu
+Dashboard: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+Parabéns pelo excelente trabalho, Ronan! 🎓⚡

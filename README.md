@@ -2,17 +2,17 @@
 
 **Autor:** Ronan Armando Caetano
 
-Dashboard interativo e análise completa dos municípios afetados por linhas de transmissão que partem da Usina Hidrelétrica de Foz do Iguaçu e distribuem energia para a região Sul do Brasil (Paraná, Santa Catarina e Rio Grande do Sul).
+Análise geoespacial completa e dashboards interativos dos municípios afetados por linhas de transmissão de energia elétrica na região Sul do Brasil (Paraná, Santa Catarina e Rio Grande do Sul).
 
-## 🌐 Dashboard Online
+## 🌐 Acesso Online
 
-**Acesse o dashboard publicado:** [https://SEU-USUARIO.github.io/linhas-transmissao-foz-iguacu/](https://SEU-USUARIO.github.io/linhas-transmissao-foz-iguacu/)
+**🗺️ Mapas Interativos:** [https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/](https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/)
 
-> ⚠️ **Substitua `SEU-USUARIO`** pelo seu nome de usuário do GitHub após publicar
+**📊 Dashboard Completo:** [https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html](https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html)
 
 ## 📊 Sobre o Projeto
 
-Este projeto analisa **517 municípios únicos** afetados por linhas de transmissão de diferentes voltagens:
+Este projeto analisa **600+ municípios** afetados por linhas de transmissão de energia elétrica de diferentes voltagens:
 - 230 kV
 - 500 kV
 - 525 kV
@@ -20,8 +20,10 @@ Este projeto analisa **517 municípios únicos** afetados por linhas de transmis
 - 765 kV
 
 ### Funcionalidades
+- ✅ **9 mapas interativos** individuais por voltagem e estado (Folium)
 - ✅ Visualizações interativas com Plotly
 - ✅ Filtros por estado, voltagem e município
+- ✅ Camadas sobrepostas: municípios afetados, linhas, faixa de servidão, limites estaduais
 - ✅ Links diretos para Google Maps
 - ✅ Download de dados em CSV
 - ✅ Tema claro/escuro
@@ -31,7 +33,15 @@ Este projeto analisa **517 municípios únicos** afetados por linhas de transmis
 
 ```
 📁 Afetados_ln_trans/
-├── 📄 index.html                          # Dashboard HTML (GitHub Pages)
+├── � outputs/
+│   ├── 📁 mapas/
+│   │   ├── �📄 index.html                  # Landing page dos mapas interativos
+│   │   ├── 📄 mapa_230kV_PR.html          # Mapa interativo 230kV PR
+│   │   ├── 📄 mapa_525kV_SC.html          # Mapa interativo 525kV SC
+│   │   └── ... (9 mapas no total)
+│   ├── 📄 dashboard.html                  # Dashboard Plotly completo
+│   └── 📄 municipios_afetados_completo.csv
+├── 📄 gerar_mapas_por_linha.py            # Gera mapas interativos Folium
 ├── 📄 municipios_afetados_completo.csv    # Dados completos para download
 ├── 📄 gerar_relatorio_html.py             # Script para gerar dashboard HTML
 ├── 📄 analise_consolidada.py              # Consolida dados dos CSVs
@@ -40,7 +50,9 @@ Este projeto analisa **517 municípios únicos** afetados por linhas de transmis
 ├── 📄 dados_consolidados.csv              # Dados consolidados
 ├── 📄 municipios_multiplas_linhas.csv     # Municípios com múltiplas linhas
 ├── 📁 per_layer/                          # CSVs por voltagem e estado
-├── 📁 outputs/                            # Arquivos gerados
+├── 📁 Shapefile_Estados/                  # Shapefiles PR, SC, RS
+├── 📁 per_layer/                          # CSVs por voltagem e estado
+├── 📄 *.gpkg                              # GeoPackages (municípios, linhas, faixa de servidão)
 └── 📁 .venv/                              # Ambiente virtual Python
 ```
 
@@ -58,7 +70,7 @@ git init
 git add .
 git commit -m "Adiciona dashboard de linhas de transmissão"
 git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/linhas-transmissao-foz-iguacu.git
+git remote add origin https://github.com/caetanoronan/linhas-transmissao-foz-iguacu.git
 git push -u origin main
 ```
 
@@ -69,24 +81,23 @@ git push -u origin main
 
 4. **Aguarde 1-2 minutos** e acesse:
    ```
-   https://SEU-USUARIO.github.io/linhas-transmissao-foz-iguacu/
+   https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/
    ```
 
-### Atualizar Dashboard Publicado
+### Atualizar Mapas e Dashboard Publicados
 
-Após fazer mudanças nos dados ou no código:
+Após fazer mudanças nos dados ou no código, regenere os mapas e dashboard:
 
 ```powershell
-# Gerar novo dashboard
+# Gerar mapas interativos
+& ".venv\Scripts\python.exe" gerar_mapas_por_linha.py
+
+# Gerar dashboard Plotly
 & ".venv\Scripts\python.exe" gerar_relatorio_html.py
 
-# Copiar para a raiz
-Copy-Item "outputs\dashboard.html" "index.html" -Force
-Copy-Item "outputs\municipios_afetados_completo.csv" "municipios_afetados_completo.csv" -Force
-
-# Enviar para GitHub
-git add index.html municipios_afetados_completo.csv
-git commit -m "Atualiza dashboard"
+# Enviar tudo para GitHub
+git add outputs/mapas/* outputs/dashboard.html outputs/municipios_afetados_completo.csv
+git commit -m "Atualiza mapas e dashboard"
 git push
 ```
 
@@ -126,15 +137,44 @@ Acesse: http://localhost:8501
 ## 📝 Créditos
 
 **Autor:** Ronan Armando Caetano  
+## 🗺️ Mapas Interativos
+
+Foram gerados **9 mapas interativos** individualizados por voltagem e estado:
+
+### Paraná (PR)
+- 230 kV, 500 kV, 525 kV, 600 kV, 765 kV
+
+### Santa Catarina (SC)
+- 230 kV, 525 kV
+
+### Rio Grande do Sul (RS)
+- 230 kV, 525 kV
+
+Cada mapa inclui:
+- **Municípios afetados** (coloridos por voltagem)
+- **Linha de transmissão** (traçado exato)
+- **Faixa de servidão** (buffer de segurança)
+- **Municípios não afetados** (fundo opcional)
+- **Limite estadual** (contorno do estado)
+
+**Tecnologia:** Folium + GeoPandas + Shapely
+
+## 📝 Créditos
+
+**Autor:** Ronan Armando Caetano  
+**Fonte de Dados:** EPE (Empresa de Pesquisa Energética) - Webmap de Linhas de Transmissão  
 **Assistência Técnica:** GitHub Copilot
 
 ## ❓ Troubleshooting
 
 - **Porta ocupada:** altere `--server.port 8502`
 - **Dados ausentes:** rode `analise_consolidada.py` ou use o botão no dashboard
+- **Mapas não carregando:** verifique se os arquivos HTML estão em `outputs/mapas/`
+- **Dados ausentes:** rode `analise_consolidada.py` e `gerar_mapas_por_linha.py`
 - **Erro ao abrir gráficos:** use `--server.headless true`
 - **404 no GitHub Pages:** verifique se `index.html` está na raiz do repositório
 
 ---
 
-📊 **Dashboard Online:** [https://SEU-USUARIO.github.io/linhas-transmissao-foz-iguacu/](https://SEU-USUARIO.github.io/linhas-transmissao-foz-iguacu/)
+🗺️ **Mapas Interativos:** [https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/](https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/)  
+📊 **Dashboard Completo:** [https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html](https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html)

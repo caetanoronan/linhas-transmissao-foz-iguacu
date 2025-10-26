@@ -321,7 +321,11 @@ def build_html(figs, df_all):
     .kpi {{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }}
         .card {{ background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }}
     .card .big {{ font-size:24px; font-weight:700; }}
-    @media (max-width: 800px) {{ .kpi {{ grid-template-columns: repeat(2, 1fr); }} }}
+    .reports-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }}
+    @media (max-width: 800px) {{ 
+        .kpi {{ grid-template-columns: repeat(2, 1fr); }} 
+        .reports-grid {{ grid-template-columns: 1fr; }}
+    }}
   </style>
 </head>
 <body>
@@ -344,6 +348,34 @@ def build_html(figs, df_all):
         Os dados incluem linhas de transmissão de diferentes voltagens: <strong>230 kV, 500 kV, 525 kV, 600 kV e 765 kV</strong>, 
         totalizando <strong>517 municípios únicos</strong> afetados em toda a região Sul.
       </p>
+      
+      <div class="reports-grid">
+        <div style="background: linear-gradient(135deg, rgba(66, 153, 225, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%); border: 2px solid var(--primary); border-radius: 10px; padding: 16px;">
+          <p style="margin: 0; line-height: 1.8;">
+            <strong>♿ Versão Acessível:</strong> 
+            <a href="relatorio_acessivel.html" style="color: var(--primary); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--primary);">
+              Relatório Simplificado
+            </a><br>
+            <span style="font-size: 13px; opacity: 0.9;">
+              Para TDAH e Dislexia<br>
+              (fonte amigável, cores vibrantes)
+            </span>
+          </p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, rgba(237, 137, 54, 0.1) 0%, rgba(229, 62, 62, 0.1) 100%); border: 2px solid #ed8936; border-radius: 10px; padding: 16px;">
+          <p style="margin: 0; line-height: 1.8;">
+            <strong>🎓 Relatório Técnico:</strong> 
+            <a href="relatorio_tecnico.html" style="color: #ed8936; text-decoration: none; font-weight: 700; border-bottom: 2px solid #ed8936;">
+              Análise Completa
+            </a><br>
+            <span style="font-size: 13px; opacity: 0.9;">
+              Estatísticas e metodologia<br>
+              (visualizações avançadas)
+            </span>
+          </p>
+        </div>
+      </div>
       
       <h3 style="font-size:16px; margin-top:20px; margin-bottom:8px; color:var(--primary);">💡 Como Utilizar</h3>
       <ul style="line-height:1.8;">
