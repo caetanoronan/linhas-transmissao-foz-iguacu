@@ -4,6 +4,8 @@
 
 **Autor:** Ronan Armando Caetano
 
+> Integridade do link público: este repositório possui uma verificação automática (GitHub Actions) que garante que a página raiz (`index.html`) redireciona para o dashboard canônico em `outputs/dashboard.html`. Se o redirecionamento estiver ausente, o workflow "Validate Root Redirect" falha o push/PR para evitar publicação de conteúdo incorreto no GitHub Pages.
+
 Análise geoespacial completa e dashboards interativos dos municípios afetados por linhas de transmissão de energia elétrica na região Sul do Brasil (Paraná, Santa Catarina e Rio Grande do Sul).
 
 ## 🌐 Acesso Online
