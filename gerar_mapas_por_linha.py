@@ -24,6 +24,7 @@ CONSOLIDADO_CSV = BASE_DIR / 'dados_consolidados.csv'
 MUNICIPIOS_GPKG = BASE_DIR / 'municipios_afetados_por_layer.gpkg'
 LINHAS_GPKG = BASE_DIR / 'linhas_recortadas.gpkg'
 FAIXA_SERVIDAO_GPKG = BASE_DIR / 'faixa_servidao.gpkg'
+LINHAS_RS_GPKG = BASE_DIR / 'Linha_trans_RS.gpkg'
 
 # Cores por voltagem
 CORES_VOLTAGEM = {
@@ -106,10 +107,38 @@ def _read_municipios_layer(voltagem: str, estado: str):
 
 def _read_lines_layer(voltagem: str, estado: str):
     """Obtém linhas para a combinação voltagem-estado.
-    1) tenta linhas_recortadas.gpkg layer linha_trans_{voltagem}_{estado}
-    2) fallback: faixa_servidao.gpkg layer linha_transmissao_{voltagem} e recorta pelos municípios do estado
+    1) Para RS: usa Linha_trans_RS.gpkg com filtro por voltagem
+    2) tenta linhas_recortadas.gpkg layer linha_trans_{voltagem}_{estado}
+    3) fallback: faixa_servidao.gpkg layer linha_transmissao_{voltagem} e recorta pelos municípios do estado
     """
-    # 1) tenta layer específica por estado
+    # 1) RS tem arquivo dedicado
+    if estado == 'RS' and LINHAS_RS_GPKG.exists():
+        try:
+            gdf = gpd.read_file(LINHAS_RS_GPKG, layer='linhas_de_transmisso__base_existente')
+            if 'Tensao' in gdf.columns:
+                # filtrar por voltagem
+                volt_num = float(voltagem)
+                gdf = gdf[gdf['Tensao'] == volt_num].copy()
+            if gdf.empty:
+                gdf = None
+            else:
+                # garantir WGS84
+                if gdf.crs and gdf.crs.to_epsg() != 4326:
+                    try:
+                        gdf = gdf.to_crs(epsg=4326)
+                    except Exception:
+                        pass
+                # manter apenas colunas necessárias
+                cols = [c for c in ['Nome'] if c in gdf.columns]
+                if cols:
+                    gdf = gdf[cols + ['geometry']]
+                else:
+                    gdf = gdf[['geometry']]
+                return gdf
+        except Exception:
+            pass
+    
+    # 2) tenta layer específica por estado
     layer_state = f"linha_trans_{voltagem}_{estado}"
     try:
         gdf = gpd.read_file(LINHAS_GPKG, layer=layer_state)
@@ -120,7 +149,7 @@ def _read_lines_layer(voltagem: str, estado: str):
         return gdf
     except Exception:
         gdf = None
-    # 2) fallback: camada geral por voltagem na faixa de servidão
+    # 3) fallback: camada geral por voltagem na faixa de servidão
     layer_faixa = f"linha_transmissao_{voltagem}"
     try:
         gdf = gpd.read_file(FAIXA_SERVIDAO_GPKG, layer=layer_faixa)
