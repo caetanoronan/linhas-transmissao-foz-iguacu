@@ -213,13 +213,13 @@ Clique em: Save
 
 Aguarde 1-2 minutos e seu dashboard estará online em:
 
-🌐 https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+🌐 https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
 
 Me avise quando configurar o Pages que eu verifico se está tudo funcionando! 🎉
 
 Excelente! 🎉 Vamos abrir o dashboard no navegador para verificar se está tudo funcionando!
 
-Opened Simple Browser at https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+Opened Simple Browser at https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
 
 Perfeito! O dashboard foi aberto! 🎊
 
@@ -243,7 +243,7 @@ Interatividade:
  Download do CSV funciona?
  Hover nos gráficos mostra detalhes?
 🎯 Seu Dashboard está ONLINE!
-URL Pública: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+URL Pública: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
 
 Agora você pode compartilhar este link com qualquer pessoa! 🚀
 
@@ -297,7 +297,7 @@ Descrição: "Especialmente formatado para pessoas com TDAH e Dislexia"
 Visual destacado com borda azul
 Dois relatórios agora disponíveis:
 
-Dashboard completo: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+Dashboard completo: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
 Relatório acessível: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/relatorio_acessivel.html
 📋 Características do link:
 ✅ Caixa com fundo gradiente suave

@@ -58,3 +58,45 @@ Visualizações Folium
 Documentação técnica
 Dashboards e debugging
 Acesse em: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/
+
+✅ Perfeito! Agora sim está tudo certo!
+
+O índice dos mapas foi criado e enviado para o GitHub com sucesso! 🎉
+
+📋 O que foi incluído:
+
+✅ Introdução completa do projeto
+✅ Guia passo a passo de uso dos mapas
+✅ Estatísticas (517 municípios, 9 mapas, 3 estados, 5 voltagens)
+✅ Grid de mapas organizados por estado (PR, SC, RS)
+✅ Créditos do autor: Ronan Armando Caetano - UFSC
+✅ Tecnologias utilizadas (Python, GeoPandas, Shapely, Fiona, Folium, Pandas, Plotly, QGIS)
+✅ Fontes de dados (EPE, IBGE, dados RS)
+✅ Reconhecimento ao GitHub Copilot
+✅ Metodologia e repositório
+🌐 Acesse agora em:
+https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/
+
+Pronto! ✨ Todas as correções feitas e enviadas:
+
+✅ UFSC removido - agora mostra apenas "Ronan Armando Caetano"
+✅ Contraste corrigido - nome do autor agora aparece em texto branco no fundo azul
+✅ Modo claro/escuro adicionado - botão no canto superior direito que:
+Alterna entre temas claro e escuro
+Salva a preferência do usuário no navegador
+Muda o ícone (🌙 → ☀️)
+Adapta todas as cores automaticamente
+O site já está atualizado no GitHub Pages! Foi um prazer trabalhar neste projeto com você!
+
+Link adicionado com sucesso!
+
+Agora o dashboard tem um novo card verde "🗺️ Mapas Interativos" logo abaixo dos dois relatórios, que leva direto para a página dos mapas em:
+https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/
+
+O card segue o mesmo estilo visual dos outros dois, com:
+
+Gradiente verde suave no fundo
+Borda verde (#48bb78)
+Link estilizado
+Descrição "Explore mapas interativos das linhas (PR, SC e RS por voltagem)"
+Já está no ar! 🎉

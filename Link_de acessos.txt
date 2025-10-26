@@ -1,6 +1,6 @@
 Perfeito! 🎉 Agora vou abrir o dashboard para você ver os dois links lado a lado:
 
-Opened Simple Browser at https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+Opened Simple Browser at https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
 
 Excelente! ✅ Tudo atualizado e publicado!
 
@@ -23,7 +23,7 @@ Design responsivo:
 ✅ Gradientes suaves de fundo
 ✅ Links destacados e sublinhados
 📋 Agora você tem 3 versões online:
-Dashboard Principal: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+Dashboard Principal: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
 Relatório Acessível: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/relatorio_acessivel.html
 Relatório Técnico: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/relatorio_tecnico.html
 
@@ -46,5 +46,5 @@ Relatório Técnico - Análise estatística detalhada
 Python 3.13, Pandas, Plotly, GeoPandas, QGIS, Streamlit
 🌐 Links Públicos:
 Repositório: https://github.com/caetanoronan/linhas-transmissao-foz-iguacu
-Dashboard: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/
+Dashboard: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
 Parabéns pelo excelente trabalho, Ronan! 🎓⚡
