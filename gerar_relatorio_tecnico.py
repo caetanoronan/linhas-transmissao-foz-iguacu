@@ -829,7 +829,7 @@ output_file = output_dir / 'relatorio_tecnico.html'
 with open(output_file, 'w', encoding='utf-8') as f:
     f.write(html)
 
-print(f"✓ Relatório técnico gerado: {output_file}")
-print(f"  Total de municípios analisados: {total_municipios}")
-print(f"  Visualizações incluídas: 5 gráficos")
-print(f"  Análises: Estatística descritiva, geoespacial e concentração")
+print(f"OK Relatorio tecnico gerado: {output_file}")
+print(f"  Total de municipios analisados: {total_municipios}")
+print(f"  Visualizacoes incluidas: 5 graficos")
+print(f"  Analises: Estatistica descritiva, geoespacial e concentracao")

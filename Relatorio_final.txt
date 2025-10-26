@@ -1,0 +1,60 @@
+Excelente! Todos os relatórios foram atualizados com os dados corretos do RS! 🎉
+
+relatórios regenerados
+✅ Relatório Acessível (TDAH/Dislexia-friendly)
+
+Total: 517 municípios
+Link: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/relatorio_acessivel.html
+✅ Relatório Técnico (análises estatísticas)
+
+Total: 517 municípios analisados
+5 visualizações incluídas
+Link: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/relatorio_tecnico.html
+✅ Dashboard Interativo (Plotly)
+
+Já atualizado anteriormente
+Link: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html
+mudanças aplicadas
+Corrigido encoding nos scripts geradores (substituí caracteres especiais ✓ → "OK")
+
+Regenerado dados consolidados com contagens corretas do RS
+
+Todos os HTMLs atualizados para refletir:
+
+RS: 205 municípios
+PR: 161 municípios
+SC: 154 municípios
+Total: 517 municípios únicos
+Commit e push concluído - as mudanças já estão no GitHub!
+
+O índice dos mapas foi completamente atualizado com:
+
+📋 Introdução do Projeto
+
+Objetivos claros e detalhados
+Descrição da análise geoespacial
+Cobertura de 517 municípios em 3 estados
+💡 Guia de Uso Passo a Passo
+
+Instruções de navegação
+Explicação das camadas
+Controles disponíveis
+📊 Estatísticas em Destaque
+
+517 municípios analisados
+9 mapas disponíveis
+5 níveis de voltagem
+👤 Créditos do Autor
+
+Ronan Armando Caetano - UFSC
+Análise Geoespacial e Desenvolvimento
+🛠️ Tecnologias Completas
+
+Python 3.13, GeoPandas 1.0.1, Shapely 2.0.6, Fiona 1.10.1, Folium 0.18.0, Pandas 2.2.3, Plotly 5.24.1, QGIS 3.x
+🤖 Reconhecimento GitHub Copilot
+
+Otimização de código geoespacial
+Visualizações Folium
+Documentação técnica
+Dashboards e debugging
+Acesse em: https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/

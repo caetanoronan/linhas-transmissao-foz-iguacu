@@ -537,6 +537,6 @@ output_file = output_dir / 'relatorio_acessivel.html'
 with open(output_file, 'w', encoding='utf-8') as f:
     f.write(html)
 
-print(f"✓ Relatório acessível gerado: {output_file}")
-print(f"  Total de municípios: {total_municipios}")
-print(f"  Formatação: Amigável para TDAH e Dislexia")
+print(f"OK Relatorio acessivel gerado: {output_file}")
+print(f"  Total de municipios: {total_municipios}")
+print(f"  Formatacao: Amigavel para TDAH e Dislexia")

@@ -414,3 +414,35 @@ ANÁLISE
 Perfeito! Agora entendo a situação. Os dados EPE mostram que não existem linhas de 500kV no RS - apenas 230kV, 525kV, 132kV (1 linha) e 500kV (2 linhas para outras regiões). Os dados atuais do RS parecem corretos.
 
 Deixe-me verificar se há algum problema específico que você identificou. Enquanto isso, vou começar a criar o index profissional com tutorial para o GitHub Pages:
+
+Perfeito! O dashboard foi atualizado com os números corretos do RS. Aqui está o resumo:
+
+estatísticas atualizadas no dashboard
+✅ Municípios únicos afetados: 517 (estava correto)
+✅ Por estado:
+
+RS: 205 municípios
+PR: 161 municípios
+SC: 154 municípios
+✅ Por voltagem:
+
+230 kV: 331 municípios
+525 kV: 292 municípios
+600 kV: 45 municípios
+765 kV: 36 municípios
+500 kV: 10 municípios
+ações realizadas
+Regenerei dados consolidados (analise_consolidada.py):
+
+Leu os CSVs de per_layer incluindo os novos dados do RS
+Atualizou dados_consolidados.csv e municipios_multiplas_linhas.csv
+Regenerei o dashboard HTML (gerar_relatorio_html.py):
+
+Corrigiu erro de encoding (caractere ✓ → "OK")
+Atualizou dashboard.html com estatísticas corretas
+Data de atualização: 2025-10-26 17:44
+Commit e push para GitHub:
+
+Mensagem: "fix: atualiza dashboard com estatísticas corretas do RS..."
+Arquivos atualizados: dashboard.html, CSVs consolidados, script corrigido
+O dashboard online em https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/dashboard.html agora mostra os números corretos! 🎉

@@ -222,3 +222,120 @@ Voltagem
 500      1
 132      1
 ============================================================
+
+1. Geração do CSV com Voltagem
+Criei o script gerar_csv_voltagem_rs.py que:
+
+Lê os municípios do CSV original (Municipios_afetas_linhas.csv)
+Cruza com as linhas de transmissão do Linha_trans_RS.gpkg via spatial join (com buffer de 100m)
+Detecta automaticamente quais voltagens afetam cada município
+Gera um novo CSV: Municipios_afetas_linhas_por_voltagem.csv
+Resultado da detecção:
+
+226 municípios afetados por linhas de 230 kV
+154 municípios afetados por linhas de 525 kV
+1 município com 500 kV
+1 município com 132 kV
+Total: 382 registros (alguns municípios aparecem em múltiplas voltagens)
+2. Atualização do Gerador de Mapas
+Atualizei gerar_mapas_por_linha.py para:
+
+Priorizar o CSV com voltagem (Municipios_afetas_linhas_por_voltagem.csv)
+Filtrar municípios pela voltagem solicitada (230, 525, etc.)
+Manter fallback para o CSV original se o novo não existir
+3. Mapas Regenerados
+Os mapas do RS agora estão separados por voltagem:
+
+mapa_230kV_RS.html: 226 municípios (só os afetados por 230 kV)
+mapa_525kV_RS.html: 154 municípios (só os afetados por 525 kV)
+Arquivos Criados/Atualizados
+Novo CSV: Municipios_afetas_linhas_por_voltagem.csv
+
+Tem coluna "Voltagem"
+Um registro por município-voltagem (municípios com múltiplas linhas aparecem várias vezes)
+Script auxiliar: gerar_csv_voltagem_rs.py
+
+Pode rodar novamente se precisar atualizar o CSV
+Gerador atualizado: gerar_mapas_por_linha.py
+
+Filtra municípios por voltagem automaticamente
+Como Verificar
+Abra os mapas e confira:
+
+230 kV: deve mostrar 226 municípios (distribuídos por todo o estado onde há linhas de 230 kV)
+525 kV: deve mostrar 154 municípios (distribuídos por todo o estado onde há linhas de 525 kV)
+Se quiser visualizar quais municípios estão em cada voltagem, posso gerar uma listagem ou um relatório comparativo!
+
+Pronto! Agora os mapas do RS têm a camada de "Municípios não afetados (RS)" como fundo:
+
+O que foi feito
+Atualizei a função adicionar_camadas para:
+
+Para RS: usar diretamente o municipios_afetados_linhas_transmissao.gpkg como base completa de municípios
+Calcular os municípios não afetados subtraindo os afetados pela voltagem específica
+Adicionar camada de fundo com os municípios não afetados em cinza claro (#e2e8f0)
+A camada vem desligada por padrão (show=False) mas pode ser ativada no controle de camadas
+Mapas atualizados
+mapa_230kV_RS.html — agora com camada de fundo
+mapa_525kV_RS.html — agora com camada de fundo
+Como usar
+Nos mapas do RS, você verá no controle de camadas (canto superior direito):
+
+✅ Municípios (230 kV - RS) ou (525 kV - RS) — afetados (coloridos, ativada)
+☐ Municípios não afetados (RS) — fundo cinza (desativada por padrão)
+✅ Linha de Transmissão — linhas coloridas
+✅ Faixa de Servidão — buffer
+✅ Limite Estadual (RS) — contorno do estado
+Basta clicar para ativar/desativar a camada de municípios não afetados e preencher o mapa com todo o estado!
+
+Quer que eu gere os mapas de todas as voltagens do RS ou está pronto para fazer o commit?
+
+Perfeito! ✅ Commit e push realizados com sucesso!
+
+Resumo do que foi enviado ao GitHub
+Commit: a838bd1 - "Adiciona separação de municípios RS por voltagem e camada de fundo"
+
+Arquivos adicionados/modificados (40 arquivos):
+Novos dados do RS:
+
+📁 RS — Pasta completa com todos os dados do RS
+Linha_trans_RS.gpkg — Linhas de transmissão do RS (movido da raiz)
+municipios_afetados_linhas_transmissao.gpkg — Municípios do RS
+Municipios_afetas_linhas.csv — Lista original de 298 municípios
+Municipios_afetas_linhas_por_voltagem.csv — NOVO: 382 registros com separação por voltagem
+Shapefiles e arquivos auxiliares
+Scripts:
+
+gerar_csv_voltagem_rs.py — NOVO: Script para detectar voltagem por município via spatial join
+gerar_mapas_por_linha.py — Atualizado com:
+Filtro de municípios RS por voltagem
+Camada de municípios não afetados como fundo
+Priorização dos GPKGs do RS
+Mapas:
+
+mapa_230kV_RS.html — 226 municípios + camada de fundo
+mapa_525kV_RS.html — 154 municípios + camada de fundo
+Todos os outros mapas também atualizados
+Próximos passos
+Os mapas já estão no repositório! Quando o GitHub Pages atualizar (alguns minutos), eles estarão disponíveis em:
+
+https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/mapa_230kV_RS.html
+https://caetanoronan.github.io/linhas-transmissao-foz-iguacu/outputs/mapas/mapa_525kV_RS.html
+Quer que eu gere um relatório consolidado agora mostrando as estatísticas por voltagem do RS?
+
+Perfeito — ajustei a camada de fundo para usar exatamente o arquivo que você indicou e mostrar somente os municípios não afetados.
+
+O que mudei agora
+
+Fonte do fundo (RS): passei a usar diretamente o ZIP RS_Municipios_2024.zip como base dos municípios do RS.
+Extração automática: extraio o ZIP para uma pasta RS_Municipios_2024_extracted e carrego o shapefile poligonal de lá.
+Não afetados = base − afetados: calculo os “municípios não afetados” subtraindo os afetados da voltagem selecionada.
+Camada única de fundo: removi a camada “Todos os municípios (RS) - fundo”. Agora a camada de preenchimento é “Municípios não afetados (RS)”, ativada por padrão.
+Mapas atualizados
+
+mapa_230kV_RS.html
+mapa_525kV_RS.html
+Como ver
+
+No controle de camadas, a camada “Municípios não afetados (RS)” está ligada por padrão e preenche todo o estado com um tom claro, enquanto os municípios afetados aparecem coloridos por cima.
+Quer que eu faça o commit dessa mudança também?

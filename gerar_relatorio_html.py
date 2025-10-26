@@ -472,7 +472,7 @@ def main():
     html = build_html(figs, df_all)
     out_path = OUT_DIR / 'dashboard.html'
     out_path.write_text(html, encoding='utf-8')
-    print(f'✓ Relatório gerado: {out_path}')
+    print(f'OK Relatorio gerado: {out_path}')
 
 
 if __name__ == '__main__':
